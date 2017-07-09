@@ -11,4 +11,7 @@ export class HomePage {
 
   }
 
+  Login(){
+    console.log("Login");
+  }
 }

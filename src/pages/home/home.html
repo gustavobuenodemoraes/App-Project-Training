@@ -1,14 +1,64 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-slides>
+    <ion-slide>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Usuario</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Senha</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+        <button ion-button full class="cor-botao-padrao login">Logar</button>
+      </ion-list>
+
+    </ion-slide>
+    <ion-slide>
+      <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Endereço</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Endereço</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Usuario</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Repetir Senha</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-list radio-group [(ngModel)]="relationship">
+        <ion-item>
+          <ion-label>Aluno</ion-label>
+          <ion-radio value="aluno" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Professor</ion-label>
+          <ion-radio value="professor"></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <button ion-button full class="cor-botao-padrao">Cadastrar</button>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>
