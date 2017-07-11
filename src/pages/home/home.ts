@@ -1,3 +1,5 @@
+import { ProfessorPage } from './../professor/professor';
+import { AlunoPage } from './../aluno/aluno';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -10,8 +12,12 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
-
-  Login(){
-    console.log("Login");
+ goToAluno(){
+    this.navCtrl.push(AlunoPage);
   }
+
+goToProfessor(){
+    this.navCtrl.push(ProfessorPage);
+  }
+
 }
