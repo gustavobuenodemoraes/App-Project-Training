@@ -14,29 +14,28 @@
 
 
 <ion-content padding>
+<form (submit)="doCadastroAluno()">
   <ion-list>
     <ion-item>
-      <ion-input type="text" placeholder="Nome"></ion-input>
+      <ion-input [(ngModel)]="dadosAluno.nome" type="text" name="nome" placeholder="Nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="email" placeholder="E-mail"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="text" placeholder="Cidade"></ion-input>
+      <ion-input [(ngModel)]="dadosAluno.email" type="email" name="email" placeholder="E-mail"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Data de Nascimento</ion-label>
-      <ion-datetime displayFormat="DD MMM YYYY"></ion-datetime>
+      <ion-datetime [(ngModel)]="dadosAluno.dtNascimento" name="dtNascimento" displayFormat="DD MMM YYYY"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-input type="number" placeholder="Peso em KG"></ion-input>
+      <ion-input [(ngModel)]="dadosAluno.peso" type="number" name="peso" placeholder="Peso em KG"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="number" placeholder="Altura em cm"></ion-input>
+      <ion-input [(ngModel)]="dadosAluno.altura" type="number" name="altura" placeholder="Altura em cm"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="password" placeholder="Senha"></ion-input>
+      <ion-input [(ngModel)]="dadosAluno.senha" type="password" name="senha" placeholder="Senha"></ion-input>
     </ion-item>
     <button ion-button full class="cor-botao-padrao">Cadastrar</button>
   </ion-list>
+  </form>
 </ion-content>
