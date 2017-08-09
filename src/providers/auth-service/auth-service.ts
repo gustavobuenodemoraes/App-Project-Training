@@ -23,12 +23,12 @@ export class AuthService {
     });
   }
 
-  register(data) {
+  registerAluno(data) {
     return new Promise((resolve, reject) => {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        this.http.post(apiUrl+'guest/signup', JSON.stringify(data), {headers: headers})
+        this.http.post(apiUrl+'cadastroAluno', JSON.stringify(data), {headers: headers})
           .subscribe(res => {
             resolve(res.json());
           }, (err) => {
@@ -40,7 +40,7 @@ export class AuthService {
   logout(){
     return new Promise((resolve, reject) => {
         let headers = new Headers();
-        headers.append('X-Auth-Token', localStorage.getItem('token'));
+        headers.append('Authentication', localStorage.getItem('token'));
 
         this.http.post(apiUrl+'logout', {}, {headers: headers})
           .subscribe(res => {
