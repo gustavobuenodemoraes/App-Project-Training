@@ -9,6 +9,7 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 })
 export class AlunoPage {
 
+  data: any;
   loading: any;
   dadosAluno = { nome:'', senha:'',  email:'', dtNascimento:'', peso:'', altura:''};
 
@@ -22,7 +23,9 @@ export class AlunoPage {
   doCadastroAluno() {
     this.showLoader();
     this.authService.registerAluno(this.dadosAluno).then((result) => {
-    	this.loading.dismiss();
+      this.data = result;
+      this.loading.dismiss();
+      localStorage.setItem('token', this.data.Authentication);
     }, (err) => {
     	this.loading.dismiss();
         this.presentToast("Ocorreu um erro ao tentar salvar o aluno!");

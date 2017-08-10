@@ -37,17 +37,24 @@ export class AuthService {
     });
   }
 
-  logout(){
+  registerProfessor(data) {
     return new Promise((resolve, reject) => {
         let headers = new Headers();
-        headers.append('Authentication', localStorage.getItem('token'));
+        headers.append('Content-Type', 'application/json');
 
-        this.http.post(apiUrl+'logout', {}, {headers: headers})
+        this.http.post(apiUrl+'cadastroProfessor', JSON.stringify(data), {headers: headers})
           .subscribe(res => {
-            localStorage.clear();
+            resolve(res.json());
           }, (err) => {
             reject(err);
           });
+    });
+  }
+
+  logout(){
+    return new Promise((resolve, reject) => {
+        let headers = new Headers();
+        localStorage.clear();
     });
   }
 
