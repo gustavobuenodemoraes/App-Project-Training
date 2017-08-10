@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http'; 
+import {RlTagInputModule} from 'angular2-tag-input';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpModule } from '@angular/http';
     BrowserModule, HttpModule,
     IonicModule.forRoot(MyApp),
     AlunoPageModule,
-    ProfessorPageModule
+    ProfessorPageModule,
+    RlTagInputModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

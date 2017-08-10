@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , ToastController, LoadingController} from 'ionic-angular';
+import { AuthService } from '../../providers/auth-service/auth-service';
 
-/**
- * Generated class for the ProfessorPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-professor',
@@ -14,11 +9,50 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfessorPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    loading: any;
+    data: any;
+    dadosProfessor = { nome:'', senha:'',  email:'', dtNascimento:''};
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private toastCtrl: ToastController, public authService: AuthService) {
+  }
+
+  doCadastroProfessor() {
+    this.showLoader();
+    this.authService.registerProfessor(this.dadosProfessor).then((result) => {
+      this.data = result;
+      this.loading.dismiss();
+      localStorage.setItem('token', this.data.Authentication);
+    }, (err) => {
+    	this.loading.dismiss();
+        this.presentToast("Ocorreu um erro ao tentar salvar o aluno!");
+    });
+  }
+
+  showLoader(){
+    this.loading = this.loadingCtrl.create({
+        content: 'Autenticando...'
+    });
+
+    this.loading.present();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfessorPage');
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 6000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
 }

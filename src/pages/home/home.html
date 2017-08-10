@@ -11,8 +11,9 @@
           <ion-input [(ngModel)]="loginData.senha" name="senha" type="password"></ion-input>
         </ion-item>
         <button ion-button full class="cor-botao-padrao login" type="submit">Logar</button>
-        <button ion-button full class="cor-botao-padrao aluno"(click)="goToAluno()">Cadastrar como Aluno</button>
-        <button ion-button full class="professor" clear (click)="goToProfessor()">Cadastrar como Professor</button>
       </ion-list>
     </form>
+    
+    <button ion-button full class="cor-botao-padrao aluno"(click)="goToAluno()">Cadastrar como Aluno</button>
+    <button ion-button full class="professor" clear (click)="goToProfessor()">Cadastrar como Professor</button>
 </ion-content>
