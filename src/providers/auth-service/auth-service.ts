@@ -53,7 +53,6 @@ export class AuthService {
 
   logout(){
     return new Promise((resolve, reject) => {
-        let headers = new Headers();
         localStorage.clear();
     });
   }
