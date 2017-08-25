@@ -1,3 +1,7 @@
+import { ProfessorTreinamentosPageModule } from './../pages/professor-treinamentos/professor-treinamentos.module';
+import { ProfessorTabsPageModule } from './../pages/professor-tabs/professor-tabs.module';
+import { ProfessorAlunosPageModule } from './../pages/professor-alunos/professor-alunos.module';
+import { ProfessorExerciciosPageModule } from './../pages/professor-exercicios/professor-exercicios.module';
 import { ProfessorPageModule } from './../pages/professor/professor.module';
 import { AlunoPageModule } from './../pages/aluno/aluno.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,10 +23,15 @@ import {RlTagInputModule} from 'angular2-tag-input';
   ],
   imports: [
     BrowserModule, HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {tabsPlacement:'top'}),
     AlunoPageModule,
     ProfessorPageModule,
-    RlTagInputModule
+    RlTagInputModule,
+    ProfessorTabsPageModule,
+    ProfessorAlunosPageModule,
+    ProfessorExerciciosPageModule,
+    ProfessorTreinamentosPageModule
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [

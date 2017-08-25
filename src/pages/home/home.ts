@@ -16,6 +16,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, public authService: AuthService, private toastCtrl: ToastController) {
 
   }
+
  goToAluno(){
     this.navCtrl.push(AlunoPage);
   }
