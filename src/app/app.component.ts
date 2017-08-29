@@ -1,4 +1,3 @@
-import { ProfessorTabsPage } from './../pages/professor-tabs/professor-tabs';
 import { HomePage } from './../pages/home/home';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
@@ -10,7 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ProfessorTabsPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

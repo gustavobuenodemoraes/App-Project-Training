@@ -1,5 +1,5 @@
-import { ProfessorPage } from './../professor/professor';
-import { AlunoPage } from './../aluno/aluno';
+import { ProfessorPage } from './../cadastro-professor/cadastro-professor';
+import { AlunoPage } from './../cadastro-aluno/cadastro-aluno';
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';

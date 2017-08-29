@@ -1,9 +1,5 @@
-import { ProfessorTreinamentosPageModule } from './../pages/professor-treinamentos/professor-treinamentos.module';
-import { ProfessorTabsPageModule } from './../pages/professor-tabs/professor-tabs.module';
-import { ProfessorAlunosPageModule } from './../pages/professor-alunos/professor-alunos.module';
-import { ProfessorExerciciosPageModule } from './../pages/professor-exercicios/professor-exercicios.module';
-import { ProfessorPageModule } from './../pages/professor/professor.module';
-import { AlunoPageModule } from './../pages/aluno/aluno.module';
+import { ProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
+import { AlunoPageModule } from './../pages/cadastro-aluno/cadastro-aluno.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -23,15 +19,10 @@ import {RlTagInputModule} from 'angular2-tag-input';
   ],
   imports: [
     BrowserModule, HttpModule,
-    IonicModule.forRoot(MyApp, {tabsPlacement:'top'}),
     AlunoPageModule,
     ProfessorPageModule,
-    RlTagInputModule,
-    ProfessorTabsPageModule,
-    ProfessorAlunosPageModule,
-    ProfessorExerciciosPageModule,
-    ProfessorTreinamentosPageModule
-   
+    IonicModule.forRoot(MyApp),
+    RlTagInputModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

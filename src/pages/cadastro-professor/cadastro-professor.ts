@@ -4,25 +4,21 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
-  selector: 'page-aluno',
-  templateUrl: 'aluno.html',
+  selector: 'page-professor',
+  templateUrl: 'cadastro-professor.html',
 })
-export class AlunoPage {
+export class ProfessorPage {
 
-  data: any;
-  loading: any;
-  dadosAluno = { nome:'', senha:'',  email:'', dtNascimento:'', peso:'', altura:''};
+    loading: any;
+    data: any;
+    dadosProfessor = { nome:'', senha:'',  email:'', dtNascimento:''};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private toastCtrl: ToastController, public authService: AuthService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AlunoPage');
-  }
-
-  doCadastroAluno() {
+  doCadastroProfessor() {
     this.showLoader();
-    this.authService.registerAluno(this.dadosAluno).then((result) => {
+    this.authService.registerProfessor(this.dadosProfessor).then((result) => {
       this.data = result;
       this.loading.dismiss();
       localStorage.setItem('token', this.data.Authentication);
@@ -40,17 +36,21 @@ export class AlunoPage {
     this.loading.present();
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProfessorPage');
+  }
+
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
       duration: 6000,
       position: 'bottom',
       dismissOnPageChange: true
-  });
+    });
 
-  toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
-  });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
 
     toast.present();
   }
