@@ -23,7 +23,7 @@
     <ion-item>
       <ion-input [(ngModel)]="dadosProfessor.senha" type="password" placeholder="Senha" name="senha" required></ion-input>
     </ion-item> 
-    <button ion-button full class="cor-botao-padrao" [disabled]="form.valid">Cadastrar</button>
+    <button ion-button full class="cor-botao-padrao" [disabled]="!form.valid">Cadastrar</button>
   </ion-list>
   </form>
 </ion-content>

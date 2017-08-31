@@ -1,0 +1,54 @@
+import { ProfessorPage } from './../cadastro-professor/cadastro-professor';
+import { AlunoPage } from './../cadastro-aluno/cadastro-aluno';
+import { Component } from '@angular/core';
+import { NavController, ToastController } from 'ionic-angular';
+import { AuthService } from '../../providers/auth-service/auth-service';
+
+@Component({
+  selector: 'page-login',
+  templateUrl: 'login.html'
+})
+export class LoginPage {
+  [x: string]: any;
+
+  loginData = { email: '', senha: '' };
+  data: any;
+
+  constructor(public navCtrl: NavController) {
+  }
+
+  goToAluno() {
+    this.navCtrl.push(AlunoPage);
+  }
+
+  goToProfessor() {
+    this.navCtrl.push(ProfessorPage);
+  }
+
+  goToTreinamentos(params) {
+    if (!params) params = {};
+    this.navCtrl.push(ProfessorPage);
+  }
+  doLogin() {
+    this.AuthService.login(this.loginData).then((result) => {
+      this.data = result;
+      localStorage.setItem('token', this.data.Authentication);
+    }, (err) => {
+      if (err.status == 401) {
+        this.presentToast("Email ou senha invalidos!");
+      } else {
+        this.presentToast("Ocorreu um erro ao tentar logar, tente novamente!");
+      }
+    });
+  }
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 6000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+
+    toast.present();
+  }
+}

@@ -1,3 +1,7 @@
+import { ProfessorPage } from './../pages/professor/professor';
+import { TreinamentosPage } from './../pages/professor/treinamentos/treinamentos';
+import { ExerciciosPage } from './../pages/professor/exercicios/exercicios';
+import { AlunosPage } from './../pages/professor/alunos/alunos';
 import { ProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { AlunoPageModule } from './../pages/cadastro-aluno/cadastro-aluno.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,7 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http'; 
 import {RlTagInputModule} from 'angular2-tag-input';
@@ -15,7 +19,11 @@ import {RlTagInputModule} from 'angular2-tag-input';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    LoginPage,
+    AlunosPage,
+    ExerciciosPage,
+    TreinamentosPage,
+    ProfessorPage,
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -27,7 +35,11 @@ import {RlTagInputModule} from 'angular2-tag-input';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    LoginPage,
+    AlunosPage,
+    ExerciciosPage,
+    TreinamentosPage,
+    ProfessorPage,
   ],
   providers: [
     StatusBar,
