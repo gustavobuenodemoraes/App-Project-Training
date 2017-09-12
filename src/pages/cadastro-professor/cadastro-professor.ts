@@ -7,7 +7,7 @@ import { AuthService } from '../../providers/auth-service/auth-service';
   selector: 'page-professor',
   templateUrl: 'cadastro-professor.html',
 })
-export class ProfessorPage {
+export class cadastroProfessorPage {
 
     loading: any;
     data: any;

@@ -7,7 +7,7 @@ import { AuthService } from '../../providers/auth-service/auth-service';
   selector: 'page-aluno',
   templateUrl: 'cadastro-aluno.html',
 })
-export class AlunoPage {
+export class cadastroAlunoPage {
 
   data: any;
   loading: any;

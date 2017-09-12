@@ -9,5 +9,4 @@ export class TreinamentosPage {
 
   constructor(public navCtrl: NavController) {
   }
-  
 }

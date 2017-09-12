@@ -1,0 +1,37 @@
+<ion-menu [content]="mainContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <img src="https://vignette.wikia.nocookie.net/hanna-barbera/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20120423033926">
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="side-menu21">
+    <ion-list id="menu-list2">
+      <ion-item-sliding>
+        <ion-item color="none" id="menu-list-item1">
+          <h2>
+            Johnny Bravo
+          </h2>
+
+          <h2>
+            12 Alunos
+          </h2>
+
+          <h2>
+            Configuração
+          </h2>
+
+          <h2>
+            Sair
+          </h2>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="positive"></button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mainContent [root]="rootPage"></ion-nav>

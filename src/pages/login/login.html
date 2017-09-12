@@ -1,5 +1,5 @@
 <ion-content padding>
-  <form (submit)="doLogin()" #form="ngForm">
+  <form (submit)="doLogin(form)" #form="ngForm">
      <ion-list>
        <ion-item>
          <ion-label floating>E-mail</ion-label>
@@ -14,6 +14,6 @@
      </ion-list>
    </form>
    
-   <button class="aluno" ion-button full class="cor-botao-padrao aluno"(click)="goToAluno()">Cadastrar como Aluno</button>
-   <button class="professor" ion-button full class="professor" clear (click)="goToProfessor()">Cadastrar como Professor</button>
+   <button class="aluno" ion-button full class="cor-botao-padrao aluno"(click)="goTocadastroAluno()">Cadastrar como Aluno</button>
+   <button class="professor" ion-button full class="professor" clear (click)="goTocadastroProfessor()">Cadastrar como Professor</button>
 </ion-content>

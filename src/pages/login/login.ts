@@ -1,8 +1,10 @@
-import { ProfessorPage } from './../cadastro-professor/cadastro-professor';
-import { AlunoPage } from './../cadastro-aluno/cadastro-aluno';
+import { LocalService } from './../../providers/local/login.service';
+import { cadastroProfessorPage } from './../cadastro-professor/cadastro-professor';
+import { cadastroAlunoPage } from './../cadastro-aluno/cadastro-aluno';
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { MenuLateralPage } from '../professor/menu-lateral/menu-lateral';
 
 @Component({
   selector: 'page-login',
@@ -14,22 +16,28 @@ export class LoginPage {
   loginData = { email: '', senha: '' };
   data: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private localService: LocalService) {
   }
 
-  goToAluno() {
-    this.navCtrl.push(AlunoPage);
+  goTocadastroAluno() {
+    this.navCtrl.push(cadastroAlunoPage);
+  }
+
+  goTocadastroProfessor() {
+    this.navCtrl.push(cadastroProfessorPage);
   }
 
   goToProfessor() {
-    this.navCtrl.push(ProfessorPage);
+    this.navCtrl.setRoot(MenuLateralPage);
   }
 
-  goToTreinamentos(params) {
-    if (!params) params = {};
-    this.navCtrl.push(ProfessorPage);
-  }
-  doLogin() {
+  doLogin(form) {
+    let valorForm = form.value
+
+    if(valorForm.email == "teste@teste.com" && valorForm.senha == "teste"){
+      this.goToProfessor()
+    }
+    /*
     this.AuthService.login(this.loginData).then((result) => {
       this.data = result;
       localStorage.setItem('token', this.data.Authentication);
@@ -40,6 +48,7 @@ export class LoginPage {
         this.presentToast("Ocorreu um erro ao tentar logar, tente novamente!");
       }
     });
+    */
   }
   presentToast(msg) {
     let toast = this.toastCtrl.create({
