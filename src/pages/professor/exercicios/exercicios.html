@@ -9,15 +9,15 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page3">
-  <ion-list id="exercicios-list6">
-    <ion-item color="none" id="exercicios-list-item19">
-      Item 1
-    </ion-item>
-    <ion-item color="none" id="exercicios-list-item20">
-      Item 2
-    </ion-item>
-    <ion-item color="none" id="exercicios-list-item21">
-      Item 3
+  <ion-searchbar (ionInput)="getExercicios($event)"></ion-searchbar>
+  <ion-list id="exercicios-list6" *ngFor="let exercicio of exercicios">
+    <ion-item color="none" id="exercicios-list-item19" (click)="selecionaExercicio(exercicio.id)">
+      <ion-avatar item-left>
+        <img [src]="exercicio.imageExercicio" />
+      </ion-avatar>
+      <h2>
+        {{exercicio.nome}}
+      </h2>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -4,7 +4,6 @@ import { LocalService } from './../providers/local/login.service';
 import { TreinamentosPage } from './../pages/professor/treinamentos/treinamentos';
 import { ExerciciosPage } from './../pages/professor/exercicios/exercicios';
 import { AlunosPage } from './../pages/professor/alunos/alunos';
-import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { cadastroAlunoPageModule } from './../pages/cadastro-aluno/cadastro-aluno.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -19,6 +18,7 @@ import { HttpModule } from '@angular/http';
 import { RlTagInputModule } from 'angular2-tag-input';
 import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
 import { ImagensComponent } from '../components/imagens/imagens';
+import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios.module';
 
 @NgModule({
   declarations: [
@@ -32,12 +32,13 @@ import { ImagensComponent } from '../components/imagens/imagens';
   imports: [
     BrowserModule, HttpModule,
     cadastroAlunoPageModule,
-    cadastroProfessorPageModule,
+    cadastroAlunoPageModule,
     IonicModule.forRoot(MyApp),
     RlTagInputModule,
     PerfilAlunoPageModule,
     MenuLateralPageModule,
-    ProfessorTabsPageModule
+    ProfessorTabsPageModule,
+    CadastroExerciciosPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -21,4 +21,14 @@ export class LocalService {
         .map(resultado => resultado.json())
     }
 
+    listaExercicios(): Observable<any[]>{
+        return this.http.get(`${MEAT_API}/exercicios`)
+        .map(resultado => resultado.json())
+    }
+
+    mostraExercicio(id: any): Observable<any>{
+        return this.http.get(`${MEAT_API}/exercicios/${id}`)
+        .map(resultado => resultado.json())
+    }
+
 }

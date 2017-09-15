@@ -1,10 +1,10 @@
 import { LocalService } from './../../providers/local/login.service';
-import { cadastroProfessorPage } from './../cadastro-professor/cadastro-professor';
 import { cadastroAlunoPage } from './../cadastro-aluno/cadastro-aluno';
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { MenuLateralPage } from '../professor/menu-lateral/menu-lateral';
+import { cadastroProfessorPage } from '../cadastro-professor/cadastro-professor';
 
 @Component({
   selector: 'page-login',

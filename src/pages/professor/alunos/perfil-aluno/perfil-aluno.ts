@@ -14,12 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'perfil-aluno.html',
 })
 export class PerfilAlunoPage {
-   usuario: any
+  usuario: any
   id: any
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private localService: LocalService) {
    this.id = navParams.get('id');
-   console.log(this.id)
   }
 
   ionViewDidLoad() {
@@ -28,7 +27,6 @@ export class PerfilAlunoPage {
   ngOnInit() {
     this.localService.mostraUsuario(this.id)
     .subscribe(resultado => this.usuario = resultado)
-    console.log(this.usuario)
   }
 
 }
