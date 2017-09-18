@@ -9,7 +9,7 @@ import { NavController } from 'ionic-angular';
 })
 export class ExerciciosPage {
 
-  exercicios: any[]
+  exercicios: Array<any>
 
   constructor(public navCtrl: NavController, private localService: LocalService) {
   }
@@ -21,16 +21,21 @@ export class ExerciciosPage {
   getExercicios(ev) {
     this.carregaExercicios()
 
-
     // set val to the value of the ev target
-    var val = ev.target.value;
+    let val = ev.target.value;
+    
+
+    if (val && val.trim() != '') {
+      this.exercicios = this.exercicios.filter(resultado => resultado.toLowerCase.indexOf(val.toLocaleLowerCase))
+    }
 
     // if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
-      this.exercicios = this.exercicios.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
+        if (val && val.trim() != '') {
+          this.exercicios = this.exercicios.filter((item) => {
+            return (item.toLowerCase().indexOf(val.toLowerCase()) > -1)
+          })
+        }
+      
   }
 
   ngOnInit() {
@@ -41,4 +46,5 @@ export class ExerciciosPage {
     this.localService.listaExercicios()
       .subscribe(resultado => this.exercicios = resultado)
   }
+  
 }

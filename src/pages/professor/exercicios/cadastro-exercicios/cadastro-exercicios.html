@@ -12,5 +12,24 @@
 
 </ion-header>
 <ion-content padding>
-  <ion-input type="text" placeholder="Nome do exercicio" [value]="exercicio?.nome"></ion-input>
+  <form #form="ngForm">
+    <ion-item>
+      <ion-label floating>Nome do exercicio</ion-label>
+      <ion-input type="text" [value]="exercicio?.nome" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <img src="assets/img/corpo/frente.png">
+    </ion-item>
+
+    <textarea></textarea>
+
+    <ion-icon ios="logo-youtube" md="logo-youtube"></ion-icon>
+
+  </form>
+
+  <button class="salvar" ion-button full class="cor-botao-padrao aluno">Salvar treinamento</button>
 </ion-content>

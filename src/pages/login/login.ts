@@ -17,6 +17,7 @@ export class LoginPage {
   data: any;
 
   constructor(public navCtrl: NavController, private localService: LocalService) {
+    this.goToProfessor()
   }
 
   goTocadastroAluno() {
