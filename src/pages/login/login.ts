@@ -16,8 +16,8 @@ export class LoginPage {
   loginData = { email: '', senha: '' };
   data: any;
 
-  constructor(public navCtrl: NavController, private localService: LocalService) {
-    this.goToProfessor()
+  constructor(public navCtrl: NavController, private localService: LocalService, public authService: AuthService, private toastCtrl: ToastController) {
+    //this.goToProfessor()
   }
 
   goTocadastroAluno() {
@@ -32,14 +32,15 @@ export class LoginPage {
     this.navCtrl.setRoot(MenuLateralPage);
   }
 
-  doLogin(form) {
+  doLogin() {
+    /*
     let valorForm = form.value
 
     if(valorForm.email == "teste@teste.com" && valorForm.senha == "teste"){
       this.goToProfessor()
     }
-    /*
-    this.AuthService.login(this.loginData).then((result) => {
+    */
+    this.authService.login(this.loginData).then((result) => {
       this.data = result;
       localStorage.setItem('token', this.data.Authentication);
     }, (err) => {
@@ -49,7 +50,6 @@ export class LoginPage {
         this.presentToast("Ocorreu um erro ao tentar logar, tente novamente!");
       }
     });
-    */
   }
   presentToast(msg) {
     let toast = this.toastCtrl.create({

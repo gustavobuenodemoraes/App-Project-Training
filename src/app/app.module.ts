@@ -1,3 +1,4 @@
+import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { ProfessorTabsPageModule } from './../pages/professor/professor-tabs/professor-tabs.module';
 import { PerfilAlunoPageModule } from './../pages/professor/alunos/perfil-aluno/perfil-aluno.module';
 import { LocalService } from './../providers/local/login.service';
@@ -13,12 +14,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
-import { AuthService } from '../providers/auth-service/auth-service';
 import { HttpModule } from '@angular/http';
 import { RlTagInputModule } from 'angular2-tag-input';
 import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
 import { ImagensComponent } from '../components/imagens/imagens';
 import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios.module';
+import { AuthService } from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
@@ -31,14 +32,14 @@ import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cada
   ],
   imports: [
     BrowserModule, HttpModule,
+    cadastroProfessorPageModule,
     cadastroAlunoPageModule,
-    cadastroAlunoPageModule,
+    CadastroExerciciosPageModule,
     IonicModule.forRoot(MyApp),
     RlTagInputModule,
     PerfilAlunoPageModule,
     MenuLateralPageModule,
     ProfessorTabsPageModule,
-    CadastroExerciciosPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,5 +1,5 @@
 <ion-content padding>
-  <form (submit)="doLogin(form)" #form="ngForm">
+  <form (submit)="doLogin()">
      <ion-list>
        <ion-item>
          <ion-label floating>E-mail</ion-label>
@@ -10,7 +10,7 @@
          <ion-label floating>Senha</ion-label>
          <ion-input [(ngModel)]="loginData.senha" name="senha" type="password" required></ion-input>
        </ion-item>
-       <button class="login" ion-button full class="cor-botao-padrao login" type="submit" [disabled]="!form.valid">Logar</button>
+       <button class="login" ion-button full class="cor-botao-padrao login" type="submit">Logar</button>
      </ion-list>
    </form>
    

@@ -15,7 +15,7 @@ export class AuthService {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
-      this.http.post(`${apiUrl} login`, JSON.stringify(credentials), { headers: headers })
+      this.http.post(`${apiUrl}login`, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => resolve(res.json())
         , err => reject(err));
     });
@@ -26,7 +26,7 @@ export class AuthService {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
-      this.http.post(`${apiUrl} cadastroAluno`, JSON.stringify(data), { headers: headers })
+      this.http.post(`${apiUrl}cadastroAluno`, JSON.stringify(data), { headers: headers })
         .subscribe(res => resolve(res.json())
         , err => reject(err))
     })
@@ -36,7 +36,7 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json')
-      this.http.post(`${apiUrl} cadastroProfessor`, JSON.stringify(data), { headers: headers })
+      this.http.post(`${apiUrl}cadastroProfessor`, JSON.stringify(data), { headers: headers })
         .subscribe(res => resolve(res.json())
         , err => reject(err));
     });
