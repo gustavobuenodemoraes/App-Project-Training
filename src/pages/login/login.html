@@ -1,5 +1,5 @@
 <ion-content padding>
-  <form (submit)="doLogin()">
+  <form (submit)="doLogin(form)" #form="ngForm">
      <ion-list>
        <ion-item>
          <ion-label floating>E-mail</ion-label>

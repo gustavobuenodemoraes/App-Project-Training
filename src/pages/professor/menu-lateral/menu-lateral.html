@@ -2,28 +2,30 @@
   <ion-header>
     <ion-toolbar>
       <ion-title>
-        <img src="https://vignette.wikia.nocookie.net/hanna-barbera/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20120423033926">
+        <img [src]="usuario.foto">
       </ion-title>
     </ion-toolbar>
   </ion-header>
+
+  
   <ion-content id="side-menu21">
     <ion-list id="menu-list2">
       <ion-item-sliding>
         <ion-item color="none" id="menu-list-item1">
           <h2>
-            Johnny Bravo
+            <ion-icon name="contact"></ion-icon> {{usuario.nome}}
           </h2>
 
           <h2>
-            12 Alunos
+            <ion-icon name="people"></ion-icon> {{usuario.QtdAlunos}} Alunos
+          </h2>
+
+          <h2 (click)="onConfiguracao()">
+            <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
           </h2>
 
           <h2>
-            Configuração
-          </h2>
-
-          <h2>
-            Sair
+            <ion-icon name="exit"></ion-icon> Sair
           </h2>
         </ion-item>
         <ion-item-options side="left">

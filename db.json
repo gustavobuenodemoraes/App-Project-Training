@@ -1,304 +1,61 @@
 {
-  "usuarios": [
-    {
-      "id": 1,
-      "nome": "Johnny Bravo",
-      "email": "johnnybravo@bravo.com",
-      "senha": "eigata",
-      "foto": "https://vignette.wikia.nocookie.net/hanna-barbera/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20120423033926",
-      "tipoUsuario": 1,
-      "treinamento": "Levamento de peso"
-    },
-    {
-      "id": 2,
-      "nome": "Carl Chryniszzswics",
-      "email": "carlchryniszzswics@caca.com",
-      "senha": "naojohnny",
-      "foto": "http://pm1.narvii.com/6351/2baae67ffd2292c16ca87ba03441c8d9269f6ebd_hq.jpg",
-      "tipoUsuario": 2,
-      "treinamento": "Iniciante 1"
-    },
-    {
-      "id": 3,
-      "nome": "Dodinho",
-      "email": "docinho@superpoderosa.com",
-      "senha": "superpoderosa",
-      "foto": "http://vignette3.wikia.nocookie.net/powerpuff/images/f/f4/OwAAAAxsfLABiWOnAlGDs_gVt2bXtOebdp7Jyj1qcZhpxy-zo6OnpzrjdUlb_ysowfo0rJCEOER47ccnjKHPJ4FIglbAAm1T1UKQ-kMnk5ILlDjAhtBHAB9ZHMfMP.jpg/revision/latest?cb=20110726183839&path-prefix=pt-br",
-      "tipoUsuario": 2,
-      "treinamento": "Treinamento para Heroi"
-    }
-  ],
-  "exercicios": [
-    {
-      "id": "1",
-      "imageExercicio": "http://www.elhombre.com.br/wp-content/uploads/2014/04/abdominal-gordura-localizada.jpg",
-      "nome": "Abdominal",
-      "descricao": "Esta variante da flexão do quadril é mais indicada para os principiantes que ainda não desenvolveram força suficiente nos abdominais para poderem realizar a flexão de quadril em barra fixa"
-    },
-    {
-      "id": "2",
-      "imageExercicio": "https://i.ytimg.com/vi/ga8rJ-GQ-W4/maxresdefault.jpg",
-      "nome": "Remada Unilateral",
-      "descricao": "Segure um halter em uma das mãos e ajoelhe-se no banco com o joelho oposto. Incline-se para a frente e mantenha as costas paralelas ao chão, apoiando o peso do corpo sobre sua mão livre.      Mantenha o cotovelo do braço que segura o peso levemente flexionado."
-    },
-    {
-      "id": "3",
-      "imageExercicio": "http://www.receitaanabolica.com/wp-content/uploads/2014/05/Abdu%C3%A7%C3%A3o-de-Quadril-2-500x178.jpg",
-      "nome": "Abdução de Quadril",
-      "descricao": "Deite-se de lado para o chão. Mantenha as pernas retas, os joelhos juntos e deixe a cabeça apoiada na mão que está por baixo do corpo. Apoie a outra mão no chão, a frente do seu corpo, para equilibrar-se durante a execução do movimento."
-    }
-  ],
-  "reviews": [
-    {
-      "name": "Julia",
-      "date": "2017-01-23T18:25:43",
-      "rating": 4.5,
-      "comments": "Tudo muito bom, entrega no tempo certo",
-      "restaurantId": "bread-bakery"
-    },
-    {
-      "name": "Aline",
-      "date": "2016-12-12T18:25:43",
-      "rating": 3,
-      "comments": "NÃO recomendo. O recheio é só um creme, não tem camarão e nem carne",
-      "restaurantId": "bread-bakery"
-    },
-    {
-      "name": "Renata",
-      "date": "2016-12-12T18:25:43",
-      "rating": 2,
-      "comments": "Não foi muito agradável ao nosso paladar, e eu e meu esposo no outro dia passamos super mal. Pode até ter sido outra coisa, mas...",
-      "restaurantId": "bread-bakery"
-    },
-    {
-      "name": "Renata",
-      "date": "2016-12-12T18:25:43",
-      "rating": 5,
-      "comments": "Nunca deixou na mão, comida sempre deliciosa.",
-      "restaurantId": "bread-bakery"
-    },
-    {
-      "name": "Daniela",
-      "date": "2017-01-23T18:25:43",
-      "rating": 4,
-      "comments": "Sanduíche muito bom! Já pedi diversas vezes sempre bom!",
-      "restaurantId": "burger-house"
-    },
-    {
-      "name": "Laila",
-      "date": "2017-02-02T18:25:43",
-      "rating": 5,
-      "comments": "Melhor hambúrguer que já provei. Vai ser difícil voltar para mc e bk",
-      "restaurantId": "burger-house"
-    },
-    {
-      "name": "Suzana",
-      "date": "2016-12-12T18:25:43",
-      "rating": 3.5,
-      "comments": "Meu sanduíche chegou frio e todo desmontado =\\",
-      "restaurantId": "burger-house"
-    },
-    {
-      "name": "Eric",
-      "date": "2017-01-23T18:25:43",
-      "rating": 4.5,
-      "comments": "Excelente opção! Recomendo!",
-      "restaurantId": "coffee-corner"
-    },
-    {
-      "name": "Amanda",
-      "date": "2017-02-02T18:25:43",
-      "rating": 2.5,
-      "comments": "Demorou muito e o café veio gelado",
-      "restaurantId": "coffee-corner"
-    },
-    {
-      "name": "Carla",
-      "date": "2016-12-12T18:25:43",
-      "rating": 4.8,
-      "comments": "Tudo perfeito. Entrega, embalagem, comida. Resultado? Melhor custo beneficio",
-      "restaurantId": "coffee-corner"
-    },
-    {
-      "name": "Rodrigo",
-      "date": "2016-12-12T18:25:43",
-      "rating": 4,
-      "comments": "Muito rápida a entrega, mas é caro.",
-      "restaurantId": "coffee-corner"
-    },
-    {
-      "name": "André",
-      "date": "2016-12-12T18:25:43",
-      "rating": 4.5,
-      "comments": "Excelente como sempre!",
-      "restaurantId": "coffee-corner"
-    },
-    {
-      "name": "João",
-      "date": "2017-01-23T18:25:43",
-      "rating": 5,
-      "comments": "Excelente. Fiz o pedido com outro endereço e quando vi o erro liguei avisando. O motoqueiro cortou a cidade todinha e a comida ainda chegou quentinha (e deliciosa). Estou sempre pedindo e recomendando",
-      "restaurantId": "green-food"
-    },
-    {
-      "name": "Marcelo",
-      "date": "2017-02-02T18:25:43",
-      "rating": 4.5,
-      "comments": "Chegou muito rápido, antes mesmo da previsão",
-      "restaurantId": "green-food"
-    },
-    {
-      "name": "Fatinha",
-      "date": "2017-01-23T18:25:43",
-      "rating": 2,
-      "comments": "Ñ gostei dos sabores q pedi e achei o preço muito elevado",
-      "restaurantId": "ice-cream"
-    },
-    {
-      "name": "Lucas",
-      "date": "2017-02-02T18:25:43",
-      "rating": 2.5,
-      "comments": "Esperar 1:45hr pra receber o pedido é INACEITÁVEL",
-      "restaurantId": "ice-cream"
-    },
-    {
-      "name": "Jacira",
-      "date": "2017-02-01T18:25:43",
-      "rating": 4.5,
-      "comments": "Veio OK!",
-      "restaurantId": "ice-cream"
-    },
-    {
-      "name": "Ana",
-      "date": "2017-01-23T18:25:43",
-      "rating": 5,
-      "comments": "Rápido e sempre uma delicia!! Ja pedi 3x e sempre veio rapido e tudo certinho.",
-      "restaurantId": "tasty-treats"
-    },
-    {
-      "name": "Larissa",
-      "date": "2017-02-02T18:25:43",
-      "rating": 2.5,
-      "comments": "A taxa de entrega poderia ser mais barata.",
-      "restaurantId": "tasty-treats"
-    },
-    {
-      "name": "Jarbas",
-      "date": "2016-12-15T18:25:43",
-      "rating": 4.7,
-      "comments": "Excelente e chegou muito rápido!",
-      "restaurantId": "tasty-treats"
-    },
-    {
-      "name": "Rafaela",
-      "date": "2017-01-12T18:25:43",
-      "rating": 5,
-      "comments": "Chegou rápido e perfeito!",
-      "restaurantId": "tasty-treats"
-    },
-    {
-      "name": "Julia",
-      "date": "2016-12-12T18:25:43",
-      "rating": 1.5,
-      "comments": "Sempre gostei muito dos pedidos que eu fiz, mas dessa vez foi péssimo e decepcionou muito. Demorou 30min a mais pra chegar do que o tempo máximo esperado.",
-      "restaurantId": "tasty-treats"
-    },
-    {
-      "name": "Marília",
-      "date": "2016-12-20T18:25:43",
-      "rating": 4.5,
-      "comments": "Taxa de entrega bastante elevada e precisa colocar no app se a pessoa quer porção adicional de algo (calda, crocante etc)",
-      "restaurantId": "tasty-treats"
-    }
-  ],
-  "orders": [
-    {
-      "address": "Gustavo",
-      "number": "123",
-      "optionalAddress": "123",
-      "paymentOption": "MON",
-      "orderItems": [
-        {
-          "quantity": 1,
-          "menuId": "capp"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "address": "Gustavo",
-      "number": "123",
-      "optionalAddress": "Teste",
-      "paymentOption": "MON",
-      "orderItems": [
-        {
-          "quantity": 4,
-          "menuId": "capp"
-        },
-        {
-          "quantity": 2,
-          "menuId": "espreso"
-        },
-        {
-          "quantity": 2,
-          "menuId": "starb"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "address": "Av Pedro",
-      "number": "123",
-      "optionalAddress": "11",
-      "paymentOption": "REF",
-      "orderItems": [
-        {
-          "quantity": 1,
-          "menuId": "sunday"
-        },
-        {
-          "quantity": 1,
-          "menuId": "chocpop"
-        }
-      ],
-      "id": 3
-    },
-    {
-      "address": "Av das Flores",
-      "number": "158",
-      "optionalAddress": "Apartamento 12",
-      "paymentOption": "DEB",
-      "orderItems": [
-        {
-          "quantity": 1,
-          "menuId": "cup-cake"
-        },
-        {
-          "quantity": 1,
-          "menuId": "donut"
-        },
-        {
-          "quantity": 3,
-          "menuId": "bread"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "teste",
-      "email": "teste@teste.com",
-      "emailConfirmation": "teste@teste.com",
-      "address": "teste",
-      "number": "11",
-      "optionalAddress": "",
-      "paymentOptions": "MON",
-      "orderItems": [
-        {
-          "quantity": 1,
-          "menuId": "capp"
-        }
-      ],
-      "id": 5
-    }
-  ]
+  "exercicios" : [ {
+    "descricao" : "Esta variante da flexão do quadril é mais indicada para os principiantes que ainda não desenvolveram força suficiente nos abdominais para poderem realizar a flexão de quadril em barra fixa",
+    "id" : "1",
+    "imageExercicio" : "http://www.elhombre.com.br/wp-content/uploads/2014/04/abdominal-gordura-localizada.jpg",
+    "nome" : "Abdominal"
+  }, {
+    "descricao" : "Segure um halter em uma das mãos e ajoelhe-se no banco com o joelho oposto. Incline-se para a frente e mantenha as costas paralelas ao chão, apoiando o peso do corpo sobre sua mão livre.      Mantenha o cotovelo do braço que segura o peso levemente flexionado.",
+    "id" : "2",
+    "imageExercicio" : "https://i.ytimg.com/vi/ga8rJ-GQ-W4/maxresdefault.jpg",
+    "nome" : "Remada Unilateral"
+  }, {
+    "descricao" : "Deite-se de lado para o chão. Mantenha as pernas retas, os joelhos juntos e deixe a cabeça apoiada na mão que está por baixo do corpo. Apoie a outra mão no chão, a frente do seu corpo, para equilibrar-se durante a execução do movimento.",
+    "id" : "3",
+    "imageExercicio" : "http://www.receitaanabolica.com/wp-content/uploads/2014/05/Abdu%C3%A7%C3%A3o-de-Quadril-2-500x178.jpg",
+    "nome" : "Abdução de Quadril"
+  } ],
+  "treinamentos" : [ {
+    "id" : 1,
+    "idExercicios" : [ 1, {
+      "repeticao" : 12,
+      "serie" : 3
+    } ],
+    "nome" : "Treinamento para Super Herois"
+  }, {
+    "id" : 2,
+    "idExercicios" : [ 2, {
+      "repeticao" : 20,
+      "serie" : 4
+    }, {
+      "repeticao" : 15,
+      "serie" : 5
+    } ],
+    "nome" : "Treinamento avançado"
+  } ],
+  "usuarios" : [ {
+    "email" : "johnnybravo@bravo.com",
+    "foto" : "https://vignette.wikia.nocookie.net/hanna-barbera/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20120423033926",
+    "id" : 1,
+    "nome" : "Johnny Bravo",
+    "senha" : "eigata",
+    "tipoUsuario" : 1,
+    "treinamento" : "Levamento de peso"
+  }, {
+    "email" : "carlchryniszzswics@caca.com",
+    "foto" : "http://pm1.narvii.com/6351/2baae67ffd2292c16ca87ba03441c8d9269f6ebd_hq.jpg",
+    "id" : 2,
+    "nome" : "Carl Chryniszzswics",
+    "senha" : "naojohnny",
+    "tipoUsuario" : 2,
+    "treinamento" : "Iniciante 1"
+  }, {
+    "email" : "docinho@superpoderosa.com",
+    "foto" : "http://vignette3.wikia.nocookie.net/powerpuff/images/f/f4/OwAAAAxsfLABiWOnAlGDs_gVt2bXtOebdp7Jyj1qcZhpxy-zo6OnpzrjdUlb_ysowfo0rJCEOER47ccnjKHPJ4FIglbAAm1T1UKQ-kMnk5ILlDjAhtBHAB9ZHMfMP.jpg/revision/latest?cb=20110726183839&path-prefix=pt-br",
+    "id" : 3,
+    "nome" : "Dodinho",
+    "senha" : "superpoderosa",
+    "tipoUsuario" : 2,
+    "treinamento" : "Treinamento para Heroi"
+  } ]
 }

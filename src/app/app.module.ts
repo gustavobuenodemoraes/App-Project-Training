@@ -20,6 +20,7 @@ import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-late
 import { ImagensComponent } from '../components/imagens/imagens';
 import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios.module';
 import { AuthService } from '../providers/auth-service/auth-service';
+import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
 
 @NgModule({
   declarations: [
@@ -28,18 +29,21 @@ import { AuthService } from '../providers/auth-service/auth-service';
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
-    ImagensComponent,
+    ImagensComponent
   ],
   imports: [
     BrowserModule, HttpModule,
     cadastroProfessorPageModule,
     cadastroAlunoPageModule,
     CadastroExerciciosPageModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      swipeEnabled:"false"
+    }),
     RlTagInputModule,
     PerfilAlunoPageModule,
     MenuLateralPageModule,
     ProfessorTabsPageModule,
+    CadastroTreinamentoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

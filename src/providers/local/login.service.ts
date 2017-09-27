@@ -16,19 +16,28 @@ export class LocalService {
             .map(resultado => resultado.json())
     }
 
-    mostraUsuario(id:any):Observable<any>{
+    mostraUsuario(id: any): Observable<any> {
         return this.http.get(`${MEAT_API}/usuarios/${id}`)
-        .map(resultado => resultado.json())
+            .map(resultado => resultado.json())
     }
 
-    listaExercicios(): Observable<any[]>{
+    listaExercicios(): Observable<any[]> {
         return this.http.get(`${MEAT_API}/exercicios`)
-        .map(resultado => resultado.json())
+            .map(resultado => resultado.json())
     }
 
-    mostraExercicio(id: any): Observable<any>{
+    mostraExercicio(id: any): Observable<any> {
         return this.http.get(`${MEAT_API}/exercicios/${id}`)
-        .map(resultado => resultado.json())
+            .map(resultado => resultado.json())
     }
 
+    listarTreinamentos(): Observable<any[]> {
+        return this.http.get(`${MEAT_API}/treinamentos`)
+            .map(resultado => resultado.json())
+    }
+
+    mostraTreinamento(id: any): Observable<any> {
+        return this.http.get(`${MEAT_API}/treinamentos/${id}`)
+            .map(resultado => resultado.json())
+    }
 }

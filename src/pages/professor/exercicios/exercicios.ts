@@ -38,6 +38,10 @@ export class ExerciciosPage {
       
   }
 
+  addExercicios(): void{
+    this.navCtrl.push(CadastroExerciciosPage);
+  }
+
   ngOnInit() {
     this.carregaExercicios()
   }

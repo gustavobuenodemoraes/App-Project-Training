@@ -11,7 +11,7 @@
 <ion-content padding id="page3">
 
   <ion-searchbar (ionInput)="getExercicios($event)"></ion-searchbar>
-  
+
   <ion-list id="exercicios-list6" *ngFor="let exercicio of exercicios">
     <ion-item color="none" id="exercicios-list-item19" (click)="selecionaExercicio(exercicio.id)">
       <ion-avatar item-left>
@@ -23,5 +23,8 @@
     </ion-item>
   </ion-list>
 
+  <ion-fab right bottom (click)="addExercicios()">
+    <button ion-fab color="danger"><ion-icon class="icon icon-ios ion-ios-add"></ion-icon></button>
+  </ion-fab>
 
 </ion-content>

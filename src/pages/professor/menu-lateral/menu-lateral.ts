@@ -20,9 +20,17 @@ export class MenuLateralPage {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = ProfessorTabsPage;
 
-  usuario: any
+  usuario: Array<({ nome: string, QtdAlunos: number, foto: string })> = []
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private localService: LocalService) {
+    //só pra teste
+    this.usuario = [
+      {
+        nome: 'Johny',
+        QtdAlunos: 30,
+        foto: 'https://vignette.wikia.nocookie.net/hanna-barbera/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20120423033926'
+      }
+    ]
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -31,11 +39,13 @@ export class MenuLateralPage {
 
   ngOnInit() {
     this.localService.mostraUsuario(1)
-    .subscribe(resultado => this.usuario = resultado)
+      .subscribe(resultado => this.usuario = resultado)
   }
-  
+
   ionViewDidLoad() {
 
   }
+
+
 
 }
