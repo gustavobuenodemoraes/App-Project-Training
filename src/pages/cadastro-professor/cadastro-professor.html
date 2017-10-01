@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Professor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (submit)="doCadastroProfessor()" #form="ngForm">
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="dadosProfessor.nome" type="text" name="nome" placeholder="Nome" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="dadosProfessor.email" type="email" placeholder="E-mail" name="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data de Nascimento</ion-label>
+      <ion-datetime [(ngModel)]="dadosProfessor.dtNascimento" displayFormat="DD MMM YYYY" name="dtNascimento" required></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="dadosProfessor.senha" type="password" placeholder="Senha" name="senha" required></ion-input>
+    </ion-item> 
+    <button ion-button full class="cor-botao-padrao" [disabled]="!form.valid">Cadastrar</button>
+  </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Treinamentos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page4">
+    <ion-searchbar (ionInput)="getfilterTreinamento($event)"></ion-searchbar>
+
+  <ion-list id="treinamentos-list7">
+    <ion-item color="none" id="treinamentos-list-item22" *ngFor="let treinamento of treinamentos" (click)="getEditTreinamento(treinamento.id)">
+      {{treinamento.nome}}
+    </ion-item>
+  </ion-list>
+ 
+  <ion-fab right bottom (click)="addTreinamentos()">
+      <button ion-fab color="danger"><ion-icon class="icon icon-ios ion-ios-add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

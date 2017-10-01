@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Exercicios
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page3">
+
+  <ion-searchbar (ionInput)="getExercicios($event)"></ion-searchbar>
+
+  <ion-list id="exercicios-list6" *ngFor="let exercicio of exercicios">
+    <ion-item color="none" id="exercicios-list-item19" (click)="selecionaExercicio(exercicio.id)">
+      <ion-avatar item-left>
+        <img [src]="exercicio?.imageExercicio" />
+      </ion-avatar>
+      <h2>
+        {{exercicio?.nome}}
+      </h2>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom (click)="addExercicios()">
+    <button ion-fab color="danger"><ion-icon class="icon icon-ios ion-ios-add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
