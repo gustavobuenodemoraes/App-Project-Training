@@ -21,6 +21,7 @@ import { ImagensComponent } from '../components/imagens/imagens';
 import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios.module';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
+import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,8 @@ import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/c
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
+    LocalService,
+    ProfessorServiceProvider,
     LocalService
   ],
 })
