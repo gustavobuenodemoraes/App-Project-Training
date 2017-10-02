@@ -60,7 +60,8 @@ import { ProfessorServiceProvider } from '../providers/professor-service/profess
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
     LocalService,
-    ProfessorServiceProvider
+    ProfessorServiceProvider,
+    LocalService
   ],
 })
 export class AppModule { }
