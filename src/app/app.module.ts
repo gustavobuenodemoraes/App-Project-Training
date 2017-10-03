@@ -22,6 +22,7 @@ import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cada
 import { AuthService } from '../providers/auth-service/auth-service';
 import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
 import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
+import { ConfiguracaoProfessorPage } from '../pages/professor/menu-lateral/configuracao-professor/configuracao-professor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfessorServiceProvider } from '../providers/professor-service/profess
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
-    ImagensComponent
+    ImagensComponent,
+    ConfiguracaoProfessorPage
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -44,7 +46,7 @@ import { ProfessorServiceProvider } from '../providers/professor-service/profess
     PerfilAlunoPageModule,
     MenuLateralPageModule,
     ProfessorTabsPageModule,
-    CadastroTreinamentoPageModule
+    CadastroTreinamentoPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,6 +55,7 @@ import { ProfessorServiceProvider } from '../providers/professor-service/profess
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
+    ConfiguracaoProfessorPage
   ],
   providers: [
     StatusBar,

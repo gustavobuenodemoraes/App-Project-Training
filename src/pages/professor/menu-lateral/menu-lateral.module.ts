@@ -4,7 +4,7 @@ import { MenuLateralPage } from './menu-lateral';
 
 @NgModule({
   declarations: [
-    MenuLateralPage
+    MenuLateralPage,
   ],
   imports: [
     IonicPageModule.forChild(MenuLateralPage),

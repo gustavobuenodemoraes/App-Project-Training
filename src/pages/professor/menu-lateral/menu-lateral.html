@@ -1,37 +1,30 @@
-<ion-menu [content]="mainContent">
+<ion-menu [content]="mainContent" id="configuracaoProfessor">
   <ion-header>
     <ion-toolbar>
       <ion-title>
-        <img [src]="usuario.foto">
+        <ion-avatar item-start>
+          <img [src]="usuario?.foto">
+        </ion-avatar>
       </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  
-  <ion-content id="side-menu21">
-    <ion-list id="menu-list2">
-      <ion-item-sliding>
-        <ion-item color="none" id="menu-list-item1">
-          <h2>
-            <ion-icon name="contact"></ion-icon> {{usuario.nome}}
-          </h2>
+  <ion-content>
+    <ion-list>
 
-          <h2>
-            <ion-icon name="people"></ion-icon> {{usuario.QtdAlunos}} Alunos
-          </h2>
+      <ion-item>
+        <ion-icon name="contact"></ion-icon> {{usuario?.nome}}</ion-item>
 
-          <h2 (click)="onConfiguracao()">
+      <ion-item>
+        <ion-icon name="people"></ion-icon> {{usuario?.QtdAlunos}} Alunos</ion-item>
+
+      <button ion-item (click)="onConfiguracao()">
             <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
-          </h2>
+        </button>
 
-          <h2>
-            <ion-icon name="exit"></ion-icon> Sair
-          </h2>
-        </ion-item>
-        <ion-item-options side="left">
-          <button ion-button color="positive"></button>
-        </ion-item-options>
-      </ion-item-sliding>
+      <ion-item>
+        <ion-icon name="exit"></ion-icon> Sair</ion-item>
+
     </ion-list>
   </ion-content>
 </ion-menu>
