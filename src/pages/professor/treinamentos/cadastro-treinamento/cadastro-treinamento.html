@@ -7,7 +7,8 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{treinamento?.nome}}</ion-title>
+    <ion-title ng-if="treinamento.nome">{{treinamento?.nome}}</ion-title>
+    <ion-title ng-if="!treinamento.nome">Novo</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +16,7 @@
 
 <ion-content padding>
 
-  <ion-list id="treinamento-list">
+  <ion-list>
     <ion-item color="none">
       <ion-label floating>Serie</ion-label>
       <ion-input type="text" name="serie" [value]=""></ion-input>

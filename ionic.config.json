@@ -1,8 +1,9 @@
 {
   "name": "FindYourPersonalTrainer",
-  "app_id": "",
+  "app_id": "6f50742f",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "-": "backend"
 }

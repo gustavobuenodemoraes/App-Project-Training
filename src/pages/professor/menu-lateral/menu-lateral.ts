@@ -21,20 +21,16 @@ export class MenuLateralPage {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = ProfessorTabsPage;
 
-  usuario: Array<any> = [
-    {
-      nome: 'Johny',
-      QtdAlunos: 30,
-      foto: 'https://vignette.wikia.nocookie.net/hanna-barbera/images/2/24/Johnny_Bravo.jpg/revision/latest?cb=20120423033926'
-    }];
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private localService: LocalService) {
+  usuario: Array<any>;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
 
-  onConfiguracao():void{
+  onConfiguracao(): void {
     this.navCtrl.push(ConfiguracaoProfessorPage);
   }
 

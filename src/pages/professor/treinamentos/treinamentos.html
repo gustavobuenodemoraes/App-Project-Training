@@ -1,14 +1,16 @@
 <ion-header>
   <ion-navbar>
+    
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+
     <ion-title>
       Treinamentos
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page4">
+<ion-content padding>
     <ion-searchbar (ionInput)="getfilterTreinamento($event)"></ion-searchbar>
 
   <ion-list id="treinamentos-list7">

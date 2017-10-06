@@ -1,3 +1,5 @@
+import { ConfiguracaoProfessorPageModule } from './../pages/professor/menu-lateral/configuracao-professor/configuracao-professor.module';
+import { ConfiguracaoPageModule } from './../pages/configuracao/configuracao.module';
 import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { ProfessorTabsPageModule } from './../pages/professor/professor-tabs/professor-tabs.module';
 import { PerfilAlunoPageModule } from './../pages/professor/alunos/perfil-aluno/perfil-aluno.module';
@@ -22,7 +24,7 @@ import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cada
 import { AuthService } from '../providers/auth-service/auth-service';
 import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
 import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
-import { ConfiguracaoProfessorPage } from '../pages/professor/menu-lateral/configuracao-professor/configuracao-professor';
+import { Camera } from "@ionic-native/camera";
 
 @NgModule({
   declarations: [
@@ -31,22 +33,23 @@ import { ConfiguracaoProfessorPage } from '../pages/professor/menu-lateral/confi
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
-    ImagensComponent,
-    ConfiguracaoProfessorPage
+    ImagensComponent
   ],
   imports: [
     BrowserModule, HttpModule,
     cadastroProfessorPageModule,
     cadastroAlunoPageModule,
     CadastroExerciciosPageModule,
-    IonicModule.forRoot(MyApp,{
-      swipeEnabled:"false"
-    }),
-    RlTagInputModule,
     PerfilAlunoPageModule,
     MenuLateralPageModule,
     ProfessorTabsPageModule,
     CadastroTreinamentoPageModule,
+    ConfiguracaoProfessorPageModule,
+    IonicModule.forRoot(MyApp, {
+      swipeEnabled: "false"
+    }),
+    RlTagInputModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,8 +57,7 @@ import { ConfiguracaoProfessorPage } from '../pages/professor/menu-lateral/confi
     LoginPage,
     AlunosPage,
     ExerciciosPage,
-    TreinamentosPage,
-    ConfiguracaoProfessorPage
+    TreinamentosPage
   ],
   providers: [
     StatusBar,
@@ -64,7 +66,8 @@ import { ConfiguracaoProfessorPage } from '../pages/professor/menu-lateral/confi
     AuthService,
     LocalService,
     ProfessorServiceProvider,
-    LocalService
+    LocalService,
+    Camera
   ],
 })
 export class AppModule { }

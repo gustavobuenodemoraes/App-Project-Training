@@ -1,17 +1,94 @@
 <ion-header>
-
   <ion-navbar>
 
-    <button ion-button icon-only menuToggle="configuracaoProfessor">
-      <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
-    </button>
+    <button ion-button menuToggle>
+<ion-icon name="settings"></ion-icon>
+</button>
 
-    <ion-title>Configuração</ion-title>
+    <ion-title>
+      Configurações
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      Perfil
+    </ion-list-header>
 
+    <ion-item color="none">
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" name="nome" [value]=""></ion-input>
+    </ion-item>
+
+    <ion-item color="none">
+      <ion-label floating>senha antiga</ion-label>
+      <ion-input type="text" name="senhaAntiga" [value]=""></ion-input>
+    </ion-item>
+
+    <ion-item color="none">
+      <ion-label floating>nova senha</ion-label>
+      <ion-input type="text" name="senhaAntiga" [value]=""></ion-input>
+    </ion-item>
+
+    <ion-item color="none">
+      <ion-label floating>confirmar senha</ion-label>
+      <ion-input type="text" name="senhaAntiga" [value]=""></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+
+    <ion-list-header>
+      Numero de Alunos
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label> Limitar numero de alunos</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Alunos</ion-label>
+      <ion-input type="number" placeholder="Quantidade de aluno" min="0"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Foto Perfil
+    </ion-list-header>
+
+
+    <ion-card>
+
+      <img src="{{currentPhoto}}" />
+
+      <ion-card-content>
+        <ion-card-title>
+          Aplicativo de Fotos
+        </ion-card-title>
+      </ion-card-content>
+
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="primary" icon-left (click)="getPhoto('picture')">
+                  <ion-icon name='camera'></ion-icon>
+                  Câmera
+                </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button clear small color="primary" icon-left (click)="getPhoto('gallery')">
+                  <ion-icon name='albums'></ion-icon>
+                  Galeria
+                </button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-card>
+  </ion-list>
 </ion-content>

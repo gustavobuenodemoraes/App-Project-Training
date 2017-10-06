@@ -1,4 +1,4 @@
-<ion-menu [content]="mainContent" id="configuracaoProfessor">
+<ion-menu [content]="mainContent">
   <ion-header>
     <ion-toolbar>
       <ion-title>
@@ -18,7 +18,7 @@
       <ion-item>
         <ion-icon name="people"></ion-icon> {{usuario?.QtdAlunos}} Alunos</ion-item>
 
-      <button ion-item (click)="onConfiguracao()">
+      <button ion-item (click)="onConfiguracao()" menuClose>
             <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
         </button>
 
