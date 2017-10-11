@@ -44,7 +44,6 @@ export class AuthService {
 
   logout() {
     return new Promise((resolve, reject) => {
-
       localStorage.clear();
     });
   }

@@ -1,5 +1,3 @@
-import { ConfiguracaoProfessorPageModule } from './../pages/professor/menu-lateral/configuracao-professor/configuracao-professor.module';
-import { ConfiguracaoPageModule } from './../pages/configuracao/configuracao.module';
 import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { ProfessorTabsPageModule } from './../pages/professor/professor-tabs/professor-tabs.module';
 import { PerfilAlunoPageModule } from './../pages/professor/alunos/perfil-aluno/perfil-aluno.module';
@@ -18,7 +16,6 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
 import { RlTagInputModule } from 'angular2-tag-input';
-import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
 import { ImagensComponent } from '../components/imagens/imagens';
 import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios.module';
 import { AuthService } from '../providers/auth-service/auth-service';
@@ -26,6 +23,7 @@ import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/c
 import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
 import { Camera } from "@ionic-native/camera";
 import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
+import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +40,6 @@ import { ExercicioServiceProvider } from '../providers/exercicio-service/exercic
     cadastroAlunoPageModule,
     CadastroExerciciosPageModule,
     PerfilAlunoPageModule,
-    MenuLateralPageModule,
     ProfessorTabsPageModule,
     CadastroTreinamentoPageModule,
     ConfiguracaoProfessorPageModule,

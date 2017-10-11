@@ -1,5 +1,4 @@
 import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
-import { LocalService } from './../../../../providers/local/login.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
@@ -14,7 +13,7 @@ export class CadastroExerciciosPage {
   loading: any;
   data: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private localservice: LocalService, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
     public loadingCtrl: LoadingController, public exercicioService: ExercicioServiceProvider, private toastCtrl: ToastController) {
     this.id = navParams.get('id');
   }

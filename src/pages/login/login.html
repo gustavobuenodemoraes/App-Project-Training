@@ -13,6 +13,11 @@
        <button class="login" ion-button full class="cor-botao-padrao login" type="submit" [disabled]="!form.valid">Logar</button>
      </ion-list>
    </form>
+
+   <ion-item *ngIf="form.valid">
+    <ion-label>Manter conectado</ion-label>
+    <ion-checkbox [(ngModel)]="conectado" (ionChange)="ManterConectado()" checked="true" ></ion-checkbox>
+  </ion-item>
    
    <button class="aluno" ion-button full class="cor-botao-padrao aluno"(click)="goTocadastroAluno()">Cadastrar como Aluno</button>
    <button class="professor" ion-button full class="professor" clear (click)="goTocadastroProfessor()">Cadastrar como Professor</button>

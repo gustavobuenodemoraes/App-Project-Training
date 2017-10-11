@@ -1,4 +1,3 @@
-import { LocalService } from './../../../providers/local/login.service';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Component, ViewChild } from '@angular/core';

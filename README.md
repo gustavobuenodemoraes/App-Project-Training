@@ -1,26 +1,40 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+Esse trabalho é referente ao projeto de conclusão de curso da instituição de ensino Centro [Universitário Nossa Senhora do Patrocínio]( http://www.ceunsp.edu.br/).
 
-## How to use this template
+## Métodos utilizados
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+Web Service em Rest com Java
+Mysql
+Ionic
+Sendo utilizado o ambiente da [Amazon]( https://aws.amazon.com/pt)
+## Web Service
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+```bash
+http://trainingsearch-env.fwsjb2aebm.us-east-2.elasticbeanstalk.com
+```
 
-### With the Ionic CLI:
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Este é um modelo inicial para projetos [Ionic](http://ionicframework.com/docs/) projects.
+
+## Como usar este modelo
+
+*Este modelo não funciona por conta própria *. Os arquivos compartilhados para cada iniciante são encontrados no[ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+
+Para usar esse modelo, crie um novo projeto iônico usando o utilitário iônico node.js ou copie os arquivos deste repositório para a [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+
+### Com a CLI Ionic:
+
+Pegue o nome depois de `ionic2-starter-`, e esse é o nome do modelo a ser usado ao usar o comando `ionic start` abaixo:
 
 ```bash
 $ sudo npm install -g ionic cordova
 $ ionic start myBlank blank
 ```
 
-Then, to run it, cd into `myBlank` and run:
+Então, para executá-lo, cd em `myBlank` e execute:
 
 ```bash
 $ ionic cordova platform add ios
 $ ionic cordova run ios
 ```
 
-Substitute ios for android if not on a Mac.
-
+Substitua ios por Android, se não estiver em um Mac.

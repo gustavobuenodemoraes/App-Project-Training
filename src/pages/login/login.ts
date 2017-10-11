@@ -1,9 +1,10 @@
-import { LocalService } from './../../providers/local/login.service';
+import { ProfessorTabsPage } from './../professor/professor-tabs/professor-tabs';
+import { MenuController } from 'ionic-angular';
+import { Login } from './login.model';
 import { cadastroAlunoPage } from './../cadastro-aluno/cadastro-aluno';
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
-import { MenuLateralPage } from '../professor/menu-lateral/menu-lateral';
 import { cadastroProfessorPage } from '../cadastro-professor/cadastro-professor';
 
 @Component({
@@ -11,13 +12,14 @@ import { cadastroProfessorPage } from '../cadastro-professor/cadastro-professor'
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  [x: string]: any;
 
-  loginData = { email: '', senha: '' };
-  data: any;
+  loginData: Login = { email: '', senha: '' };
+  data;
 
-  constructor(public navCtrl: NavController, private localService: LocalService, public authService: AuthService, private toastCtrl: ToastController) {
-    //this.goToProfessor()
+  conectado: boolean;
+
+  constructor(public navCtrl: NavController, public authService: AuthService, private toastCtrl: ToastController, private menuCtrl: MenuController) {
+
   }
 
   goTocadastroAluno() {
@@ -29,17 +31,10 @@ export class LoginPage {
   }
 
   goToProfessor() {
-    this.navCtrl.setRoot(MenuLateralPage);
+    this.navCtrl.setRoot(ProfessorTabsPage);
   }
-  
-  doLogin() {
-    /*
-    let valorForm = form.value
 
-    if(valorForm.email == "teste@teste.com" && valorForm.senha == "teste"){
-      this.goToProfessor()
-    }
-    */
+  doLogin() {
     this.authService.login(this.loginData).then((result) => {
       this.data = result;
       localStorage.setItem('token', this.data.Authentication);
@@ -62,5 +57,36 @@ export class LoginPage {
     });
 
     toast.present();
+  }
+
+  ionViewDidLoad() {
+    let email: string = localStorage.getItem('email');
+    let senha: string = localStorage.getItem('senha');
+    if (email != null && senha != null) {
+      this.loginData.email = email;
+      this.loginData.senha = senha;
+
+      this.doLogin();
+    }
+
+
+  }
+
+  ionViewDidEnter() {
+    this.menuCtrl.enable(false, 'menuProfessor');
+  }
+
+  ManterConectado() {
+    if (this.conectado == true) {
+      let email: string = String(this.loginData.email);
+      let senha: string = String(this.loginData.senha);
+      if (email != '' && senha != '') {
+        localStorage.setItem('email', email);
+        localStorage.setItem('senha', senha);
+      }
+    } else {
+      localStorage.removeItem('email');
+      localStorage.removeItem('senha');
+    }
   }
 }
