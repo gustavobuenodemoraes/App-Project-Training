@@ -1,23 +1,21 @@
+import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
 import { LocalService } from './../../../../providers/local/login.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
-/**
- * Generated class for the CadastroExerciciosPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-cadastro-exercicios',
   templateUrl: 'cadastro-exercicios.html',
 })
 export class CadastroExerciciosPage {
-  exercicio: any;
+  exercicio = { nome: '', descricao: '' };;
   id: any;
+  loading: any;
+  data: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private localservice: LocalService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private localservice: LocalService, 
+    public loadingCtrl: LoadingController, public exercicioService: ExercicioServiceProvider, private toastCtrl: ToastController) {
     this.id = navParams.get('id');
   }
 
@@ -25,7 +23,41 @@ export class CadastroExerciciosPage {
   }
 
   ngOnInit() {
-    this.localservice.mostraExercicio(this.id)
-    .subscribe(resultado => this.exercicio = resultado)
+    //this.localservice.mostraExercicio(this.id)
+    //.subscribe(resultado => this.exercicio = resultado)
+  }
+
+  doSalvarExercicio() {
+    this.showLoader();
+    this.exercicioService.registerExercicio(this.exercicio).then((result) => {
+      this.data = result;
+      this.loading.dismiss();
+    }, (err) => {
+    	this.loading.dismiss();
+        this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
+    });
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 6000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+    
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
+  
+  showLoader(){
+    this.loading = this.loadingCtrl.create({
+        content: 'Salvando...'
+    });
+
+    this.loading.present();
   }
 }
