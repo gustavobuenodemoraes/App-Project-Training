@@ -25,6 +25,7 @@ import { AuthService } from '../providers/auth-service/auth-service';
 import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
 import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
 import { Camera } from "@ionic-native/camera";
+import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { Camera } from "@ionic-native/camera";
     LocalService,
     ProfessorServiceProvider,
     LocalService,
-    Camera
+    Camera,
+    ExercicioServiceProvider
   ],
 })
 export class AppModule { }

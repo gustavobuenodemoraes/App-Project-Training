@@ -30,7 +30,7 @@ export class cadastroProfessorPage {
 
   showLoader(){
     this.loading = this.loadingCtrl.create({
-        content: 'Autenticando...'
+        content: 'Salvando...'
     });
 
     this.loading.present();

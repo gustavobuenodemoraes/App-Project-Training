@@ -34,7 +34,7 @@ export class cadastroAlunoPage {
 
   showLoader(){
     this.loading = this.loadingCtrl.create({
-        content: 'Autenticando...'
+        content: 'Salvando...'
     });
 
     this.loading.present();
