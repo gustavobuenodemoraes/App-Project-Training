@@ -16,7 +16,6 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
 import { RlTagInputModule } from 'angular2-tag-input';
-import { ImagensComponent } from '../components/imagens/imagens';
 import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios.module';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
@@ -24,6 +23,7 @@ import { ProfessorServiceProvider } from '../providers/professor-service/profess
 import { Camera } from "@ionic-native/camera";
 import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
 import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
-    ImagensComponent
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -47,7 +46,7 @@ import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao
       swipeEnabled: "false"
     }),
     RlTagInputModule,
-
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

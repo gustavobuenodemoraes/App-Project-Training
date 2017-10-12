@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
-import { ListaExerciciosComponent } from './lista-exercicios';
+import { ListaTreinamentoComponent } from './lista-treinamento';
 
 @NgModule({
   declarations: [
-    ListaExerciciosComponent,
+    ListaTreinamentoComponent,
   ],
   imports: [
     IonicModule,
   ],
   exports: [
-    ListaExerciciosComponent
+    ListaTreinamentoComponent
   ]
 })
-export class ListaExerciciosComponentModule {}
+export class ListaTreinamentoComponentModule {}

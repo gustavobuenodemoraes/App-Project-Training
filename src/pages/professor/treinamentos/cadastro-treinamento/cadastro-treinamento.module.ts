@@ -1,12 +1,12 @@
+import { ListaTreinamentoComponent } from './../../../../components/lista-treinamento/lista-treinamento';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CadastroTreinamentoPage } from './cadastro-treinamento';
-import { ListaExerciciosComponent } from '../../../../components/lista-exercicios/lista-exercicios';
 
 @NgModule({
   declarations: [
     CadastroTreinamentoPage,
-    ListaExerciciosComponent
+    ListaTreinamentoComponent
   ],
   imports: [
     IonicPageModule.forChild(CadastroTreinamentoPage),

@@ -1,3 +1,9 @@
 page-cadastro-treinamento {
-
+    .botaoTranparente{
+        transform: translate3d(-14px, -8px, 0px) scale(1);
+        height: 67px; width: 67px; 
+        opacity: 0; 
+        transition: transform 274ms, opacity 192ms 82ms;
+    }
 }
+

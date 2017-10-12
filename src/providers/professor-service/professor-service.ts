@@ -17,5 +17,4 @@ export class ProfessorServiceProvider {
          return this.http.get(`${apiUrl}professor/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({headers : headers}))
         .map(resultado => resultado.json());
   }
-
 }

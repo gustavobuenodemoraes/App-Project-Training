@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { cadastroProfessorPage } from '../cadastro-professor/cadastro-professor';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'page-login',
@@ -16,7 +17,11 @@ export class LoginPage {
   loginData: Login = { email: '', senha: '' };
   data;
 
+  orderForm: FormGroup;
+
   conectado: boolean;
+
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
   constructor(public navCtrl: NavController, public authService: AuthService, private toastCtrl: ToastController, private menuCtrl: MenuController) {
 
