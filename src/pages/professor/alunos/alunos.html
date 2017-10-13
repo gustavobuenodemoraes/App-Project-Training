@@ -13,7 +13,7 @@
 >
 <ion-content>
   <ion-list id="alunos-list4">
-      <ion-item color="none" id="alunos-list-item12" *ngFor="let usuario of usuarios" (click)="selecionaAluno(usuario.id)">
+      <ion-item color="none" id="alunos-list-item12" *ngFor="let usuario of usuarios" (click)="selecionaAluno(usuario.codigo)">
         <ion-avatar item-left>
           <img [src]="usuario?.foto" />
         </ion-avatar>

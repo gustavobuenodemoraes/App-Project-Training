@@ -17,4 +17,12 @@ export class ProfessorServiceProvider {
          return this.http.get(`${apiUrl}professor/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({headers : headers}))
         .map(resultado => resultado.json());
   }
+
+  mostrarAlunoProfessor(codigo: any): Observable<any> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}aluno/${codigo}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
+  }
 }

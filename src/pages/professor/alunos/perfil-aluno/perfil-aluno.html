@@ -1,35 +1,60 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{usuario?.nome}}</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-item>
 
-    <ion-avatar item-start>
-      <img [src]="usuario?.foto" />
-    </ion-avatar>
-  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="usuario?.foto" />
+      </ion-avatar>
+      <h2>{{usuario?.nome}}</h2>
+    </ion-item>
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6>
-        <ion-icon name="ios-mail-outline"></ion-icon>
-      </ion-col>
-      <ion-col col-6>
-        <textarea name="" id="" cols="100%" rows="10"></textarea>
-      </ion-col>
-    </ion-row>
+    <ion-list-header>
+      Treinamentos
+    </ion-list-header>
 
-    <ion-row>
-      <ion-col col-12 (click)="treinamento(usuario)">
-        {{usuario?.treinamento}}
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-item>
+      <button ion-button small (click)="doCheckbox()" clear>Lista de Treinamentos</button>
+      <ion-note item-end>Iniciante 1</ion-note>
+    </ion-item>
 
+    <ion-list-header>
+      Dados do aluno
+    </ion-list-header>
+    <ion-item>
+      Data de nascimento
+      <ion-note item-end>{{usuario?.dtNascimento | date:'dd/MM/yyyy'}}</ion-note>
+    </ion-item>
+
+    <ion-list-header>
+      Medidas do aluno
+    </ion-list-header>
+
+    <ion-item>
+      Altura
+      <ion-note item-end>{{usuario?.altura}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      Peso
+      <ion-note item-end>{{usuario?.peso}}</ion-note>
+    </ion-item>
+
+    <ion-list-header>
+      Observaçõoes do aluno
+    </ion-list-header>
+    <textarea name="descricao" class="textarea"></textarea>
+  </ion-list>
+
+
+
+  <button class="salvar" ion-button full class="cor-botao-padrao aluno">Salvar</button>
 </ion-content>

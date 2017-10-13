@@ -1,12 +1,12 @@
 import { ProfessorTabsPage } from './../professor/professor-tabs/professor-tabs';
 import { MenuController } from 'ionic-angular';
-import { Login } from './login.model';
+import { tipoLogin } from './login.model';
 import { cadastroAlunoPage } from './../cadastro-aluno/cadastro-aluno';
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { cadastroProfessorPage } from '../cadastro-professor/cadastro-professor';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-login',
@@ -14,16 +14,22 @@ import { FormGroup } from '@angular/forms';
 })
 export class LoginPage {
 
-  loginData: Login = { email: '', senha: '' };
+  loginData: FormGroup;
+
   data;
 
-  orderForm: FormGroup;
-
-  conectado: boolean;
+  conectado: boolean = false;
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
-  constructor(public navCtrl: NavController, public authService: AuthService, private toastCtrl: ToastController, private menuCtrl: MenuController) {
+  constructor(
+    public navCtrl: NavController,
+    public authService: AuthService,
+    private toastCtrl: ToastController,
+    private menuCtrl: MenuController,
+    private formBuilder: FormBuilder,
+    public loadingCtrl: LoadingController
+  ) {
 
   }
 
@@ -39,9 +45,10 @@ export class LoginPage {
     this.navCtrl.setRoot(ProfessorTabsPage);
   }
 
-  doLogin() {
-    this.authService.login(this.loginData).then((result) => {
+  doLogin(formulario: tipoLogin) {
+    this.authService.login(formulario).then((result) => {
       this.data = result;
+      this.presentLoading();
       localStorage.setItem('token', this.data.Authentication);
       localStorage.setItem('codUsuarioLogado', this.data.codigo);
       this.goToProfessor();
@@ -56,7 +63,7 @@ export class LoginPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 6000,
+      duration: 3000,
       position: 'bottom',
       dismissOnPageChange: true
     });
@@ -64,27 +71,11 @@ export class LoginPage {
     toast.present();
   }
 
-  ionViewDidLoad() {
-    let email: string = localStorage.getItem('email');
-    let senha: string = localStorage.getItem('senha');
-    if (email != null && senha != null) {
-      this.loginData.email = email;
-      this.loginData.senha = senha;
 
-      this.doLogin();
-    }
-
-
-  }
-
-  ionViewDidEnter() {
-    this.menuCtrl.enable(false, 'menuProfessor');
-  }
-
-  ManterConectado() {
+  ManterConectado(login: tipoLogin) {
     if (this.conectado == true) {
-      let email: string = String(this.loginData.email);
-      let senha: string = String(this.loginData.senha);
+      let email: string = String(login.email);
+      let senha: string = String(login.senha);
       if (email != '' && senha != '') {
         localStorage.setItem('email', email);
         localStorage.setItem('senha', senha);
@@ -93,5 +84,32 @@ export class LoginPage {
       localStorage.removeItem('email');
       localStorage.removeItem('senha');
     }
+  }
+
+
+  ngOnInit() {
+    this.loginData = this.formBuilder.group({
+      email: ['', Validators.pattern(this.emailPattern)],
+      senha: ['']
+    });
+  }
+
+  //trava o menu lateral
+  ionViewDidEnter() {
+    this.menuCtrl.enable(false, 'menuProfessor');
+    // if (localStorage.length > 2) {
+    //   let item: tipoLogin;
+    //   item.email = localStorage.getItem("email");
+    //   item.senha = localStorage.getItem("senha");
+    //   this.doLogin(item);
+    // }
+  }
+  
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 1000
+    });
+    loader.present();
   }
 }

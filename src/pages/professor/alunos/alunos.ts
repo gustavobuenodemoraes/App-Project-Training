@@ -13,8 +13,8 @@ export class AlunosPage {
   constructor(public navCtrl: NavController, private professorService: ProfessorServiceProvider) {
   }
 
-  selecionaAluno(id){
-    this.navCtrl.push(PerfilAlunoPage, { id: id });
+  selecionaAluno(codigo){
+    this.navCtrl.push(PerfilAlunoPage, { codigo: codigo });
   }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { listaExercicios } from './cadastro-treinamento.model';
 import { Component, ContentChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { FormGroup, FormBuilder, FormControlName } from '@angular/forms';
+import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, Platform } from 'ionic-angular';
+import { FormGroup, FormBuilder, FormControlName, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -22,7 +22,13 @@ export class CadastroTreinamentoPage {
 
   alterar: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private formBuilder: FormBuilder,
+    public alertCtrl: AlertController,
+    public platform: Platform,
+    public actionsheetCtrl: ActionSheetController
+  ) {
 
   }
 
@@ -30,11 +36,11 @@ export class CadastroTreinamentoPage {
     this.formTreinamento = this.formBuilder.group({
       treinamento: [''],
       exercicio: [''],
-      serie: [''],
-      repeticao: [''],
+      serie: ['', Validators.pattern(this.numberPattern)],
+      repeticao: ['', Validators.pattern(this.numberPattern)],
     });
   }
-/*Parte de cadastro */
+  /*Parte de cadastro */
   private camposErequisitos() {
     this.formTreinamento = this.formBuilder.group({
       treinamento: [''],
@@ -53,6 +59,38 @@ export class CadastroTreinamentoPage {
   removeItem(item: listaExercicios) {
     this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
   }
+
+
+  openMenu(exercicios) {
+    let actionSheet = this.actionsheetCtrl.create({
+      title: 'Albums',
+      cssClass: 'action-sheets-basic-page',
+      buttons: [
+        {
+          text: 'Alterar',
+          icon: !this.platform.is('ios') ? 'create' : null,
+          handler: () => {
+            this.alterarItem(exercicios);
+          }
+        },
+        {
+          text: 'Deletar',
+          role: 'destructive',
+          icon: !this.platform.is('ios') ? 'trash' : null,
+          handler: () => {
+            this.removeItem(exercicios);
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel', // will always sort to be on the bottom
+          icon: !this.platform.is('ios') ? 'close' : null,
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+
 
   alterarItem(item: listaExercicios) {
     this.posicao = this.exerciciosCadastrados.indexOf(item);
@@ -82,8 +120,6 @@ export class CadastroTreinamentoPage {
       buttons: [
         {
           text: 'Cancel',
-          handler: data => {
-          }
         },
         {
           text: 'Save',

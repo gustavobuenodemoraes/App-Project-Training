@@ -1,13 +1,8 @@
-import { LocalService } from './../../../../providers/local/login.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { ProfessorServiceProvider } from '../../../../providers/professor-service/professor-service';
 
-/**
- * Generated class for the PerfilAlunoPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-perfil-aluno',
@@ -15,18 +10,57 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PerfilAlunoPage {
   usuario: any
-  id: any
+  codigo: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private localService: LocalService) {
-   this.id = navParams.get('id');
-  }
+  exercicios: Array<any> = [
+    "Avançado 1",
+    "Iniciante2",
+    "Iniciante3"
+  ];
 
-  ionViewDidLoad() {
+  testCheckboxOpen: boolean;
+  testCheckboxResult;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private professorServiceProvider: ProfessorServiceProvider,
+    public alertCtrl: AlertController
+  ) {
+    this.codigo = navParams.get('codigo');
   }
 
   ngOnInit() {
-    this.localService.mostraUsuario(this.id)
-    .subscribe(resultado => this.usuario = resultado)
+    this.professorServiceProvider.mostrarAlunoProfessor(this.codigo)
+      .subscribe(resultado => this.usuario = resultado)
+  }
+
+  doCheckbox() {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Selecione os Treinamentos');
+
+    this.exercicios.forEach(element => {
+      alert.addInput({
+        type: 'checkbox',
+        label: element,
+        value: element,
+        // checked: true
+      });
+    });
+
+    alert.addButton('Cancelar');
+    alert.addButton({
+      text: 'Enviar',
+      handler: data => {
+        console.log('Checkbox data:', data);
+        this.testCheckboxOpen = false;
+        this.testCheckboxResult = data;
+      }
+    });
+
+    alert.present().then(() => {
+      this.testCheckboxOpen = true;
+    });
   }
 
 }

@@ -24,6 +24,8 @@ import { Camera } from "@ionic-native/camera";
 import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
 import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataFormatPipe } from '../pipes/data-format/data-format';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
+    DataFormatPipe,
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -65,7 +68,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfessorServiceProvider,
     LocalService,
     Camera,
-    ExercicioServiceProvider
+    ExercicioServiceProvider,
   ],
 })
 export class AppModule { }

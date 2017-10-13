@@ -9,24 +9,26 @@
 <ion-content padding>
   <form #form="ngForm" (submit)="doSalvarExercicio()">
     <ion-item>
-      <ion-label floating>Nome do exercicio</ion-label>
+      <ion-label floating>Nome do exercício</ion-label>
       <ion-input type="text" [(ngModel)]="exercicio.nome" name="nome" required></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-toggle checked="false"></ion-toggle>
-    </ion-item>
 
-    <ion-item>
-      <img src="assets/img/corpo/frente.png">
-    </ion-item>
+    <ion-list-header>
+      Descrição dos músculos afetados
+    </ion-list-header>
+    <textarea [(ngModel)]="exercicio.descricao" name="descricao" class="textarea"></textarea>
 
-    <textarea [(ngModel)]="exercicio.descricao" name="descricao"></textarea>
+    <ion-list-header>
+      Descrição do exercício
+    </ion-list-header>
+    <textarea [(ngModel)]="exercicio.descricao" name="descricao" class="textarea"></textarea>
 
-    <ion-icon ios="logo-youtube" md="logo-youtube"></ion-icon>
 
-    
-    <button class="salvar" ion-button full class="cor-botao-padrao aluno">Salvar Exercicio</button>
+    <button ion-button color="danger" clear icon-only>
+      <ion-icon ios="logo-youtube" md="logo-youtube"></ion-icon> YouTube
+    </button>
+
+    <button class="salvar" ion-button full class="cor-botao-padrao aluno">Salvar exercício</button>
 
   </form>
-
 </ion-content>

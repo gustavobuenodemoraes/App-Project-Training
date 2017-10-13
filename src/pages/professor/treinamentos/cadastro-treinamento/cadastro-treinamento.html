@@ -1,8 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title ng-if="treinamento.nome">{{treinamento?.nome}}</ion-title>
-    <ion-title ng-if="!treinamento.nome">Novo</ion-title>
+    <ion-title>Novo</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -61,7 +60,7 @@
     <ion-list-header>
       Treinamentos cadastrados
     </ion-list-header>
-    <ion-item *ngFor="let exercicios of exerciciosCadastrados">
+    <ion-item *ngFor="let exercicios of exerciciosCadastrados" >
       <ion-grid>
         <ion-row>
           <ion-col col-12>

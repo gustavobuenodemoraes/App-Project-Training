@@ -1,12 +1,21 @@
+import { Observable } from 'rxjs/Observable';
 import { apiUrl } from './../auth-service/app.pi';
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ExercicioServiceProvider {
 
   constructor(public http: Http) {
+  }
+
+  listarExerciciosDoProfessor(): Observable<Response[]> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}exercicio`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
   }
 
   registerExercicio(data) {
@@ -18,7 +27,7 @@ export class ExercicioServiceProvider {
       this.http.post(`${apiUrl}exercicio`, JSON.stringify(data), { headers: headers })
         .subscribe(res => resolve(res.json())
         , err => reject(err))
-      })
+    })
   }
 
 }

@@ -1,4 +1,3 @@
-import { TreinamentosPage } from './../pages/professor/treinamentos/treinamentos';
 import { AuthService } from './../providers/auth-service/auth-service';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
@@ -13,7 +12,7 @@ import { ConfiguracaoProfessorPage } from '../pages/professor/configuracao-profe
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-  rootPage: any = TreinamentosPage;
+  rootPage: any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
     platform.ready().then(() => {
