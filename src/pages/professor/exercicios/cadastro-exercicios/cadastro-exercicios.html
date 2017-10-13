@@ -16,17 +16,17 @@
     <ion-list-header>
       Descrição dos músculos afetados
     </ion-list-header>
-    <textarea [(ngModel)]="exercicio.descricao" name="descricao" class="textarea"></textarea>
+    <textarea [(ngModel)]="exercicio.musculo" name="musculo" class="textarea"></textarea>
 
     <ion-list-header>
       Descrição do exercício
     </ion-list-header>
     <textarea [(ngModel)]="exercicio.descricao" name="descricao" class="textarea"></textarea>
 
-
-    <button ion-button color="danger" clear icon-only>
-      <ion-icon ios="logo-youtube" md="logo-youtube"></ion-icon> YouTube
-    </button>
+    <ion-list-header>
+      Link do Video
+    </ion-list-header>
+    <textarea [(ngModel)]="exercicio.linkVideo" name="linkVideo" class="textarea"></textarea>
 
     <button class="salvar" ion-button full class="cor-botao-padrao aluno">Salvar exercício</button>
 

@@ -8,7 +8,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
   templateUrl: 'cadastro-exercicios.html',
 })
 export class CadastroExerciciosPage {
-  exercicio = { nome: '', descricao: '' };;
+  exercicio = { nome: '', descricao: '', linkVideo: '', musculo: ''};
   id: any;
   loading: any;
   data: any;
