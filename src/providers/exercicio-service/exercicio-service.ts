@@ -10,7 +10,7 @@ export class ExercicioServiceProvider {
   constructor(public http: Http) {
   }
 
-  listarExerciciosDoProfessor(): Observable<Response[]> {
+  listarExercicios(): Observable<Response[]> {
     let headers = new Headers();
     headers.append('Authentication', localStorage.getItem('token'));
 
