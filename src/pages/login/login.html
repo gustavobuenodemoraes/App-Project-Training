@@ -14,7 +14,7 @@
     </ion-list>
   </form>
 
-  <ion-item *ngIf="loginData.valid" >
+  <ion-item *ngIf="loginData.valid">
     <ion-label>Manter conectado</ion-label>
     <ion-checkbox [(ngModel)]="conectado" (ionChange)="ManterConectado(loginData.value)" checked="false"></ion-checkbox>
   </ion-item>

@@ -9,13 +9,15 @@
 
 <ion-content padding>
 
-  <form [formGroup]="formTreinamento" novalidate>
+  {{form.value | json}}
+
+  <form #form="ngForm" novalidate>
     <ion-grid>
       <ion-row>
         <ion-col col-12>
           <ion-item>
             <ion-label floating>Nome do treinamento</ion-label>
-            <ion-input type="text" formControlName="treinamento"></ion-input>
+            <ion-input type="text" name="treinamento" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -23,7 +25,7 @@
       <ion-row>
         <ion-col col-1>
           <ion-fab center right edge>
-            <button ion-fab mini (click)="addItem(formTreinamento.value)" [disabled]="!formTreinamento.valid">
+            <button ion-fab mini (click)="addItem(form.value)" [disabled]="!form.valid">
               <ion-icon name="add"></ion-icon>
             </button>
           </ion-fab>
@@ -31,9 +33,12 @@
 
         <ion-col col-11>
           <ion-item>
-            <ion-label floating>Exercícios</ion-label>
-            <ion-input type="text" formControlName="exercicio" required></ion-input>
+            <ion-label>Exercicio</ion-label>
+            <ion-select name="exercicio" ngModel>
+              <ion-option *ngFor="let exercicio of exercicios" [value]="exercicio">{{exercicio.nome}}</ion-option>
+            </ion-select>
           </ion-item>
+
         </ion-col>
       </ion-row>
 
@@ -41,14 +46,14 @@
         <ion-col col-6>
           <ion-item>
             <ion-label floating>Série</ion-label>
-            <ion-input type="number" min="0" formControlName="serie" required></ion-input>
+            <ion-input type="number" min="0" name="serie" ngModel></ion-input>
           </ion-item>
         </ion-col>
 
         <ion-col col-6>
           <ion-item>
             <ion-label floating>repetições</ion-label>
-            <ion-input type="number" min="0" formControlName="repeticao"></ion-input>
+            <ion-input type="number" min="0" name="repeticao" ngModel></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -60,36 +65,32 @@
     <ion-list-header>
       Treinamentos cadastrados
     </ion-list-header>
-    <ion-item *ngFor="let exercicios of exerciciosCadastrados" >
+    <ion-item *ngFor="let listaExercicios of exerciciosCadastrados">
       <ion-grid>
-        <ion-row>
+        <ion-row (click)="alterarItemExercicio(listaExercicios)">
           <ion-col col-12>
-            {{exercicios?.exercicio}}
+            {{listaExercicios.exercicio?.nome}}
           </ion-col>
         </ion-row>
 
-        <ion-row>
+        <ion-row (click)="alterarItemSerieExercicio(listaExercicios)">
           <ion-col col-4>
-            {{exercicios?.serie}}
+            <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
+            {{listaExercicios?.serie}}
           </ion-col>
 
           <ion-col col-4>
-            {{exercicios?.repeticao}}
+            <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
+            {{listaExercicios?.repeticao}}
           </ion-col>
 
-          <ion-col col-2>
-            <button ion-button color="primary" clear icon-only (click)="alterarItem(exercicios)">
-              <ion-icon name='create' is-active="false"></ion-icon>
-            </button>
-          </ion-col>
-
-          <ion-col col-2>
-            <button ion-button color="danger" clear icon-only (click)="removeItem(exercicios)">
+          <ion-col col-auto>
+            <button ion-button color="danger" clear icon-only (click)="removeItem(listaExercicios)">
               <ion-icon name='trash' is-active="false"></ion-icon>
             </button>
           </ion-col>
-
         </ion-row>
+
 
       </ion-grid>
     </ion-item>

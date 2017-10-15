@@ -1,8 +1,8 @@
-export class tipoExercicio implements ItipoExercicio{
+export class tipoExercicio implements ItipoExercicio {
     nome: string;
     descricao: string;
     codigo: number;
-    
+
     private lista: Array<any> = [];
     constructor(
     ) { }
@@ -17,4 +17,6 @@ export interface ItipoExercicio {
     nome: string;
     descricao: string;
     codigo: number;
+    linkVideo?: string;
+    musculo?: string;
 }

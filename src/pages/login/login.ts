@@ -95,16 +95,18 @@ export class LoginPage {
   }
 
   //trava o menu lateral
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     this.menuCtrl.enable(false, 'menuProfessor');
-    // if (localStorage.length > 2) {
-    //   let item: tipoLogin;
-    //   item.email = localStorage.getItem("email");
-    //   item.senha = localStorage.getItem("senha");
-    //   this.doLogin(item);
-    // }
+    if (localStorage.length > 2) {
+      let item: FormGroup;
+      item = this.formBuilder.group({
+        email: [localStorage.getItem("email"), Validators.pattern(this.emailPattern)],
+        senha: [localStorage.getItem("senha")]
+      });
+      this.doLogin(item.value);
+    }
   }
-  
+
   presentLoading() {
     let loader = this.loadingCtrl.create({
       content: "Please wait...",

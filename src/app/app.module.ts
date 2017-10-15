@@ -23,7 +23,7 @@ import { ProfessorServiceProvider } from '../providers/professor-service/profess
 import { Camera } from "@ionic-native/camera";
 import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
 import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
 
 
@@ -49,7 +49,8 @@ import { DataFormatPipe } from '../pipes/data-format/data-format';
       swipeEnabled: "false"
     }),
     RlTagInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
