@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
-    
-    <button ion-button menuToggle>
+
+    <button ion-button menuToggle="menuProfessor">
       <ion-icon name="menu"></ion-icon>
     </button>
 
@@ -10,17 +10,20 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-    <ion-searchbar (ionInput)="getfilterTreinamento($event)"></ion-searchbar>
 
-  <ion-list id="treinamentos-list7">
-    <ion-item color="none" id="treinamentos-list-item22" *ngFor="let treinamento of treinamentos" (click)="getEditTreinamento(treinamento.id)">
+<ion-content padding>
+  <ion-searchbar (ionInput)="getfilterTreinamento($event)"></ion-searchbar>
+
+  <ion-list>
+    <ion-item color="none" *ngFor="let treinamento of treinamentos" (click)="getEditTreinamento(treinamento.id)">
       {{treinamento.nome}}
     </ion-item>
   </ion-list>
- 
-  <ion-fab right top edge (click)="addTreinamentos()">
-      <button ion-fab mini><ion-icon class="icon icon-ios ion-ios-add"></ion-icon></button>
+
+  <ion-fab bottom right>
+    <button ion-fab color="vibrant" mini (click)="addTreinamentos()">
+      <ion-icon name="add"></ion-icon>
+    </button>
   </ion-fab>
 
 </ion-content>

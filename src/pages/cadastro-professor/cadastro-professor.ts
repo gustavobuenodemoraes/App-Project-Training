@@ -24,7 +24,7 @@ export class cadastroProfessorPage {
       localStorage.setItem('token', this.data.Authentication);
     }, (err) => {
     	this.loading.dismiss();
-        this.presentToast("Ocorreu um erro ao tentar salvar o aluno!");
+        this.presentToast("Ocorreu um erro ao tentar salvar o Professor!");
     });
   }
 

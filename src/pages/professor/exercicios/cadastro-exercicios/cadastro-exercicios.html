@@ -1,34 +1,39 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title ng-if="exercicio.nome">{{exercicio?.nome}}</ion-title>
-    <ion-title ng-if="!exercicio.nome">Novo</ion-title>
+    <ion-title>Exercicio</ion-title>
   </ion-navbar>
 
 </ion-header>
 <ion-content padding>
-  <form #form="ngForm" (submit)="doSalvarExercicio()">
+
+  <form #form="ngForm" validate>
     <ion-item>
       <ion-label floating>Nome do exercício</ion-label>
-      <ion-input type="text" [(ngModel)]="exercicio.nome" name="nome" required></ion-input>
+      <ion-input type="text" ngModel name="nome" required></ion-input>
     </ion-item>
 
     <ion-list-header>
       Descrição dos músculos afetados
     </ion-list-header>
-    <textarea [(ngModel)]="exercicio.musculo" name="musculo" class="textarea"></textarea>
+    <textarea [ngModel]="exercicio" name="musculo" class="textarea"></textarea>
+
+    <ion-list-header>
+      Descrição do aparelho
+    </ion-list-header>
+    <textarea ngModel name="aparelho" class="textarea"></textarea>
 
     <ion-list-header>
       Descrição do exercício
     </ion-list-header>
-    <textarea [(ngModel)]="exercicio.descricao" name="descricao" class="textarea"></textarea>
+    <textarea ngModel name="descricao" class="textarea"></textarea>
 
     <ion-list-header>
       Link do Video
     </ion-list-header>
-    <textarea [(ngModel)]="exercicio.linkVideo" name="linkVideo" class="textarea"></textarea>
+    <textarea ngModel name="linkVideo" class="textarea"></textarea>
 
-    <button class="salvar" ion-button full class="cor-botao-padrao aluno">Salvar exercício</button>
+    <button class="salvar" ion-button full class="cor-botao-padrao aluno" (click)="doSalvarExercicio(form.value)">Salvar exercício</button>
 
   </form>
 </ion-content>

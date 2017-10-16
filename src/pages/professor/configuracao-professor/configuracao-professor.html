@@ -38,33 +38,32 @@
       Foto Perfil
     </ion-list-header>
 
-
     <ion-card>
-
-      <img src="{{currentPhoto}}" />
-
-      <ion-card-content>
+      <img [src]="base64Image" *ngIf="base64Image" />
+      <ion-card-content *ngIf="!base64Image">
         <ion-card-title>
-          Aplicativo de Fotos
+          Inseria uma imagem
         </ion-card-title>
       </ion-card-content>
-
-      <ion-row no-padding>
-        <ion-col>
-          <button ion-button clear small color="primary" icon-left (click)="getPhoto('picture')">
-            <ion-icon name='camera'></ion-icon>
-            Câmera
-          </button>
-        </ion-col>
-        <ion-col text-center>
-          <button ion-button clear small color="primary" icon-left (click)="getPhoto('gallery')">
-            <ion-icon name='albums'></ion-icon>
-            Galeria
-          </button>
-        </ion-col>
-
-      </ion-row>
-
     </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button clear round large (click)="getAlbum()">
+            <ion-icon name='albums' item-start style="color: #d03e84"></ion-icon>
+             Galeria
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button clear round large (click)="getPhoto()">
+            <ion-icon name='camera' item-start style="color: #55acee"></ion-icon>
+             Câmera
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </ion-list>
+
 </ion-content>

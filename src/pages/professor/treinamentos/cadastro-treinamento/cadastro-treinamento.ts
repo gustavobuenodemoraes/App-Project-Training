@@ -14,10 +14,11 @@ export class CadastroTreinamentoPage {
 
   alterar: boolean = false;
 
-  /*ngModel*/
   exercicios: any;
+
+  /*ngModel*/
   serie: number;
-  repetcao: number
+  repeticao: number;
 
   constructor(
     public navCtrl: NavController,
@@ -29,25 +30,28 @@ export class CadastroTreinamentoPage {
   ) { }
 
   ionViewDidLoad() {
-
-  }
-
-  ngOnInit() {
     this.exercicioServiceProvider.listarExercicios()
       .subscribe(resultado => {
         this.exercicios = resultado;
       });
   }
 
+  ngOnInit() {
+
+  }
+
   /*Parte de cadastro */
 
   addItem(item: any) {
     this.exerciciosCadastrados.push(item);
+    this.limpar();
   }
 
   removeItem(item: any) {
     this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
   }
+
+
 
   //#region alterar item de exercicio
   alterarItemExercicio(item: any) {
@@ -113,12 +117,17 @@ export class CadastroTreinamentoPage {
   }
   //#endregion 
 
-  Itemalterado(posicao, exericio?, serie?, repeticao?) {
+  private Itemalterado(posicao, exericio?, serie?, repeticao?) {
     if (exericio && exericio != null) {
       this.exerciciosCadastrados[posicao].exercicio = exericio;
     } else {
       this.exerciciosCadastrados[posicao].serie = serie;
       this.exerciciosCadastrados[posicao].repeticao = repeticao;
     }
+  }
+
+  private limpar() {
+    this.repeticao = null;
+    this.serie = null;
   }
 }

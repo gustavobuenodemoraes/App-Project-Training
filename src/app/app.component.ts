@@ -1,4 +1,3 @@
-import { TreinamentosPage } from './../pages/professor/treinamentos/treinamentos';
 import { AuthService } from './../providers/auth-service/auth-service';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';

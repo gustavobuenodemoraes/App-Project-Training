@@ -18,8 +18,8 @@ export class ExerciciosPage {
   constructor(public navCtrl: NavController, private exercicioServiceProvider: ExercicioServiceProvider) {
   }
 
-  selecionaExercicio(id: any) {
-    this.navCtrl.push(CadastroExerciciosPage, { id: id });
+  selecionaExercicio(codigo: any) {
+    this.navCtrl.push(CadastroExerciciosPage, { codigo: codigo });
   }
 
   addExercicios(): void {
@@ -31,27 +31,26 @@ export class ExerciciosPage {
   }
 
   filterExercicios(digitado) {
-    this.initializeItems();
+    if (digitado.inputType === "deleteContentBackward") {
+      this.initializeItems();
+    }
 
-    var valorDigitado = digitado.target.value;
+    console.log(digitado);
+
+    let valorDigitado = digitado.target.value;
 
     if (valorDigitado && valorDigitado.trim() != '') {
       this.exercicios = this.exercicios.filter((resultadoList: tipoExercicio) => {
+
         return resultadoList.nome.toLocaleLowerCase().indexOf(valorDigitado) > -1;
       })
     }
-
   }
 
   initializeItems() {
     this.exercicioServiceProvider.listarExercicios()
-    .subscribe(resultado => {
-      this.exercicios = resultado
-    })
+      .subscribe(resultado => {
+        this.exercicios = resultado;
+      })
   }
-
-  // private initializeItems() {
-  //   this.exercicioServiceProvider.listarExerciciosDoProfessor()
-  //     .subscribe(resultado => this.exercicios = resultado)
-  // }
 }

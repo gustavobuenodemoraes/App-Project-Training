@@ -11,7 +11,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
@@ -20,11 +19,12 @@ import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cada
 import { AuthService } from '../providers/auth-service/auth-service';
 import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
 import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
-import { Camera } from "@ionic-native/camera";
 import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
 import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
+/* camera */
+import { Camera } from '@ionic-native/camera';
 
 
 @NgModule({
