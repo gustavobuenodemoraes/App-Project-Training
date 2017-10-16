@@ -42,7 +42,7 @@
       <img [src]="base64Image" *ngIf="base64Image" />
       <ion-card-content *ngIf="!base64Image">
         <ion-card-title>
-          Inseria uma imagem
+          Sua Foto
         </ion-card-title>
       </ion-card-content>
     </ion-card>
@@ -50,14 +50,14 @@
     <ion-grid>
       <ion-row>
         <ion-col col-6>
-          <button ion-button clear round large (click)="getAlbum()">
-            <ion-icon name='albums' item-start style="color: #d03e84"></ion-icon>
+          <button ion-button clear full (click)="getAlbum()">
+            <ion-icon name='albums' item-start style="color: #d03e3e; padding-right: 5px;"></ion-icon>
              Galeria
           </button>
         </ion-col>
         <ion-col col-6>
-          <button ion-button clear round large (click)="getPhoto()">
-            <ion-icon name='camera' item-start style="color: #55acee"></ion-icon>
+          <button ion-button clear full (click)="getPhoto()">
+            <ion-icon name='camera' item-start style="padding-right: 5px;"></ion-icon>
              Câmera
           </button>
         </ion-col>

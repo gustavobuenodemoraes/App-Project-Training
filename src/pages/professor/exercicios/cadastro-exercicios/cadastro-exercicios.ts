@@ -12,7 +12,7 @@ export class CadastroExerciciosPage {
   loading: any;
   data: any;
 
-  exercicio: any
+  exercicioList: any;
 
   constructor(
     public navCtrl: NavController,
@@ -24,10 +24,13 @@ export class CadastroExerciciosPage {
   }
 
   ionViewDidLoad() {
-    /* só colocar */
-    // this.exercicioService.mostraExercicio(this.id)
-    //   .subscribe(resultado => this.exercicio = resultado);
-    this.exercicio = "Esse é o Codigo: " + this.codigo;
+    if (this.codigo != null) {
+      this.exercicioList = "Esse é o Codigo: " + this.codigo;
+      /* só colocar */
+      // this.exercicioService.mostraExercicio(this.codigo)
+      //   .subscribe(resultado => this.exercicioList = resultado);
+      
+    }
   }
 
   ngOnInit() {
