@@ -5,6 +5,7 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConfiguracaoProfessorPage } from '../pages/professor/configuracao-professor/configuracao-professor';
+import { AlunoSelecaoPage } from '../pages/aluno/aluno-selecao/aluno-selecao';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { ConfiguracaoProfessorPage } from '../pages/professor/configuracao-profe
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-  rootPage: any = LoginPage;
+  rootPage: any = AlunoSelecaoPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
     platform.ready().then(() => {

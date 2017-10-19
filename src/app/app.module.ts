@@ -25,6 +25,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
 /* camera */
 import { Camera } from '@ionic-native/camera';
+import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { Camera } from '@ionic-native/camera';
     }),
     RlTagInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AlunoSelecaoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
