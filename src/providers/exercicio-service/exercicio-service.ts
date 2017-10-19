@@ -14,7 +14,15 @@ export class ExercicioServiceProvider {
     let headers = new Headers();
     headers.append('Authentication', localStorage.getItem('token'));
 
-    return this.http.get(`${apiUrl}exercicio`, new RequestOptions({ headers: headers }))
+    return this.http.get(`${apiUrl}exercicio/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
+  }
+
+  findById(codigo : any): Observable<Response[]> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}exercicio/find/${codigo}`, new RequestOptions({ headers: headers }))
       .map(resultado => resultado.json());
   }
 
@@ -24,7 +32,7 @@ export class ExercicioServiceProvider {
       headers.append('Content-Type', 'application/json');
       headers.append('Authentication', localStorage.getItem('token'));
 
-      this.http.post(`${apiUrl}exercicio`, JSON.stringify(data), { headers: headers })
+      this.http.post(`${apiUrl}exercicio/${localStorage.getItem('codUsuarioLogado')}`, JSON.stringify(data), { headers: headers })
         .subscribe(res => resolve(res.json())
         , err => reject(err))
     })
