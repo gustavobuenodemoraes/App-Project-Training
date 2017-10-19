@@ -25,11 +25,8 @@ export class CadastroExerciciosPage {
 
   ionViewDidLoad() {
     if (this.codigo != null) {
-      this.exercicioList = "Esse é o Codigo: " + this.codigo;
-      /* só colocar */
-      // this.exercicioService.mostraExercicio(this.codigo)
-      //   .subscribe(resultado => this.exercicioList = resultado);
-      
+      this.exercicioService.findById(this.codigo)
+        .subscribe(resultado => this.exercicioList = resultado);
     }
   }
 
@@ -38,6 +35,10 @@ export class CadastroExerciciosPage {
   }
 
   doSalvarExercicio(exercicio) {
+    if(exercicio.codigo == ""){
+      exercicio.codigo = 0;
+    }
+    
     this.showLoader();
     this.exercicioService.registerExercicio(exercicio).then((result) => {
       this.data = result;
