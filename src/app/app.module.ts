@@ -26,6 +26,8 @@ import { DataFormatPipe } from '../pipes/data-format/data-format';
 /* camera */
 import { Camera } from '@ionic-native/camera';
 import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
+import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
+import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-perfil-professor/aluno-perfil-professor.module';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selec
     RlTagInputModule,
     ReactiveFormsModule,
     FormsModule,
-    AlunoSelecaoPageModule
+    AlunoSelecaoPageModule,
+    MenuLateralPageModule,
+    AlunoPerfilProfessorPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

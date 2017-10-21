@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { AlunoPerfilProfessorPage } from '../aluno-perfil-professor/aluno-perfil-professor';
 
-/**
- * Generated class for the AlunoSelecaoPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-aluno-selecao',
@@ -14,13 +9,23 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 })
 export class AlunoSelecaoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private menuCtrl: MenuController,) {
-    this.menuCtrl.get('menu2')
-    .enable(true);
+  professores: Array<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.professores = [
+      { codigo: 1, nome: 'Paulo' },
+      { codigo: 2, nome: 'Gustavo' },
+      { codigo: 8, nome: 'teste' },
+    ];
+  }
+
+  selecionaProfessor(professor): void {
+    alert(professor.codigo);
+    this.navCtrl.push(AlunoPerfilProfessorPage, { codigo: professor.codigo });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AlunoSelecaoPage');
+
   }
 
 }

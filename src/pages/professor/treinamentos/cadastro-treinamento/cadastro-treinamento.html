@@ -9,6 +9,9 @@
 
 <ion-content padding>
   <form #form="ngForm" novalidate>
+
+    {{form.value | json}}
+
     <ion-grid>
       <ion-row>
         <ion-col col-12>

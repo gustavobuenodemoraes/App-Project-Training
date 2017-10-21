@@ -15,19 +15,12 @@ export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = AlunoSelecaoPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
 
-  onConfiguracao(): void {
-    this.navCtrl.push(ConfiguracaoProfessorPage);
-  }
 
-  sair(): void {
-    this.authService.logout();
-    this.navCtrl.setRoot(LoginPage);
-  }
 }

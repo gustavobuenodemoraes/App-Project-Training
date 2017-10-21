@@ -1,3 +1,4 @@
+import { MenuLateralPage } from './../professor/menu-lateral/menu-lateral';
 import { ProfessorTabsPage } from './../professor/professor-tabs/professor-tabs';
 import { MenuController } from 'ionic-angular';
 import { tipoLogin } from './login.model';
@@ -42,7 +43,7 @@ export class LoginPage {
   }
 
   goToProfessor() {
-    this.navCtrl.setRoot(ProfessorTabsPage);
+    this.navCtrl.setRoot(MenuLateralPage);
   }
 
   doLogin(formulario: tipoLogin) {

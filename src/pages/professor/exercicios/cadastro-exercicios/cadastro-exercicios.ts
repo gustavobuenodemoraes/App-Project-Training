@@ -12,7 +12,7 @@ export class CadastroExerciciosPage {
   loading: any;
   data: any;
 
-  exercicioList: any = "";
+  exercicioList;
 
   constructor(
     public navCtrl: NavController,
@@ -24,20 +24,17 @@ export class CadastroExerciciosPage {
   }
 
   ionViewDidLoad() {
-    if (this.codigo == null) {
-      /* só colocar */
-      // this.exercicioService.mostraExercicio(this.codigo)
-      //   .subscribe(resultado => this.exercicioList = resultado);
-    }else{
-      this.exercicioList = "Esse é o Codigo: " + this.codigo;
+    if (this.codigo != null) {
+      this.exercicioService.findById(this.codigo)
+        .subscribe(resultado => this.exercicioList = resultado);
     }
   }
 
-  ngOnInit() {
-
-  }
-
   doSalvarExercicio(exercicio) {
+    if (exercicio.codigo == "") {
+      exercicio.codigo = 0;
+    }
+    console.log(exercicio);
     this.showLoader();
     this.exercicioService.registerExercicio(exercicio).then((result) => {
       this.data = result;
@@ -69,5 +66,16 @@ export class CadastroExerciciosPage {
     });
 
     this.loading.present();
+  }
+
+  ngOnInit() {
+    this.exercicioList = {
+      nome: '',
+      musculo: '',
+      equipamento: '',
+      descricao: '',
+      linkVideo: '',
+      codigo: ''
+    };
   }
 }

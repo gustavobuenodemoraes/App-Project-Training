@@ -10,29 +10,31 @@
   <form #form="ngForm" validate>
     <ion-item>
       <ion-label floating>Nome do exercício</ion-label>
-      <ion-input type="text" ngModel name="nome" required></ion-input>
+      <ion-input type="text"  name="nome" [(ngModel)]="exercicioList.nome" required></ion-input>
     </ion-item>
 
     <ion-list-header>
       Descrição dos músculos afetados
     </ion-list-header>
     <!-- quando passar os valores carregado na lista colocar exercicioList.musculo -->
-    <textarea name="musculo" class="textarea" [value]="exercicioList"></textarea>
+    <textarea  name="musculo" class="textarea" [(ngModel)]="exercicioList.musculo"></textarea>
 
     <ion-list-header>
       Descrição do aparelho
     </ion-list-header>
-    <textarea ngModel name="aparelho" class="textarea"></textarea>
+    <textarea  name="equipamento" class="textarea" [(ngModel)]="exercicioList.equipamento"></textarea>
 
     <ion-list-header>
       Descrição do exercício
     </ion-list-header>
-    <textarea ngModel name="descricao" class="textarea"></textarea>
+    <textarea  name="descricao" class="textarea" [(ngModel)]="exercicioList.descricao"></textarea>
 
     <ion-list-header>
       Link do Video
     </ion-list-header>
-    <textarea ngModel name="linkVideo" class="textarea"></textarea>
+    <textarea  name="linkVideo" class="textarea" [(ngModel)]="exercicioList.linkVideo"></textarea>
+
+    <ion-input type="text" hidden name="codigo" [(ngModel)]="exercicioList.codigo"> </ion-input>
 
     <button class="salvar" ion-button full class="cor-botao-padrao aluno" (click)="doSalvarExercicio(form.value)">Salvar exercício</button>
 
