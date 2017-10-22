@@ -25,9 +25,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
 /* camera */
 import { Camera } from '@ionic-native/camera';
+import { TreinamentoServiceProvider } from '../providers/treinamento-service/treinamento-service';
 import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
 import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
 import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-perfil-professor/aluno-perfil-professor.module';
+
 
 
 @NgModule({
@@ -76,6 +78,7 @@ import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-perfil-prof
     LocalService,
     Camera,
     ExercicioServiceProvider,
+    TreinamentoServiceProvider,
   ],
 })
 export class AppModule { }
