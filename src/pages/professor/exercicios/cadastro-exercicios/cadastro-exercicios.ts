@@ -12,7 +12,7 @@ export class CadastroExerciciosPage {
   loading: any;
   data: any;
 
-  exercicioList: any;
+  exercicioList;
 
   constructor(
     public navCtrl: NavController,
@@ -30,15 +30,11 @@ export class CadastroExerciciosPage {
     }
   }
 
-  ngOnInit() {
-
-  }
-
   doSalvarExercicio(exercicio) {
-    if(exercicio.codigo == ""){
+    if (exercicio.codigo == "") {
       exercicio.codigo = 0;
     }
-    
+    console.log(exercicio);
     this.showLoader();
     this.exercicioService.registerExercicio(exercicio).then((result) => {
       this.data = result;
@@ -70,5 +66,16 @@ export class CadastroExerciciosPage {
     });
 
     this.loading.present();
+  }
+
+  ngOnInit() {
+    this.exercicioList = {
+      nome: '',
+      musculo: '',
+      equipamento: '',
+      descricao: '',
+      linkVideo: '',
+      codigo: ''
+    };
   }
 }

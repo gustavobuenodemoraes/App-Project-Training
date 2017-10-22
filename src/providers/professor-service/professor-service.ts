@@ -25,4 +25,8 @@ export class ProfessorServiceProvider {
     return this.http.get(`${apiUrl}aluno/${codigo}`, new RequestOptions({ headers: headers }))
       .map(resultado => resultado.json());
   }
+
+  mostrarProfessor(codigo: any){
+    
+  }
 }
