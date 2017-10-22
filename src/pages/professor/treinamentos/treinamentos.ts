@@ -1,3 +1,4 @@
+import { TreinamentoServiceProvider } from './../../../providers/treinamento-service/treinamento-service';
 import { LocalService } from './../../../providers/local/login.service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -10,7 +11,7 @@ import { CadastroTreinamentoPage } from './cadastro-treinamento/cadastro-treinam
 export class TreinamentosPage {
   treinamentos: any[];
 
-  constructor(public navCtrl: NavController, private localService: LocalService) {
+  constructor(public navCtrl: NavController, private localService: LocalService, private treinamentoService: TreinamentoServiceProvider) {
   }
   //filtra o nome do treinamento
   getfilterTreinamento(event) {
@@ -26,7 +27,7 @@ export class TreinamentosPage {
   }
 
   ngOnInit() {
-    this.localService.listarTreinamentos()
+    this.treinamentoService.listarTreinamentosDoProfessor()
       .subscribe(resultado => this.treinamentos = resultado)
   }
 

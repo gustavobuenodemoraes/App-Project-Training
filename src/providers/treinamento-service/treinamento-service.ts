@@ -1,6 +1,7 @@
+import { Observable } from 'rxjs/Observable';
 import { apiUrl } from './../auth-service/app.pi';
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -32,4 +33,13 @@ export class TreinamentoServiceProvider {
         , err => reject(err))
     })
   }
+
+    listarTreinamentosDoProfessor() : Observable<Response[]>{
+        let headers = new Headers();
+        headers.append('Authentication', localStorage.getItem('token'));
+
+         return this.http.get(`${apiUrl}Treinamento/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({headers : headers}))
+        .map(resultado => resultado.json());
+  }
+
 }
