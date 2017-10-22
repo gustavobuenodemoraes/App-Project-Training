@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+
+    <button ion-button icon-only menuToggle="menu2" start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Seleção de Professor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let professor of professores">
+      <button ion-button clear full large (click)="selecionaProfessor(professor)">
+        {{ professor.nome }}
+      </button>
+      <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" large item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

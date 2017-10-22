@@ -1,9 +1,9 @@
-<ion-menu [content]="mainContent">
+<ion-menu [content]="mainContent" id="menuProfessor" >
   <ion-header>
     <ion-toolbar>
       <ion-title>
         <ion-avatar item-start>
-          <img [src]="usuario?.foto">
+          <img src="https://vignette3.wikia.nocookie.net/fictionalcharacters/images/9/9a/Johnny_Bravo.png/revision/latest?cb=20131031032341">
         </ion-avatar>
       </ion-title>
     </ion-toolbar>
@@ -13,20 +13,19 @@
     <ion-list>
 
       <ion-item>
-        <ion-icon name="contact"></ion-icon> {{usuario?.nome}}</ion-item>
-
-      <ion-item>
-        <ion-icon name="people"></ion-icon> {{usuario?.QtdAlunos}} Alunos</ion-item>
+        <ion-icon name="contact"></ion-icon>
+        <ion-label>Nome Progessor</ion-label>
+      </ion-item>
 
       <button ion-item (click)="onConfiguracao()" menuClose>
-            <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
-        </button>
+        <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
+      </button>
 
-      <ion-item>
-        <ion-icon name="exit"></ion-icon> Sair</ion-item>
+      <button ion-item (click)="sair()" menuClose>
+        <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Sair
+      </button>
 
     </ion-list>
   </ion-content>
 </ion-menu>
-
 <ion-nav #mainContent [root]="rootPage"></ion-nav>

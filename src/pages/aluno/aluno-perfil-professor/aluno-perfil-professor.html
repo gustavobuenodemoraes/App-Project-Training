@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Perfil do Professor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      {{professor.nome}}
+      <ion-icon name='person' item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      {{professor.email}}
+      <ion-icon name='mail' item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='calendar' item-start></ion-icon>
+      <ion-note item-start>{{professor.dtNascimento | date: 'd'}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      {{professor.cref}}
+      <ion-icon name='document' item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='male' item-start></ion-icon>
+    </ion-item>
+
+    <ion-input type="text" hidden name="codigo" [(ngModel)]="professor.codigo"> </ion-input>
+
+  </ion-list>
+</ion-content>
