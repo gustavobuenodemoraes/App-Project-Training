@@ -1,7 +1,9 @@
+import { TreinamentoServiceProvider } from './../../../../providers/treinamento-service/treinamento-service';
+import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
 import { listaExercicios } from './cadastro-treinamento.model';
 import { Component, ContentChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, Platform } from 'ionic-angular';
-import { ExercicioServiceProvider } from '../../../../providers/exercicio-service/exercicio-service';
+import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, Platform, LoadingController, ToastController } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -20,13 +22,21 @@ export class CadastroTreinamentoPage {
   serie: number;
   repeticao: number;
 
+  loading: any;
+
+  dataTreinamento = <any>{};
+  treinamento = { nome:''}
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
-    private exercicioServiceProvider: ExercicioServiceProvider
+    private exercicioServiceProvider: ExercicioServiceProvider,
+    private treinamentoServiceProvider : TreinamentoServiceProvider,
+    public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
   ) { }
 
   ionViewDidLoad() {
@@ -34,10 +44,6 @@ export class CadastroTreinamentoPage {
       .subscribe(resultado => {
         this.exercicios = resultado;
       });
-  }
-
-  ngOnInit() {
-
   }
 
   /*Parte de cadastro */
@@ -129,5 +135,48 @@ export class CadastroTreinamentoPage {
   private limpar() {
     this.repeticao = null;
     this.serie = null;
+  }
+
+  salvarTreinamento(){
+    this.showLoader();
+    this.treinamentoServiceProvider.salvarTreinamentos(this.treinamento).then((result) => {
+      this.dataTreinamento = result;
+      this.salvarOrdemTreinos(this.dataTreinamento.codigo);
+      this.loading.dismiss();
+    }, (err) => {
+      this.loading.dismiss();
+      this.presentToast("Ocorreu um erro ao tentar salvar o treinamento!");
+    });
+  }
+
+  salvarOrdemTreinos(codTreino){
+    this.treinamentoServiceProvider.salvarOrdemTreinos(codTreino, this.exerciciosCadastrados).then((result) => {
+
+    }, (err) => {
+      this.presentToast("Ocorreu um erro ao tentar salvar o exercicio no treinamento!");
+    });
+  }
+  
+  showLoader() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Salvando...'
+    });
+
+    this.loading.present();
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 6000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 }

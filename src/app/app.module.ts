@@ -25,6 +25,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
 /* camera */
 import { Camera } from '@ionic-native/camera';
+import { TreinamentoServiceProvider } from '../providers/treinamento-service/treinamento-service';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { Camera } from '@ionic-native/camera';
     LocalService,
     Camera,
     ExercicioServiceProvider,
+    TreinamentoServiceProvider,
   ],
 })
 export class AppModule { }
