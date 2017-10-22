@@ -1,3 +1,4 @@
+import { LocalService } from './../../../providers/local/login.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -8,19 +9,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'aluno-perfil-professor.html',
 })
 export class AlunoPerfilProfessorPage {
+  codigo: any;
 
   professor: any = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.professor = [
-      {codigo: 1, nome: 'Paulo', email:'paulo@paulo.com',dtNascimento:'12/30/2017',Cref:'028145-G/MG',sexo: 'male'},
-      {codigo: 2, nome: 'Gustavo', email:'gustavo@gusatvo.com',dtNascimento:'03/11/1995',Cref:'028145-G/RJ',sexo: 'male'},
-      {codigo: 8, nome: 'Teste', email:'teste@teste.com',dtNascimento:'11/31/1981',Cref:'028145-P/SP',sexo: 'female'},
-    ]
+  constructor(public navCtrl: NavController, public navParams: NavParams, private localService: LocalService) {
+    this.codigo = navParams.get('codigo');
   }
 
   ionViewDidLoad() {
-    
+    this.localService.mostrarProfessor(this.codigo)
+      .subscribe(resultado => this.professor = resultado);
   }
 
 }

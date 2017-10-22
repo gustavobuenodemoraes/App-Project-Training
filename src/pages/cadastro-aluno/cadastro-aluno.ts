@@ -8,7 +8,6 @@ import { AuthService } from '../../providers/auth-service/auth-service';
   templateUrl: 'cadastro-aluno.html',
 })
 export class cadastroAlunoPage {
-
   data: any;
   loading: any;
   dadosAluno = { nome:'', senha:'',  email:'', dtNascimento:'', peso:'', altura:''};

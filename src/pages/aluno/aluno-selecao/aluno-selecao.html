@@ -12,13 +12,16 @@
 
 
 <ion-content padding>
-
   <ion-list>
+    <!-- mudar para codigo -->
     <ion-item *ngFor="let professor of professores">
-      <button ion-button clear full large (click)="selecionaProfessor(professor)">
+      <button ion-button color="secondary" clear icon-only large icon-left item-end>
+        <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" large item-right></ion-icon>
+      </button>
+
+      <button ion-button clear full large (click)="selecionaProfessor(professor.id)">
         {{ professor.nome }}
       </button>
-      <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" large item-right></ion-icon>
     </ion-item>
   </ion-list>
 

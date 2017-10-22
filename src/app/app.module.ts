@@ -1,3 +1,5 @@
+import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-perfil-professor/aluno-perfil-professor.module';
+import { AlunoTreinamentoPageModule } from '../pages/aluno/aluno-treinamento/aluno-treinamento.module';
 import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { ProfessorTabsPageModule } from './../pages/professor/professor-tabs/professor-tabs.module';
 import { PerfilAlunoPageModule } from './../pages/professor/alunos/perfil-aluno/perfil-aluno.module';
@@ -23,11 +25,13 @@ import { ExercicioServiceProvider } from '../providers/exercicio-service/exercic
 import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
+/*Mascara*/
+import { TextMaskModule } from 'angular2-text-mask';
 /* camera */
 import { Camera } from '@ionic-native/camera';
 import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
 import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
-import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-perfil-professor/aluno-perfil-professor.module';
+
 
 
 @NgModule({
@@ -56,7 +60,9 @@ import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-perfil-prof
     FormsModule,
     AlunoSelecaoPageModule,
     MenuLateralPageModule,
-    AlunoPerfilProfessorPageModule
+    AlunoPerfilProfessorPageModule,
+    TextMaskModule,
+    AlunoTreinamentoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

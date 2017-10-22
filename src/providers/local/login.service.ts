@@ -40,4 +40,14 @@ export class LocalService {
         return this.http.get(`${MEAT_API}/treinamentos/${id}`)
             .map(resultado => resultado.json())
     }
+
+    listarProfessores():Observable<Response[]> {
+        return this.http.get(`${MEAT_API}/professores`)
+            .map(resultado => resultado.json());
+    }
+
+    mostrarProfessor(id: any): Observable<any> {
+        return this.http.get(`${MEAT_API}/professores/${id}`)
+            .map(resultado => resultado.json())
+    }
 }

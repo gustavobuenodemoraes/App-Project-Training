@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConfiguracaoProfessorPage } from '../pages/professor/configuracao-professor/configuracao-professor';
 import { AlunoSelecaoPage } from '../pages/aluno/aluno-selecao/aluno-selecao';
+import { AlunoTreinamentoPage } from '../pages/aluno/aluno-treinamento/aluno-treinamento';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AlunoSelecaoPage } from '../pages/aluno/aluno-selecao/aluno-selecao';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-  rootPage: any = AlunoSelecaoPage;
+  rootPage: any = AlunoTreinamentoPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
