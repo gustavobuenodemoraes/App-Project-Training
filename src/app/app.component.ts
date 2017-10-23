@@ -13,7 +13,7 @@ import { AlunoSelecaoPage } from '../pages/aluno/aluno-selecao/aluno-selecao';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-  rootPage: any = AlunoSelecaoPage;
+  rootPage: any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

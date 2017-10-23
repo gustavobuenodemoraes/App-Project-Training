@@ -13,23 +13,20 @@
   <ion-list>
     <ion-item color="none">
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text" name="nome" [value]=""></ion-input>
+      <ion-input [(ngModel)]="professor.nome" type="text" name="nome" [value]="" required></ion-input>
     </ion-item>
 
     <ion-item color="none">
-      <ion-label floating>senha antiga</ion-label>
-      <ion-input type="text" name="senhaAntiga" [value]=""></ion-input>
+      <ion-label floating>CREF</ion-label>
+      <ion-input [(ngModel)]="professor.confef" type="text" name="cref" [value]="" required></ion-input>
     </ion-item>
 
-    <ion-item color="none">
-      <ion-label floating>nova senha</ion-label>
-      <ion-input type="text" name="senhaAntiga" [value]=""></ion-input>
+    <ion-item>
+        <ion-label>Data de Nascimento</ion-label>
+        <ion-datetime [(ngModel)]="professor.dtNascimento" displayFormat="DD MMM YYYY" name="dtNascimento" required></ion-datetime>
     </ion-item>
 
-    <ion-item color="none">
-      <ion-label floating>confirmar senha</ion-label>
-      <ion-input type="text" name="senhaAntiga" [value]=""></ion-input>
-    </ion-item>
+    <ion-input type="text" hidden name="codigo" [(ngModel)]="professor.codigo"> </ion-input>
   </ion-list>
 
 
@@ -39,7 +36,7 @@
     </ion-list-header>
 
     <ion-card>
-      <img [src]="base64Image" *ngIf="base64Image" />
+      <img [src]="base64Image" *ngIf="base64Image" [(ngModel)]="professor.dtNascimento" />
       <ion-card-content *ngIf="!base64Image">
         <ion-card-title>
           Sua Foto
@@ -65,5 +62,7 @@
     </ion-grid>
 
   </ion-list>
+
+  <button class="salvar" ion-button full class="cor-botao-padrao aluno" (click)="salvarConfiguracao()">Salvar exercício</button>
 
 </ion-content>

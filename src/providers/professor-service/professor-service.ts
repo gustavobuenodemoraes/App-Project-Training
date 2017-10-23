@@ -26,7 +26,22 @@ export class ProfessorServiceProvider {
       .map(resultado => resultado.json());
   }
 
-  mostrarProfessor(codigo: any){
-    
+  mostrarProfessor(codigo: any): Observable<any>{
+        let headers = new Headers();
+        headers.append('Authentication', localStorage.getItem('token'));
+
+         return this.http.get(`${apiUrl}professor/find/${codigo}`, new RequestOptions({headers : headers}))
+        .map(resultado => resultado.json());
+  }
+
+  salvarProfessor(data) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json')
+      headers.append('Authentication', localStorage.getItem('token'));
+      this.http.post(`${apiUrl}professor`, JSON.stringify(data), { headers: headers })
+        .subscribe(res => resolve(res.json())
+        , err => reject(err));
+    });
   }
 }

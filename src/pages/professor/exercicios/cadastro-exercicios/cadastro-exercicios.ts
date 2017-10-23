@@ -34,7 +34,6 @@ export class CadastroExerciciosPage {
     if (exercicio.codigo == "") {
       exercicio.codigo = 0;
     }
-    console.log(exercicio);
     this.showLoader();
     this.exercicioService.registerExercicio(exercicio).then((result) => {
       this.data = result;
