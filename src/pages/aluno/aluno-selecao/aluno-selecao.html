@@ -15,14 +15,17 @@
   <ion-list>
     <!-- mudar para codigo -->
     <ion-item *ngFor="let professor of professores">
-      <button ion-button color="secondary" clear icon-only large icon-left item-end>
-        <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" large item-right></ion-icon>
-      </button>
 
-      <button ion-button clear full large (click)="selecionaProfessor(professor.id)">
+      <ion-avatar item-start>
+        <img [src]="professor.imagem">
+      </ion-avatar>
+
+      <button ion-button clear (click)="selecionaProfessor(professor.id)">
         {{ professor.nome }}
       </button>
+
     </ion-item>
+
   </ion-list>
 
 </ion-content>

@@ -6,7 +6,8 @@
       "email": "paulo@paulo.com",
       "dtNascimento": "12/30/2017",
       "Cref": "028145-G/MG",
-      "sexo": "male"
+      "sexo": "male",
+      "avaliacaoMedia": 4
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "email": "gustavo@gusatvo.com",
       "dtNascimento": "03/11/1995",
       "Cref": "028145-G/RJ",
-      "sexo": "male"
+      "sexo": "male",
+      "avaliacaoMedia": 0
     },
     {
       "id": 8,
@@ -22,7 +24,8 @@
       "email": "teste@teste.com",
       "dtNascimento": "11/31/1981",
       "Cref": "028145-P/SP",
-      "sexo": "female"
+      "sexo": "female",
+      "avaliacaoMedia": 2
     }
   ]
 }

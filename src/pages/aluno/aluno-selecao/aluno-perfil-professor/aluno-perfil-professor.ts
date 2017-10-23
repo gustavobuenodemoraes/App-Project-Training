@@ -1,6 +1,6 @@
-import { LocalService } from './../../../providers/local/login.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LocalService } from '../../../../providers/local/login.service';
 
 
 @IonicPage()

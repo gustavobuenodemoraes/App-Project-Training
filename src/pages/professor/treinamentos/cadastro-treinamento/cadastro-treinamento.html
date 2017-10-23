@@ -17,7 +17,7 @@
         <ion-col col-12>
           <ion-item>
             <ion-label floating>Nome do treinamento</ion-label>
-            <ion-input type="text" name="treinamento" ngModel required></ion-input>
+            <ion-input type="text" name="nome" [(ngModel)]="treinamento.nome" required></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -94,5 +94,5 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button class="background-color" block>Salvar</button>
+  <button ion-button class="background-color" block (click)="salvarTreinamento()">Salvar</button>
 </ion-content>

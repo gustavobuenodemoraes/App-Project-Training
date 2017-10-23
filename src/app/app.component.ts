@@ -1,3 +1,4 @@
+import { AlunoTreinamentoPage } from './../pages/aluno/aluno-treinamento/aluno-treinamento';
 import { AuthService } from './../providers/auth-service/auth-service';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
@@ -6,7 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConfiguracaoProfessorPage } from '../pages/professor/configuracao-professor/configuracao-professor';
 import { AlunoSelecaoPage } from '../pages/aluno/aluno-selecao/aluno-selecao';
-import { AlunoTreinamentoPage } from '../pages/aluno/aluno-treinamento/aluno-treinamento';
 
 
 @Component({
@@ -22,6 +22,4 @@ export class MyApp {
       splashScreen.hide();
     });
   }
-
-
 }
