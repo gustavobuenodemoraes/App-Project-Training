@@ -17,12 +17,7 @@
   <ion-list *ngFor="let exercicio of exercicios">
 
     <ion-item color="none" (click)="selecionaExercicio(exercicio.codigo)">
-      <ion-avatar item-left>
-        <img [src]="exercicio?.imageExercicio" />
-      </ion-avatar>
-      <h2>
         {{exercicio.nome}}
-      </h2>
     </ion-item>
   </ion-list>
 

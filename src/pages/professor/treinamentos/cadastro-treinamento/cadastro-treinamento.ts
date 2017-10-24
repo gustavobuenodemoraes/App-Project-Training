@@ -11,6 +11,8 @@ import { IonicPage, NavController, NavParams, AlertController, ActionSheetContro
   templateUrl: 'cadastro-treinamento.html',
 })
 export class CadastroTreinamentoPage {
+  id: any;
+  titulo = '';
 
   exerciciosCadastrados: Array<any> = [];
 
@@ -25,7 +27,7 @@ export class CadastroTreinamentoPage {
   loading: any;
 
   dataTreinamento = <any>{};
-  treinamento = { nome:''}
+  treinamento: any = { nome: '', codigo: null }
 
   constructor(
     public navCtrl: NavController,
@@ -34,16 +36,24 @@ export class CadastroTreinamentoPage {
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
     private exercicioServiceProvider: ExercicioServiceProvider,
-    private treinamentoServiceProvider : TreinamentoServiceProvider,
+    private treinamentoServiceProvider: TreinamentoServiceProvider,
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController
-  ) { }
+  ) {
+    this.id = navParams.get('id');
+  }
 
   ionViewDidLoad() {
     this.exercicioServiceProvider.listarExercicios()
       .subscribe(resultado => {
         this.exercicios = resultado;
       });
+    this.alterarTreinamento();
+    if (this.id == null) {
+      this.titulo = "Novo"
+    }else{
+      this.titulo = "Alterar"
+    }
   }
 
   /*Parte de cadastro */
@@ -56,8 +66,6 @@ export class CadastroTreinamentoPage {
   removeItem(item: any) {
     this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
   }
-
-
 
   //#region alterar item de exercicio
   alterarItemExercicio(item: any) {
@@ -132,12 +140,24 @@ export class CadastroTreinamentoPage {
     }
   }
 
+
+  private alterarTreinamento() {
+    this.treinamentoServiceProvider.listarOrdemDeTreinamentosExercicios(this.id)
+      .subscribe(resultado => {
+        this.exerciciosCadastrados = resultado
+        this.exerciciosCadastrados.filter(resultado => {
+          this.treinamento.nome = resultado.treinamento.nome;
+          this.treinamento.codigo = resultado.treinamento.codigo;
+        });
+      })
+  }
+
   private limpar() {
     this.repeticao = null;
     this.serie = null;
   }
 
-  salvarTreinamento(){
+  salvarTreinamento() {
     this.showLoader();
     this.treinamentoServiceProvider.salvarTreinamentos(this.treinamento).then((result) => {
       this.dataTreinamento = result;
@@ -149,14 +169,14 @@ export class CadastroTreinamentoPage {
     });
   }
 
-  salvarOrdemTreinos(codTreino){
+  salvarOrdemTreinos(codTreino) {
     this.treinamentoServiceProvider.salvarOrdemTreinos(codTreino, this.exerciciosCadastrados).then((result) => {
 
     }, (err) => {
       this.presentToast("Ocorreu um erro ao tentar salvar o exercicio no treinamento!");
     });
   }
-  
+
   showLoader() {
     this.loading = this.loadingCtrl.create({
       content: 'Salvando...'

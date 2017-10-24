@@ -42,4 +42,12 @@ export class TreinamentoServiceProvider {
         .map(resultado => resultado.json());
   }
 
+  listarOrdemDeTreinamentosExercicios(codigo): Observable<Response[]>{
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}ordemTreino/treinamento/${codigo}`, new RequestOptions({headers : headers}))
+    .map(resultado => resultado.json());
+  }
+
 }

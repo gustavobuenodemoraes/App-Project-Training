@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Novo</ion-title>
+    <ion-title>{{titulo}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,8 +10,7 @@
 <ion-content padding>
   <form #form="ngForm" novalidate>
 
-    {{form.value | json}}
-
+    <ion-input type="text" hidden name="codigo" [(ngModel)]="treinamento.codigo" *ngIf="treinamento.codigo != null" > </ion-input>
     <ion-grid>
       <ion-row>
         <ion-col col-12>

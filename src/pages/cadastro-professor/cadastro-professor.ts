@@ -11,7 +11,7 @@ export class cadastroProfessorPage {
 
     loading: any;
     data: any;
-    dadosProfessor = { nome:'', senha:'',  email:'', dtNascimento:'', cref: ''};
+    dadosProfessor = { nome:'', senha:'',  email:'', dtNascimento:'', confef: ''};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private toastCtrl: ToastController, public authService: AuthService) {
   }

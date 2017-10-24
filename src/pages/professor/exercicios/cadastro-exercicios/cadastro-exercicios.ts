@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
   templateUrl: 'cadastro-exercicios.html',
 })
 export class CadastroExerciciosPage {
+  titulo: string;
   codigo: number;
   loading: any;
   data: any;
@@ -28,13 +29,17 @@ export class CadastroExerciciosPage {
       this.exercicioService.findById(this.codigo)
         .subscribe(resultado => this.exercicioList = resultado);
     }
+    if (this.codigo != null) {
+      this.titulo = "Alterar"
+    }else{
+      this.titulo = "Novo"
+    }
   }
 
   doSalvarExercicio(exercicio) {
     if (exercicio.codigo == "") {
       exercicio.codigo = 0;
     }
-    console.log(exercicio);
     this.showLoader();
     this.exercicioService.registerExercicio(exercicio).then((result) => {
       this.data = result;

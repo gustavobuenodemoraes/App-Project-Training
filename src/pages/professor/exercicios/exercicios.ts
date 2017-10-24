@@ -41,7 +41,7 @@ export class ExerciciosPage {
 
     if (valorDigitado && valorDigitado.trim() != '') {
       this.exercicios = this.exercicios.filter((resultadoList: tipoExercicio) => {
-
+        console.log(resultadoList);
         return resultadoList.nome.toLocaleLowerCase().indexOf(valorDigitado) > -1;
       })
     }
