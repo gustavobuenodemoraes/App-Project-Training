@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhes do Exercicio</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-list-header text-center>
+      Exercicio
+    </ion-list-header>
+    <ion-item>Nome do Exercicio : {{exercicio?.nome}}</ion-item>
+    <ion-item>Série : {{exercicio?.serie}}</ion-item>
+    <ion-item>Repetição : {{exercicio?.repeticao}}</ion-item>
+
+    <ion-list-header text-center>
+      Aparelho
+    </ion-list-header>
+    <ion-item>{{exercicio?.aparelho}}</ion-item>
+
+    <ion-list-header text-center>
+      Musculos afetados
+    </ion-list-header>
+    <ion-item>{{exercicio?.musculos}}</ion-item>
+
+    <ion-list-header text-center>
+      Musculos afetados
+    </ion-list-header>
+
+    <ion-card>
+      <ion-card-content>
+        {{exercicio?.descricao}}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list-header text-center>
+      Video do youtube
+    </ion-list-header>
+    <ion-item>
+      <iframe width="{{width}}" height="{{height}}" [src]="video" frameborder="0" gesture="media" allowfullscreen></iframe>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

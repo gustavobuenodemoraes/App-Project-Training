@@ -13,7 +13,6 @@ import { ConfiguracaoProfessorPage } from '../configuracao-professor/configuraca
   templateUrl: 'menu-lateral.html',
 })
 export class MenuLateralPage {
-  [x: string]: any;
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = ProfessorTabsPage;
 

@@ -1,6 +1,11 @@
 <ion-header>
 
   <ion-navbar>
+
+    <button ion-button menuToggle="menuProfessor">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
     <ion-title>Lista de Treinamento</ion-title>
   </ion-navbar>
 
@@ -9,14 +14,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header text-center>
-      Hoje
-    </ion-list-header>
-    <ion-item text-center>Treinamento A</ion-item>
-
-    <ion-list-header text-center>
-      Amanhã
-    </ion-list-header>
-    <ion-item text-center>Treinamento B</ion-item>
+    <ion-item *ngFor="let treinamento of treinamentos">
+      <button ion-button clear full right (click)="Exercicios(treinamento.codigo, treinamento.nome)">
+        {{treinamento.nome}}
+      </button>
+    </ion-item>
   </ion-list>
 </ion-content>

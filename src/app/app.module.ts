@@ -1,5 +1,4 @@
-import { AlunoTreinamentoPageModule } from '../pages/aluno/aluno-treinamento/aluno-treinamento.module';
-import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
+import { AlunoExercicioPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio.module';import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { ProfessorTabsPageModule } from './../pages/professor/professor-tabs/professor-tabs.module';
 import { PerfilAlunoPageModule } from './../pages/professor/alunos/perfil-aluno/perfil-aluno.module';
 import { LocalService } from './../providers/local/login.service';
@@ -24,16 +23,18 @@ import { ExercicioServiceProvider } from '../providers/exercicio-service/exercic
 import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
-/*Mascara*/
-import { TextMaskModule } from 'angular2-text-mask';
-/* camera */
-import { Camera } from '@ionic-native/camera';
 import { TreinamentoServiceProvider } from '../providers/treinamento-service/treinamento-service';
 import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
 import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
 import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-selecao/aluno-perfil-professor/aluno-perfil-professor.module';
 
 
+/* camera */
+import { Camera } from '@ionic-native/camera';
+import { AlunoExercicioDetalhesPage } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes';
+import { AlunoTreinamentoPageModule } from '../pages/aluno/aluno-treinamento/aluno-treinamento.module';
+import { AlunoExercicioDetalhesPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes.module';
+import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral.module';
 
 @NgModule({
   declarations: [
@@ -62,8 +63,10 @@ import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-selecao/alu
     AlunoSelecaoPageModule,
     MenuLateralPageModule,
     AlunoPerfilProfessorPageModule,
-    TextMaskModule,
-    AlunoTreinamentoPageModule
+    AlunoTreinamentoPageModule,
+    AlunoExercicioPageModule,
+    AlunoExercicioDetalhesPageModule,
+    AlunoMenuLateralPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -19,7 +19,7 @@ export class TreinamentosPage {
   }
 
   getEditTreinamento(id: any) {
-    this.navCtrl.push(CadastroTreinamentoPage, { id: id, titulo:'Alterar Treinamento' });
+    this.navCtrl.push(CadastroTreinamentoPage, { id: id});
   }
 
   addTreinamentos():void{

@@ -48,11 +48,11 @@ export class CadastroTreinamentoPage {
       .subscribe(resultado => {
         this.exercicios = resultado;
       });
-    this.alterarTreinamento();
     if (this.id == null) {
       this.titulo = "Novo"
     }else{
       this.titulo = "Alterar"
+      this.alterarTreinamento();
     }
   }
 
@@ -159,7 +159,8 @@ export class CadastroTreinamentoPage {
 
   salvarTreinamento() {
     this.showLoader();
-    this.treinamentoServiceProvider.salvarTreinamentos(this.treinamento).then((result) => {
+    this.treinamentoServiceProvider.salvarTreinamentos(this.treinamento)
+    .then((result) => {
       this.dataTreinamento = result;
       this.salvarOrdemTreinos(this.dataTreinamento.codigo);
       this.loading.dismiss();
@@ -170,6 +171,7 @@ export class CadastroTreinamentoPage {
   }
 
   salvarOrdemTreinos(codTreino) {
+    console.log(codTreino, this.exerciciosCadastrados);
     this.treinamentoServiceProvider.salvarOrdemTreinos(codTreino, this.exerciciosCadastrados).then((result) => {
 
     }, (err) => {

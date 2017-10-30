@@ -11,6 +11,8 @@ export class TreinamentoServiceProvider {
   }
 
   salvarTreinamentos(data) {
+    console.log(data);
+
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');

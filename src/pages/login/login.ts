@@ -1,3 +1,4 @@
+import { AlunoTreinamentoPage } from './../aluno/aluno-treinamento/aluno-treinamento';
 import { MenuLateralPage } from './../professor/menu-lateral/menu-lateral';
 import { ProfessorTabsPage } from './../professor/professor-tabs/professor-tabs';
 import { MenuController } from 'ionic-angular';
@@ -46,13 +47,22 @@ export class LoginPage {
     this.navCtrl.setRoot(MenuLateralPage);
   }
 
+  goToAluno() {
+    this.navCtrl.setRoot(AlunoTreinamentoPage);
+  }
+
   doLogin(formulario: tipoLogin) {
     this.authService.login(formulario).then((result) => {
       this.data = result;
+      console.log(this.data);
       this.presentLoading();
       localStorage.setItem('token', this.data.Authentication);
       localStorage.setItem('codUsuarioLogado', this.data.codigo);
-      this.goToProfessor();
+      if(this.data.tipoUsuario == "PROFESSOR"){
+        this.goToProfessor();
+      }else if(this.data.tipoUsuario == "ALUNO"){
+        this.goToAluno();
+      }
     }, (err) => {
       if (err.status == 401) {
         this.presentToast("Email ou senha invalidos!");

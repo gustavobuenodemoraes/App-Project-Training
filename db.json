@@ -1,31 +1,50 @@
 {
-  "professores": [
+  "treinamentos": [
     {
       "id": 1,
-      "nome": "Paulo",
-      "email": "paulo@paulo.com",
-      "dtNascimento": "12/30/2017",
-      "Cref": "028145-G/MG",
-      "sexo": "male",
-      "avaliacaoMedia": 4
+      "nome": "Treinamento A"
     },
     {
       "id": 2,
-      "nome": "Gustavo",
-      "email": "gustavo@gusatvo.com",
-      "dtNascimento": "03/11/1995",
-      "Cref": "028145-G/RJ",
-      "sexo": "male",
-      "avaliacaoMedia": 0
+      "nome": "Treinamento B"
     },
     {
-      "id": 8,
-      "nome": "Teste",
-      "email": "teste@teste.com",
-      "dtNascimento": "11/31/1981",
-      "Cref": "028145-P/SP",
-      "sexo": "female",
-      "avaliacaoMedia": 2
+      "id": 3,
+      "nome": "Treinamento C"
+    },
+    {
+      "id": 4,
+      "nome": "Treinamento D"
+    },
+    {
+      "id": 5,
+      "nome": "Treinamento E"
+    }
+  ],
+  "exercicios": [
+    {
+      "id": "1",
+      "aparelho": "maquina de supino",
+      "descricao": "estabilize o tronco durante os movimentos e não movimente os ombros",
+      "linkVideo": "https://www.youtube.com/watch?v=WwXS2TeFmeg",
+      "musculos": "peitorais",
+      "nome": "Supino"
+    },
+    {
+      "id": "1",
+      "aparelho": "maquina de supino",
+      "descricao": "estabilize o tronco durante os movimentos, não flexione os cotovelos e não movimente os ombros.",
+      "linkVideo": "https://www.youtube.com/watch?v=NB_1mCfIOLU",
+      "musculos": "peitorais",
+      "nome": "Crucifixo"
+    },
+    {
+      "id": "2",
+      "aparelho": "inclinado, declinado, com os joelhos no chão ou com auxílio de halter.",
+      "descricao": "estabilize o tronco durante os movimentos e não hiperestenda os cotovelos.",
+      "linkVideo": "https://www.youtube.com/watch?v=q4p7R7Tc0tU",
+      "musculos": "peitorais ",
+      "nome": "Flexão de braços"
     }
   ]
 }
