@@ -42,7 +42,7 @@ export class AlunoMenuLateralPage {
   ionViewDidLoad() {
     let condicao = true;
     /*Colocar o status*/
-    this.rootPage = (condicao == false) ? AlunoSelecaoPage : AlunoTreinamentoPage
+    this.rootPage = (condicao == true) ? AlunoSelecaoPage : AlunoTreinamentoPage;
 
   }
 
