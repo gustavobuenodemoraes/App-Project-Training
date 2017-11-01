@@ -1,3 +1,4 @@
+import { TreinamentoServiceProvider } from './../../../providers/treinamento-service/treinamento-service';
 import { LocalService } from './../../../providers/local/login.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
@@ -12,48 +13,23 @@ export class AlunoExercicioPage {
   codigo: number;
   exercicios: Array<any>;
   nomeTreinamento: String;
+  ordemTreino: any[]
 
   checkBoxExercicio: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private localService: LocalService, public alertCtrl: AlertController,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private localService: LocalService, 
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController,
+    private treinamentoService: TreinamentoServiceProvider) {
+
     this.codigo = this.navParams.get("codigo");
     this.nomeTreinamento = this.navParams.get("nomeTreinamento");
   }
 
   ionViewDidLoad() {
-    // apagar depois
-    this.exercicios = [
-      {
-        id: 1,
-        aparelho: "maquina de supino",
-        descricao: "estabilize o tronco durante os movimentos e não movimente os ombros",
-        linkVideo: "https://www.youtube.com/watch?v=WwXS2TeFmeg",
-        musculos: "peitorais",
-        nome: "Supino",
-        serie: '3',
-        repeticao: '12'
-      },
-      {
-        id: 2,
-        aparelho: "maquina de supino",
-        descricao: "estabilize o tronco durante os movimentos, não flexione os cotovelos e não movimente os ombros.",
-        linkVideo: "https://www.youtube.com/watch?v=NB_1mCfIOLU",
-        musculos: "peitorais",
-        nome: "Crucifixo",
-        serie: '3',
-        repeticao: '12'
-      },
-      {
-        id: 3,
-        aparelho: "inclinado, declinado, com os joelhos no chão ou com auxílio de halter.",
-        descricao: "estabilize o tronco durante os movimentos e não hiperestenda os cotovelos.",
-        linkVideo: "https://www.youtube.com/watch?v=q4p7R7Tc0tU",
-        musculos: "peitorais ",
-        nome: "Flexão de braços",
-        serie: '3',
-        repeticao: '12'
-      }
-    ]
+        this.treinamentoService.listarExerciciosDoTreinamento(this.codigo)
+     .subscribe(resultado => this.exercicios = resultado)
   }
 
   private acrescentaExercicio(): void {
@@ -77,5 +53,4 @@ export class AlunoExercicioPage {
     });
     alert.present();
   }
-
 }
