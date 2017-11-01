@@ -35,6 +35,7 @@ import { AlunoExercicioDetalhesPage } from '../pages/aluno/aluno-exercicio/aluno
 import { AlunoTreinamentoPageModule } from '../pages/aluno/aluno-treinamento/aluno-treinamento.module';
 import { AlunoExercicioDetalhesPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes.module';
 import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral.module';
+import { AlunoTreinamentoServiceProvider } from '../providers/aluno-treinamento-service/aluno-treinamento-service';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/al
     Camera,
     ExercicioServiceProvider,
     TreinamentoServiceProvider,
+    AlunoTreinamentoServiceProvider,
   ],
 })
 export class AppModule { }

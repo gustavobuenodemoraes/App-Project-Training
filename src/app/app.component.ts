@@ -13,7 +13,7 @@ import { AlunoMenuLateralPage } from '../pages/aluno/aluno-menu-lateral/aluno-me
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-  rootPage: any = AlunoMenuLateralPage;
+  rootPage: any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
