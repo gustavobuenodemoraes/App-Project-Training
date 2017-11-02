@@ -11,9 +11,8 @@ import { AlunoExercicioDetalhesPage } from './aluno-exercicio-detalhes/aluno-exe
 })
 export class AlunoExercicioPage {
   codigo: number;
-  exercicios: Array<any>;
+  ordemTreinos: Array<any>;
   nomeTreinamento: String;
-  ordemTreino: any[]
 
   checkBoxExercicio: number;
 
@@ -28,8 +27,8 @@ export class AlunoExercicioPage {
   }
 
   ionViewDidLoad() {
-        this.treinamentoService.listarExerciciosDoTreinamento(this.codigo)
-     .subscribe(resultado => this.exercicios = resultado)
+        this.treinamentoService.listarOrdemDeTreinamentosExercicios(this.codigo)
+     .subscribe(resultado => this.ordemTreinos = resultado)
   }
 
   private acrescentaExercicio(): void {

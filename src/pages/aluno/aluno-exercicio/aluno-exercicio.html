@@ -10,8 +10,8 @@
 <ion-content>
   <ion-list>
 
-    <button ion-item *ngFor="let exercicio of exercicios" (click)="detalhesExercicio(exercicio.codigo)">
-      {{exercicio.nome}}
+    <button ion-item *ngFor="let ordemTreino of ordemTreinos" (click)="detalhesExercicio(ordemTreino.codigo)">
+      {{ordemTreino.exercicio.nome}}
       <!--
       <br/> status :
       <ion-icon name="checkmark"></ion-icon>
