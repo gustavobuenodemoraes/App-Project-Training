@@ -15,16 +15,12 @@ export class AlunoTreinamentoPage {
   }
 
   ionViewDidLoad() {
-    this.treinamentos = []
+       this.alunoTreinamentoService.listarTreinamentosDosAlunos()
+        .subscribe(resultado => this.treinamentos = resultado)
   }
 
   Exercicios(codigo, nomeTreinamento): void {
     this.navCtrl.push(AlunoExercicioPage, { codigo: codigo, nomeTreinamento: nomeTreinamento });
   }
-
-    ngOnInit() {
-          this.alunoTreinamentoService.listarTreinamentosDosAlunos()
-      .subscribe(resultado => this.treinamentos = resultado)
-    }
 
 }
