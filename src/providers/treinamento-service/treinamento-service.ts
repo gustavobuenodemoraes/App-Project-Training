@@ -50,14 +50,6 @@ export class TreinamentoServiceProvider {
     .map(resultado => resultado.json());
   }
 
-  listarExerciciosDoTreinamento(codigo): Observable<Response[]>{
-    let headers = new Headers();
-    headers.append('Authentication', localStorage.getItem('token'));
-
-    return this.http.get(`${apiUrl}ordemTreino/treinamento/exercicio/${codigo}`, new RequestOptions({headers : headers}))
-    .map(resultado => resultado.json());
-  }
-
   listarOrdemDeTreinamentosPorCodigo(codigo): Observable<Response[]>{
     let headers = new Headers();
     headers.append('Authentication', localStorage.getItem('token'));

@@ -36,6 +36,7 @@ import { YoutubePipe } from '../pipes/youtube/youtube';
 import { Camera } from '@ionic-native/camera';
 /*mascara */
 import { AlunoTreinamentoServiceProvider } from '../providers/aluno-treinamento-service/aluno-treinamento-service';
+import { AlunoServiceProvider } from '../providers/aluno-service/aluno-service';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { AlunoTreinamentoServiceProvider } from '../providers/aluno-treinamento-
     Camera,
     ExercicioServiceProvider,
     TreinamentoServiceProvider,
-    AlunoTreinamentoServiceProvider
+    AlunoTreinamentoServiceProvider,
+    AlunoServiceProvider
   ],
 })
 export class AppModule { }

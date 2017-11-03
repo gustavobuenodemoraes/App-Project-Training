@@ -1,3 +1,4 @@
+import { AlunoServiceProvider } from './../../../providers/aluno-service/aluno-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -9,9 +10,12 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class AlunoConfiguracaoPage {
   base64Image: any;
-  aluno: any;
+  aluno = {nome:"", dtNascimento: "", codigo:"", foto: "", email: "", peso: "", altura: ""};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public camera: Camera ) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public camera: Camera,
+    private alunoService: AlunoServiceProvider ) {
 
   }
   doSalvarConfigutacao(formulario): void {
@@ -66,8 +70,11 @@ export class AlunoConfiguracaoPage {
   }
 
   ngOnInit() {
-    this.aluno = {
-      nomeAluno: ''
-    }
+    this.atualizarDados();
+  }
+
+  atualizarDados(){
+      this.alunoService.mostrarAluno(localStorage.getItem('codUsuarioLogado'))
+    .subscribe(resultado => this.aluno = resultado)
   }
 }
