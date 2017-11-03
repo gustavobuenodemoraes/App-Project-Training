@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Trainner</name>
+    <name>Training</name>
     <description>Trabalho de conclusão de curso</description>
     <author email="gustavobuenodemoraes@yahoo.com.br" href="http://ionicframework.com/">Gustavo Bueno de Moraes</author>
     <author email="cezar.paulo16@gmail.com" href="http://ionicframework.com/">Paulo Cezar da Silva Junior</author>
@@ -87,6 +87,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
-    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-youtube-video-player" spec="^1.0.6" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
 </widget>

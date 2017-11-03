@@ -1,5 +1,4 @@
-import { Validators } from '@angular/forms';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'rating',

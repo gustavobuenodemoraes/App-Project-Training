@@ -1,6 +1,5 @@
-import { AlunoTreinamentoPage } from './../aluno/aluno-treinamento/aluno-treinamento';
+import { AlunoMenuLateralPage } from './../aluno/aluno-menu-lateral/aluno-menu-lateral';
 import { MenuLateralPage } from './../professor/menu-lateral/menu-lateral';
-import { ProfessorTabsPage } from './../professor/professor-tabs/professor-tabs';
 import { MenuController } from 'ionic-angular';
 import { tipoLogin } from './login.model';
 import { cadastroAlunoPage } from './../cadastro-aluno/cadastro-aluno';
@@ -48,7 +47,7 @@ export class LoginPage {
   }
 
   goToAluno() {
-    this.navCtrl.setRoot(AlunoTreinamentoPage);
+    this.navCtrl.setRoot(AlunoMenuLateralPage);
   }
 
   doLogin(formulario: tipoLogin) {

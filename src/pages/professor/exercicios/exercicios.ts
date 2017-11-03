@@ -1,11 +1,8 @@
-import { listaExercicios } from './../treinamentos/cadastro-treinamento/cadastro-treinamento.model';
-import { Observable } from 'rxjs/Observable';
 import { ExercicioServiceProvider } from './../../../providers/exercicio-service/exercicio-service';
 import { CadastroExerciciosPage } from './cadastro-exercicios/cadastro-exercicios';
-import { LocalService } from './../../../providers/local/login.service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { tipoExercicio, ItipoExercicio } from './exercicios.model';
+import { tipoExercicio } from './exercicios.model';
 
 @Component({
   selector: 'page-exercicios',

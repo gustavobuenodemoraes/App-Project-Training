@@ -1,7 +1,7 @@
 import { AlunoTreinamentoPage } from './../aluno-treinamento/aluno-treinamento';
 import { AlunoSelecaoPage } from './../aluno-selecao/aluno-selecao';
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Nav, Platform } from 'ionic-angular';
+import { IonicPage, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../../../providers/auth-service/auth-service';

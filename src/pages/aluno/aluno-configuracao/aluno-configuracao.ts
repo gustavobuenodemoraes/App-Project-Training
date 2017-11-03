@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BrModel } from 'brmasker-ionic-3';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()

@@ -28,16 +28,15 @@ import { TreinamentoServiceProvider } from '../providers/treinamento-service/tre
 import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
 import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
 import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-selecao/aluno-perfil-professor/aluno-perfil-professor.module';
-import { AlunoExercicioDetalhesPage } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes';
 import { AlunoTreinamentoPageModule } from '../pages/aluno/aluno-treinamento/aluno-treinamento.module';
 import { AlunoExercicioDetalhesPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes.module';
 import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral.module';
 import { YoutubePipe } from '../pipes/youtube/youtube';
-
 /* camera */
 import { Camera } from '@ionic-native/camera';
 /*mascara */
-// import { BrMaskerModule } from 'brmasker-ionic-3';
+import { AlunoTreinamentoServiceProvider } from '../providers/aluno-treinamento-service/aluno-treinamento-service';
+
 
 @NgModule({
   declarations: [
@@ -92,7 +91,8 @@ import { Camera } from '@ionic-native/camera';
     LocalService,
     Camera,
     ExercicioServiceProvider,
-    TreinamentoServiceProvider
+    TreinamentoServiceProvider,
+    AlunoTreinamentoServiceProvider
   ],
 })
 export class AppModule { }

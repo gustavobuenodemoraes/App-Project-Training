@@ -12,19 +12,19 @@
     <ion-list-header text-center>
       Exercicio
     </ion-list-header>
-    <ion-item>Nome do Exercicio : {{exercicio?.nome}}</ion-item>
-    <ion-item>Série : {{exercicio?.serie}}</ion-item>
-    <ion-item>Repetição : {{exercicio?.repeticao}}</ion-item>
+    <ion-item>Nome do Exercicio : {{ordemTreino?.exercicio?.nome}}</ion-item>
+    <ion-item>Série : {{ordemTreino?.serie}}</ion-item>
+    <ion-item>Repetição : {{ordemTreino?.repeticao}}</ion-item>
 
     <ion-list-header text-center>
       Aparelho
     </ion-list-header>
-    <ion-item>{{exercicio?.aparelho}}</ion-item>
+    <ion-item>{{ordemTreino?.exercicio?.equipamento}}</ion-item>
 
     <ion-list-header text-center>
       Musculos afetados
     </ion-list-header>
-    <ion-item>{{exercicio?.musculos}}</ion-item>
+    <ion-item>{{ordemTreino?.exercicio?.musculo}}</ion-item>
 
     <ion-list-header text-center>
       Musculos afetados
@@ -32,7 +32,7 @@
 
     <ion-card>
       <ion-card-content>
-        {{exercicio?.descricao}}
+        {{ordemTreino?.exercicio?.descricao}}
       </ion-card-content>
     </ion-card>
 
@@ -40,12 +40,12 @@
       Video do youtube
     </ion-list-header>
 
-
-    <ion-card>
+<!-- em progresso -->
+    <!-- <ion-card>
       <ion-card-content>
         <iframe width="100%" height="315" [src]="video" frameborder="0" gesture="media" allowfullscreen></iframe>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 
   </ion-list>
 </ion-content>

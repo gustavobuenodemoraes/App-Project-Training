@@ -1,7 +1,6 @@
 import { TreinamentoServiceProvider } from './../../../../providers/treinamento-service/treinamento-service';
 import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
-import { listaExercicios } from './cadastro-treinamento.model';
-import { Component, ContentChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, Platform, LoadingController, ToastController } from 'ionic-angular';
 
 
@@ -70,7 +69,7 @@ export class CadastroTreinamentoPage {
   //#region alterar item de exercicio
   alterarItemExercicio(item: any) {
     let posicao = this.exerciciosCadastrados.indexOf(item);
-    let valores: any = this.exerciciosCadastrados[posicao];
+    // let valores: any = this.exerciciosCadastrados[posicao];
 
     let alert = this.alertCtrl.create();
     alert.setTitle('Escolha um novo exercicio');

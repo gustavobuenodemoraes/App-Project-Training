@@ -11,8 +11,6 @@ export class TreinamentoServiceProvider {
   }
 
   salvarTreinamentos(data) {
-    console.log(data);
-
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -49,6 +47,22 @@ export class TreinamentoServiceProvider {
     headers.append('Authentication', localStorage.getItem('token'));
 
     return this.http.get(`${apiUrl}ordemTreino/treinamento/${codigo}`, new RequestOptions({headers : headers}))
+    .map(resultado => resultado.json());
+  }
+
+  listarExerciciosDoTreinamento(codigo): Observable<Response[]>{
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}ordemTreino/treinamento/exercicio/${codigo}`, new RequestOptions({headers : headers}))
+    .map(resultado => resultado.json());
+  }
+
+  listarOrdemDeTreinamentosPorCodigo(codigo): Observable<Response[]>{
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}ordemTreino/${codigo}`, new RequestOptions({headers : headers}))
     .map(resultado => resultado.json());
   }
 

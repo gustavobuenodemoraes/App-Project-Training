@@ -1,6 +1,7 @@
+import { AlunoTreinamentoServiceProvider } from './../../../providers/aluno-treinamento-service/aluno-treinamento-service';
 import { AlunoExercicioPage } from './../aluno-exercicio/aluno-exercicio';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -10,17 +11,12 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 export class AlunoTreinamentoPage {
   treinamentos: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alunoTreinamentoService: AlunoTreinamentoServiceProvider) {
   }
 
   ionViewDidLoad() {
-    this.treinamentos = [
-      { codigo: 1, nome: 'Treinamento Iniciante A' },
-      { codigo: 2, nome: 'Treinamento Iniciante B' },
-      { codigo: 3, nome: 'Treinamento Iniciante C' },
-      { codigo: 4, nome: 'Treinamento Iniciante D' },
-      { codigo: 5, nome: 'Treinamento Iniciante E' },
-    ]
+       this.alunoTreinamentoService.listarTreinamentosDosAlunos()
+        .subscribe(resultado => this.treinamentos = resultado)
   }
 
   Exercicios(codigo, nomeTreinamento): void {

@@ -1,3 +1,5 @@
+import { AlunoTreinamentoServiceProvider } from './../../../../providers/aluno-treinamento-service/aluno-treinamento-service';
+import { TreinamentoServiceProvider } from './../../../../providers/treinamento-service/treinamento-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ProfessorServiceProvider } from '../../../../providers/professor-service/professor-service';
@@ -12,11 +14,7 @@ export class PerfilAlunoPage {
   usuario: any
   codigo: any
 
-  exercicios: Array<any> = [
-    "Avançado 1",
-    "Iniciante2",
-    "Iniciante3"
-  ];
+  exercicios: Array<any> = [];
 
   testCheckboxOpen: boolean;
   testCheckboxResult;
@@ -25,7 +23,9 @@ export class PerfilAlunoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private professorServiceProvider: ProfessorServiceProvider,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private treinamentoService: TreinamentoServiceProvider,
+    private alunoTreinamentoService: AlunoTreinamentoServiceProvider
   ) {
     this.codigo = navParams.get('codigo');
   }
@@ -33,6 +33,9 @@ export class PerfilAlunoPage {
   ngOnInit() {
     this.professorServiceProvider.mostrarAlunoProfessor(this.codigo)
       .subscribe(resultado => this.usuario = resultado)
+
+    this.treinamentoService.listarTreinamentosDoProfessor()
+      .subscribe(resultado => this.exercicios = resultado)
   }
 
   doCheckbox() {
@@ -42,7 +45,7 @@ export class PerfilAlunoPage {
     this.exercicios.forEach(element => {
       alert.addInput({
         type: 'checkbox',
-        label: element,
+        label: element.nome,
         value: element,
         // checked: true
       });
@@ -52,8 +55,8 @@ export class PerfilAlunoPage {
     alert.addButton({
       text: 'Enviar',
       handler: data => {
-        console.log('Checkbox data:', data);
-        this.testCheckboxOpen = false;
+        console.log(this.codigo);
+        this.alunoTreinamentoService.salvarTreinamentoAluno(data, this.codigo);
         this.testCheckboxResult = data;
       }
     });
