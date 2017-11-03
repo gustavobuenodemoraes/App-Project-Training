@@ -18,7 +18,7 @@ export class AlunoMenuLateralPage {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any;
 
-  usuario: Array<any>;
+  nomeUsuario: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
     platform.ready().then(() => {
@@ -41,8 +41,10 @@ export class AlunoMenuLateralPage {
   }
 
   ionViewDidLoad() {
+    this.nomeUsuario = localStorage.getItem('nomeUsuarioLogado');
     let condicao = false;
     /*Colocar o status*/
+
     this.rootPage = (this.newFunction(condicao)) ? AlunoSelecaoPage : AlunoTreinamentoPage;
 
   }

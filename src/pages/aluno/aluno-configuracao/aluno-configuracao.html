@@ -13,7 +13,7 @@
 
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text" name="nomeAluno" [(ngModel)]="aluno.nomeAluno" required></ion-input>
+      <ion-input type="text" name="nomeAluno" [(ngModel)]="aluno.nome" required></ion-input>
     </ion-item>
 
     <ion-item>
@@ -21,15 +21,6 @@
       <ion-input type="email" name="email" [(ngModel)]="aluno.email" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label floating>Senha Antiga</ion-label>
-      <ion-input type="password" name="email" [(ngModel)]="aluno.senhaAntiga" ></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Nova Senha</ion-label>
-      <ion-input type="password" name="email" [(ngModel)]="aluno.senhaNova" ></ion-input>
-    </ion-item>
     <br>
     <ion-item>
       <ion-label>Data de Nascimento</ion-label>

@@ -57,6 +57,7 @@ export class LoginPage {
       this.presentLoading();
       localStorage.setItem('token', this.data.Authentication);
       localStorage.setItem('codUsuarioLogado', this.data.codigo);
+      localStorage.setItem('nomeUsuarioLogado', this.data.nome);
       if(this.data.tipoUsuario == "PROFESSOR"){
         this.goToProfessor();
       }else if(this.data.tipoUsuario == "ALUNO"){

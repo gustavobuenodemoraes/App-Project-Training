@@ -16,7 +16,7 @@ export class MenuLateralPage {
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any = ProfessorTabsPage;
 
-  usuario: Array<any>;
+  nomeUsuario: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
     platform.ready().then(() => {
@@ -39,6 +39,6 @@ export class MenuLateralPage {
   }
 
   ionViewDidLoad() {
-
+     this.nomeUsuario = localStorage.getItem('nomeUsuarioLogado');
   }
 }
