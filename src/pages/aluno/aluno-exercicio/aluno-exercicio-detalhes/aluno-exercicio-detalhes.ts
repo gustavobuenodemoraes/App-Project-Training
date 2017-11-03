@@ -10,18 +10,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AlunoExercicioDetalhesPage {
   exercicio;
 
-  width;
-
-  height;
-
   video
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer) {
     this.navParams.get("codgio");
-
-    this.width = window.outerWidth;
-    this.height = window.outerHeight;
-    console.log("width " + this.width + " height " + this.height);
+    this.video = "https://www.youtube.com/watch?v=WwXS2TeFmeg";
   }
 
   ionViewDidLoad() {
@@ -38,7 +31,7 @@ export class AlunoExercicioDetalhesPage {
     this.video = this.sanitizer.bypassSecurityTrustResourceUrl(this.exercicio.linkVideo);
 
     console.log(this.video);
-    
+
   }
 
 }

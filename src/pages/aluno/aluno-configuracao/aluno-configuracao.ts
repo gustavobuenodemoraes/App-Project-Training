@@ -1,27 +1,22 @@
-import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { BrModel } from 'brmasker-ionic-3';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
-  selector: 'page-configuracao-professor',
-  templateUrl: 'configuracao-professor.html',
+  selector: 'page-aluno-configuracao',
+  templateUrl: 'aluno-configuracao.html',
 })
-export class ConfiguracaoProfessorPage {
+export class AlunoConfiguracaoPage {
+  base64Image: any;
+  aluno: any;
 
-  public base64Image: any;
-  public professor = {nome:"", confef:"", dtNascimento: "", codigo:"", foto: ""};
-  loading: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public camera: Camera ) {
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public camera: Camera,
-    private professorService: ProfessorServiceProvider,
-    public loadingCtrl: LoadingController,
-    private toastCtrl: ToastController) {
+  }
+  doSalvarConfigutacao(formulario): void {
+    alert(formulario);
   }
 
   getAlbum() {
@@ -66,48 +61,14 @@ export class ConfiguracaoProfessorPage {
       console.log(err);
     });
   }
-  
+
+
+  ionViewDidLoad() {
+  }
+
   ngOnInit() {
-    this.atualizarDados();
+    this.aluno = {
+      nomeAluno: ''
+    }
   }
-
-  atualizarDados(){
-        this.professorService.mostrarProfessor(localStorage.getItem('codUsuarioLogado'))
-      .subscribe(resultado => this.professor = resultado)
-  }
-
-  salvarConfiguracao(){
-    this.showLoader();
-    this.professorService.salvarProfessor(this.professor).then((result) => {
-      this.atualizarDados();
-      this.loading.dismiss();
-    }, (err) => {
-      this.loading.dismiss();
-      this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
-    });
-  }
-
-  showLoader() {
-    this.loading = this.loadingCtrl.create({
-      content: 'Salvando...'
-    });
-
-    this.loading.present();
-  }
-
-  presentToast(msg) {
-    let toast = this.toastCtrl.create({
-      message: msg,
-      duration: 6000,
-      position: 'bottom',
-      dismissOnPageChange: true
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
-  }
-
 }

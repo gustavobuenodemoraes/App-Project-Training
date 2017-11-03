@@ -16,7 +16,9 @@ export class AlunoSelecaoPage {
   professores: Array<any>;
 
   // pode retirar o localservide
-  constructor(public navCtrl: NavController, public navParams: NavParams, private localService: LocalService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private localService: LocalService, private menuCtrl: MenuController) {
+    // desativa o menu lateral
+    this.menuCtrl.enable(false);
   }
 
   selecionaProfessor(professor): void {

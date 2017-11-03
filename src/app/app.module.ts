@@ -1,3 +1,4 @@
+import { AlunoConfiguracaoPageModule } from './../pages/aluno/aluno-configuracao/aluno-configuracao.module';
 import { AlunoExercicioPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio.module';import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
 import { ProfessorTabsPageModule } from './../pages/professor/professor-tabs/professor-tabs.module';
 import { PerfilAlunoPageModule } from './../pages/professor/alunos/perfil-aluno/perfil-aluno.module';
@@ -27,14 +28,16 @@ import { TreinamentoServiceProvider } from '../providers/treinamento-service/tre
 import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
 import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
 import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-selecao/aluno-perfil-professor/aluno-perfil-professor.module';
-
-
-/* camera */
-import { Camera } from '@ionic-native/camera';
 import { AlunoExercicioDetalhesPage } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes';
 import { AlunoTreinamentoPageModule } from '../pages/aluno/aluno-treinamento/aluno-treinamento.module';
 import { AlunoExercicioDetalhesPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes.module';
 import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral.module';
+import { YoutubePipe } from '../pipes/youtube/youtube';
+
+/* camera */
+import { Camera } from '@ionic-native/camera';
+/*mascara */
+// import { BrMaskerModule } from 'brmasker-ionic-3';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/al
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
-    DataFormatPipe
+    DataFormatPipe,
+    YoutubePipe
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -66,7 +70,9 @@ import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/al
     AlunoTreinamentoPageModule,
     AlunoExercicioPageModule,
     AlunoExercicioDetalhesPageModule,
-    AlunoMenuLateralPageModule
+    AlunoMenuLateralPageModule,
+    AlunoConfiguracaoPageModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -86,7 +92,7 @@ import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/al
     LocalService,
     Camera,
     ExercicioServiceProvider,
-    TreinamentoServiceProvider,
+    TreinamentoServiceProvider
   ],
 })
 export class AppModule { }

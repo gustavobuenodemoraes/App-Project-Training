@@ -1,0 +1,84 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Configuração</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <form #form="ngForm" validate>
+    <ion-list-header text-center>
+      Perfil
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" name="nomeAluno" [(ngModel)]="aluno.nomeAluno" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="email" name="email" [(ngModel)]="aluno.email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Senha Antiga</ion-label>
+      <ion-input type="password" name="email" [(ngModel)]="aluno.senhaAntiga" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Nova Senha</ion-label>
+      <ion-input type="password" name="email" [(ngModel)]="aluno.senhaNova" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label>Data de Nascimento</ion-label>
+      <ion-datetime [(ngModel)]="aluno.dtNascimento" displayFormat="DD MMM YYYY" name="dtNascimento"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Peso</ion-label>
+      <ion-input type="number" name="peso" [(ngModel)]="aluno.peso" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Altura</ion-label>
+      <ion-input type="number" name="altura" [(ngModel)]="aluno.altura" required></ion-input>
+    </ion-item>
+
+    <ion-input type="text" hidden name="codigo" [(ngModel)]="aluno.codigo"> </ion-input>
+
+    <ion-list-header>
+      Foto Perfil
+    </ion-list-header>
+
+    <ion-card>
+      <img [src]="base64Image" *ngIf="base64Image" [(ngModel)]="aluno.dtNascimento" />
+      <ion-card-content *ngIf="!base64Image">
+        <ion-card-title>
+          Sua Foto
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button clear full (click)="getAlbum()">
+            <ion-icon name='albums' item-start style="color: #d03e3e; padding-right: 5px;"></ion-icon>
+            Galeria
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button clear full (click)="getPhoto()">
+            <ion-icon name='camera' item-start style="padding-right: 5px;"></ion-icon>
+            Câmera
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <br>
+    <button class="salvar" ion-button full class="cor-botao-padrao aluno" (click)="doSalvarConfigutacao(form.value)">Salvar exercício</button>
+
+  </form>
+</ion-content>

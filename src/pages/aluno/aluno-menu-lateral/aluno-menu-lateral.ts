@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../../../providers/auth-service/auth-service';
 import { LoginPage } from '../../login/login';
+import { AlunoConfiguracaoPage } from '../aluno-configuracao/aluno-configuracao';
 
 @IonicPage()
 @Component({
@@ -27,7 +28,7 @@ export class AlunoMenuLateralPage {
   }
 
   onConfiguracao(): void {
-    this.navCtrl.push("");
+    this.navCtrl.push(AlunoConfiguracaoPage);
   }
 
   sair(): void {
@@ -40,10 +41,12 @@ export class AlunoMenuLateralPage {
   }
 
   ionViewDidLoad() {
-    let condicao = true;
+    let condicao = false;
     /*Colocar o status*/
-    this.rootPage = (condicao == true) ? AlunoSelecaoPage : AlunoTreinamentoPage;
+    this.rootPage = (this.newFunction(condicao)) ? AlunoSelecaoPage : AlunoTreinamentoPage;
 
   }
-
+    private newFunction(condicao: boolean) {
+        return condicao == true;
+    }
 }
