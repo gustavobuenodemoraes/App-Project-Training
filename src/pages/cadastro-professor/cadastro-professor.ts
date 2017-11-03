@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , ToastController, LoadingController} from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
@@ -22,6 +23,7 @@ export class cadastroProfessorPage {
       this.data = result;
       this.loading.dismiss();
       localStorage.setItem('token', this.data.Authentication);
+      this.goToLogin();
     }, (err) => {
     	this.loading.dismiss();
         this.presentToast("Ocorreu um erro ao tentar salvar o Professor!");
@@ -53,6 +55,10 @@ export class cadastroProfessorPage {
     });
 
     toast.present();
+  }
+
+  goToLogin() {
+     this.navCtrl.push(LoginPage);
   }
 
 }
