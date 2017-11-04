@@ -1,12 +1,4 @@
-import { AlunoConfiguracaoPageModule } from './../pages/aluno/aluno-configuracao/aluno-configuracao.module';
-import { AlunoExercicioPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio.module';import { cadastroProfessorPageModule } from './../pages/cadastro-professor/cadastro-professor.module';
-import { ProfessorTabsPageModule } from './../pages/professor/professor-tabs/professor-tabs.module';
-import { PerfilAlunoPageModule } from './../pages/professor/alunos/perfil-aluno/perfil-aluno.module';
 import { LocalService } from './../providers/local/login.service';
-import { TreinamentosPage } from './../pages/professor/treinamentos/treinamentos';
-import { ExerciciosPage } from './../pages/professor/exercicios/exercicios';
-import { AlunosPage } from './../pages/professor/alunos/alunos';
-import { cadastroAlunoPageModule } from './../pages/cadastro-aluno/cadastro-aluno.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -16,63 +8,74 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
 import { RlTagInputModule } from 'angular2-tag-input';
-import { CadastroExerciciosPageModule } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios.module';
 import { AuthService } from '../providers/auth-service/auth-service';
-import { CadastroTreinamentoPageModule } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento.module';
 import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
 import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
-import { ConfiguracaoProfessorPageModule } from '../pages/professor/configuracao-professor/configuracao-professor.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
 import { TreinamentoServiceProvider } from '../providers/treinamento-service/treinamento-service';
-import { AlunoSelecaoPageModule } from '../pages/aluno/aluno-selecao/aluno-selecao.module';
-import { MenuLateralPageModule } from '../pages/professor/menu-lateral/menu-lateral.module';
-import { AlunoPerfilProfessorPageModule } from '../pages/aluno/aluno-selecao/aluno-perfil-professor/aluno-perfil-professor.module';
-import { AlunoTreinamentoPageModule } from '../pages/aluno/aluno-treinamento/aluno-treinamento.module';
-import { AlunoExercicioDetalhesPageModule } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes.module';
-import { AlunoMenuLateralPageModule } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral.module';
 import { YoutubePipe } from '../pipes/youtube/youtube';
 /* camera */
 import { Camera } from '@ionic-native/camera';
-/*mascara */
+import { AlunosPage } from './../pages/professor/alunos/alunos';
+import { TreinamentosPage } from './../pages/professor/treinamentos/treinamentos';
+import { ExerciciosPage } from './../pages/professor/exercicios/exercicios';
 import { AlunoTreinamentoServiceProvider } from '../providers/aluno-treinamento-service/aluno-treinamento-service';
 import { AlunoServiceProvider } from '../providers/aluno-service/aluno-service';
+import { CadastroTreinamentoPage } from '../pages/professor/treinamentos/cadastro-treinamento/cadastro-treinamento';
+import { ConfiguracaoProfessorPage } from '../pages/professor/configuracao-professor/configuracao-professor';
+import { cadastroProfessorPage } from '../pages/cadastro-professor/cadastro-professor';
+import { cadastroAlunoPage } from '../pages/cadastro-aluno/cadastro-aluno';
+import { CadastroExerciciosPage } from '../pages/professor/exercicios/cadastro-exercicios/cadastro-exercicios';
+import { PerfilAlunoPage } from '../pages/professor/alunos/perfil-aluno/perfil-aluno';
+import { ProfessorTabsPage } from '../pages/professor/professor-tabs/professor-tabs';
+import { AlunoSelecaoPage } from '../pages/aluno/aluno-selecao/aluno-selecao';
+import { MenuLateralPage } from '../pages/professor/menu-lateral/menu-lateral';
+import { AlunoPerfilProfessorPage } from '../pages/aluno/aluno-selecao/aluno-perfil-professor/aluno-perfil-professor';
+import { AlunoTreinamentoPage } from '../pages/aluno/aluno-treinamento/aluno-treinamento';
+import { AlunoExercicioPage } from '../pages/aluno/aluno-exercicio/aluno-exercicio';
+import { AlunoExercicioDetalhesPage } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes';
+import { AlunoMenuLateralPage } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral';
+import { AlunoConfiguracaoPage } from '../pages/aluno/aluno-configuracao/aluno-configuracao';
+import { AlertConfirmComponent } from '../components/alert-confirm/alert-confirm';
 
 
 @NgModule({
   declarations: [
     MyApp,
+    /*Page*/
     LoginPage,
     AlunosPage,
     ExerciciosPage,
     TreinamentosPage,
+    CadastroTreinamentoPage,
+    ConfiguracaoProfessorPage,
+    cadastroProfessorPage,
+    cadastroAlunoPage,
+    CadastroExerciciosPage,
+    PerfilAlunoPage,
+    ProfessorTabsPage,
+    AlunoSelecaoPage,
+    MenuLateralPage,
+    AlunoPerfilProfessorPage,
+    AlunoTreinamentoPage,
+    AlunoExercicioPage,
+    AlunoExercicioDetalhesPage,
+    AlunoMenuLateralPage,
+    AlunoConfiguracaoPage,
+    /*Pipe*/
     DataFormatPipe,
-    YoutubePipe
+    YoutubePipe,
+    AlertConfirmComponent
   ],
   imports: [
     BrowserModule, HttpModule,
-    cadastroProfessorPageModule,
-    cadastroAlunoPageModule,
-    CadastroExerciciosPageModule,
-    PerfilAlunoPageModule,
-    ProfessorTabsPageModule,
-    CadastroTreinamentoPageModule,
-    ConfiguracaoProfessorPageModule,
     IonicModule.forRoot(MyApp, {
       swipeEnabled: "false"
     }),
     RlTagInputModule,
     ReactiveFormsModule,
     FormsModule,
-    AlunoSelecaoPageModule,
-    MenuLateralPageModule,
-    AlunoPerfilProfessorPageModule,
-    AlunoTreinamentoPageModule,
-    AlunoExercicioPageModule,
-    AlunoExercicioDetalhesPageModule,
-    AlunoMenuLateralPageModule,
-    AlunoConfiguracaoPageModule,
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -80,7 +83,22 @@ import { AlunoServiceProvider } from '../providers/aluno-service/aluno-service';
     LoginPage,
     AlunosPage,
     ExerciciosPage,
-    TreinamentosPage
+    TreinamentosPage,
+    CadastroTreinamentoPage,
+    ConfiguracaoProfessorPage,
+    cadastroProfessorPage,
+    cadastroAlunoPage,
+    CadastroExerciciosPage,
+    PerfilAlunoPage,
+    ProfessorTabsPage,
+    AlunoSelecaoPage,
+    MenuLateralPage,
+    AlunoPerfilProfessorPage,
+    AlunoTreinamentoPage,
+    AlunoExercicioPage,
+    AlunoExercicioDetalhesPage,
+    AlunoMenuLateralPage,
+    AlunoConfiguracaoPage,
   ],
   providers: [
     StatusBar,
@@ -89,12 +107,11 @@ import { AlunoServiceProvider } from '../providers/aluno-service/aluno-service';
     AuthService,
     LocalService,
     ProfessorServiceProvider,
-    LocalService,
-    Camera,
     ExercicioServiceProvider,
     TreinamentoServiceProvider,
     AlunoTreinamentoServiceProvider,
-    AlunoServiceProvider
+    AlunoServiceProvider,
+    Camera,
   ],
 })
 export class AppModule { }

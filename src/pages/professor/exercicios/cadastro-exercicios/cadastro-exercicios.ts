@@ -1,6 +1,6 @@
 import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -20,7 +20,9 @@ export class CadastroExerciciosPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public exercicioService: ExercicioServiceProvider,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    private alertCtrl: AlertController
+  ) {
     this.codigo = navParams.get('codigo');
   }
 
@@ -31,7 +33,7 @@ export class CadastroExerciciosPage {
     }
     if (this.codigo != null) {
       this.titulo = "Alterar"
-    }else{
+    } else {
       this.titulo = "Novo"
     }
   }
@@ -50,16 +52,50 @@ export class CadastroExerciciosPage {
     });
   }
 
+  doExcluirExercicio(exercicio) {
+    let mensagem: string = "Você deseja apagar o exercicio: <br/><br/>" + exercicio.nome.toUpperCase() + "<br/><br/>";
+
+    let confirm = this.alertCtrl.create({
+      title: "Apagar Exercicio",
+      message: mensagem,
+      buttons: [
+        {
+          text: "cancelar",
+          role: 'cancel',
+        },
+        {
+          text: "Apagar",
+          handler: () => {
+            if (exercicio.codigo != null) {
+              this.exercicioService.deletarExercicio(exercicio).then((result) => {
+                this.presentToast("Exercício excluído com sucesso!");
+                this.navCtrl.pop();
+              }, (err) => {
+                console.log("error: " + err);
+                if (err.status == 500) {
+                  this.presentToast("Não foi possível excluído o exercício, verifique se o exercício não está vinculado a algum treinamento");
+                } else {
+                  this.presentToast("Ocorreu um erro ao tentar excluir o exercício, tente novamente!");
+                }
+              });
+            }
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 6000,
+      duration: 10000,
       position: 'bottom',
       dismissOnPageChange: true
     });
 
     toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+
     });
 
     toast.present();
@@ -83,4 +119,6 @@ export class CadastroExerciciosPage {
       codigo: ''
     };
   }
+
+
 }

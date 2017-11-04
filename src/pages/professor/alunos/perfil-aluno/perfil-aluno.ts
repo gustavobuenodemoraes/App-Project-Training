@@ -68,7 +68,6 @@ export class PerfilAlunoPage {
         checked: this.procurarIndice(this.exerciciosJaSelecionados,"codigo",element.codigo)
       });
     });
-
     alert.addButton('Cancelar');
     alert.addButton({
       text: 'Enviar',

@@ -10,7 +10,7 @@
 <ion-content padding>
   <form #form="ngForm" novalidate>
 
-    <ion-input type="text" hidden name="codigo" [(ngModel)]="treinamento.codigo" *ngIf="treinamento.codigo != null" > </ion-input>
+    <ion-input type="text" hidden name="codigo" [(ngModel)]="treinamento.codigo" *ngIf="treinamento.codigo != null"> </ion-input>
     <ion-grid>
       <ion-row>
         <ion-col col-12>
@@ -70,17 +70,18 @@
           </ion-col>
         </ion-row>
 
-        <ion-row (click)="alterarItemSerieExercicio(listaExercicios)">
-          <ion-col col-4>
-            <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
-            {{listaExercicios?.serie}}
-          </ion-col>
+        <ion-row>
+          <div (click)="alterarItemSerieExercicio(listaExercicios)">
+            <ion-col col-4>
+              <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
+              {{listaExercicios?.serie}}
+            </ion-col>
 
-          <ion-col col-4>
-            <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
-            {{listaExercicios?.repeticao}}
-          </ion-col>
-
+            <ion-col col-4>
+              <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
+              {{listaExercicios?.repeticao}}
+            </ion-col>
+          </div>
           <ion-col col-auto>
             <button ion-button color="danger" clear icon-only (click)="removeItem(listaExercicios)">
               <ion-icon name='trash' is-active="false"></ion-icon>
