@@ -11,9 +11,6 @@
 
   <ion-list>
     <ion-item>
-      <ion-avatar item-start>
-        <img [src]="usuario?.foto" />
-      </ion-avatar>
       <h2>{{usuario?.nome}}</h2>
     </ion-item>
 
@@ -23,7 +20,6 @@
 
     <ion-item>
       <button ion-button small (click)="doCheckbox()" clear>Lista de Treinamentos</button>
-      <ion-note item-end>Iniciante 1</ion-note>
     </ion-item>
 
     <ion-list-header>

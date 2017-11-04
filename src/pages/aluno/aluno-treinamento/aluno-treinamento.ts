@@ -15,7 +15,7 @@ export class AlunoTreinamentoPage {
   }
 
   ionViewDidLoad() {
-       this.alunoTreinamentoService.listarTreinamentosDosAlunos()
+       this.alunoTreinamentoService.listarTreinamentosDosAlunos(localStorage.getItem('codUsuarioLogado'))
         .subscribe(resultado => this.treinamentos = resultado)
   }
 

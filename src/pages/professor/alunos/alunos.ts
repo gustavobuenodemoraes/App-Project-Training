@@ -17,7 +17,7 @@ export class AlunosPage {
     this.navCtrl.push(PerfilAlunoPage, { codigo: codigo });
   }
 
-  ngOnInit() {
+  ionViewDidLoad() {
     this.professorService.listarAlunosDoProfessor()
     .subscribe(resultado => {
       this.usuarios = resultado
