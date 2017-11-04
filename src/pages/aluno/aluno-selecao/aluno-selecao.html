@@ -16,11 +16,7 @@
     <!-- mudar para codigo -->
     <ion-item *ngFor="let professor of professores">
 
-      <ion-avatar item-start>
-        <img [src]="professor.imagem">
-      </ion-avatar>
-
-      <button ion-button clear (click)="selecionaProfessor(professor.id)">
+      <button ion-button clear (click)="selecionaProfessor(professor.codigo)">
         {{ professor.nome }}
       </button>
 

@@ -1,3 +1,4 @@
+import { AlunoSelecaoPage } from './../aluno/aluno-selecao/aluno-selecao';
 import { AlunoMenuLateralPage } from './../aluno/aluno-menu-lateral/aluno-menu-lateral';
 import { MenuLateralPage } from './../professor/menu-lateral/menu-lateral';
 import { MenuController } from 'ionic-angular';
@@ -50,6 +51,10 @@ export class LoginPage {
     this.navCtrl.setRoot(AlunoMenuLateralPage);
   }
 
+  goToSelecionarProfessor() {
+    this.navCtrl.setRoot(AlunoSelecaoPage);
+  }
+
   doLogin(formulario: tipoLogin) {
     this.authService.login(formulario).then((result) => {
       this.data = result;
@@ -61,7 +66,11 @@ export class LoginPage {
       if(this.data.tipoUsuario == "PROFESSOR"){
         this.goToProfessor();
       }else if(this.data.tipoUsuario == "ALUNO"){
-        this.goToAluno();
+        if(typeof this.data.professor == "undefined" ){
+          this.goToSelecionarProfessor();
+        }else{
+          this.goToAluno();
+        }
       }
     }, (err) => {
       if (err.status == 401) {

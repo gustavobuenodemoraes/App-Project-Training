@@ -26,7 +26,7 @@
     </ion-item>
 
     <ion-item>
-      {{professor.Cref}}
+      {{professor.confef}}
       <ion-icon name='document' item-start></ion-icon>
     </ion-item>
     <!-- testando para aluno -->
@@ -36,7 +36,7 @@
 
     <ion-input type="text" hidden name="codigo" [(ngModel)]="professor.codigo"> </ion-input>
 
-    <button ion-button color="secondary" full>Escolha esse professor</button>
+    <button ion-button color="secondary" full  (click)="enviarSolicitacao()">Escolha esse professor</button>
 
   </ion-list>
 </ion-content>
