@@ -1,13 +1,6 @@
 <ion-menu [content]="mainContent" id="menuProfessor">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        <ion-avatar item-start>
-          <img src="https://vignette3.wikia.nocookie.net/fictionalcharacters/images/9/9a/Johnny_Bravo.png/revision/latest?cb=20131031032341">
-        </ion-avatar>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- <ion-header>
+  </ion-header> -->
 
   <ion-content>
     <ion-list>
@@ -17,11 +10,11 @@
         <ion-label>{{nomeUsuario}}</ion-label>
       </ion-item>
 
-      <button ion-item (click)="onConfiguracao()" menuClose>
+      <button ion-item (click)="onConfiguracao()" menuClose detail-none>
         <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
       </button>
 
-      <button ion-item (click)="sair()" menuClose>
+      <button ion-item (click)="sair()" menuClose detail-none>
         <ion-icon name="exit"></ion-icon> Sair
       </button>
 

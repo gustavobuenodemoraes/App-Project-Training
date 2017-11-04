@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
 
-    <button ion-button menuToggle="menuProfessor">
+    <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
 
@@ -17,7 +17,7 @@
   <ion-list *ngFor="let exercicio of exercicios">
 
     <ion-item color="none" (click)="selecionaExercicio(exercicio.codigo)">
-        {{exercicio.nome}}
+      {{exercicio.nome}}
     </ion-item>
   </ion-list>
 

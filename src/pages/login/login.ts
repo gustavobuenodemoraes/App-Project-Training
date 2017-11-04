@@ -53,8 +53,8 @@ export class LoginPage {
   doLogin(formulario: tipoLogin) {
     this.authService.login(formulario).then((result) => {
       this.data = result;
-      console.log(this.data);
-      this.presentLoading();
+      // console.log(this.data);
+      // this.presentLoading();
       localStorage.setItem('token', this.data.Authentication);
       localStorage.setItem('codUsuarioLogado', this.data.codigo);
       localStorage.setItem('nomeUsuarioLogado', this.data.nome);
@@ -71,6 +71,7 @@ export class LoginPage {
       }
     });
   }
+
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,

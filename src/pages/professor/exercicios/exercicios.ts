@@ -23,25 +23,26 @@ export class ExerciciosPage {
     this.navCtrl.push(CadastroExerciciosPage);
   }
 
-  ngOnInit() {
-    this.initializeItems();
-  }
-
   filterExercicios(digitado) {
-    if (digitado.inputType === "deleteContentBackward") {
+    if (digitado.inputType === "deleteContentBackward" || digitado.inputType === "MouseEvent") {
       this.initializeItems();
     }
-
-    console.log(digitado);
-
     let valorDigitado = digitado.target.value;
 
     if (valorDigitado && valorDigitado.trim() != '') {
       this.exercicios = this.exercicios.filter((resultadoList: tipoExercicio) => {
-        console.log(resultadoList);
         return resultadoList.nome.toLocaleLowerCase().indexOf(valorDigitado) > -1;
       })
+    } else {
+      this.initializeItems();
     }
+  }
+
+  ionViewDidEnter() {
+    this.initializeItems();
+  }
+  
+  ngOnInit() {
   }
 
   initializeItems() {

@@ -10,12 +10,12 @@ export class ProfessorServiceProvider {
   constructor(public http: Http) {
   }
 
-  listarAlunosDoProfessor() : Observable<Response[]>{
-        let headers = new Headers();
-        headers.append('Authentication', localStorage.getItem('token'));
+  listarAlunosDoProfessor(): Observable<Response[]> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
 
-         return this.http.get(`${apiUrl}professor/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({headers : headers}))
-        .map(resultado => resultado.json());
+    return this.http.get(`${apiUrl}professor/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
   }
 
   mostrarAlunoProfessor(codigo: any): Observable<any> {
@@ -26,12 +26,12 @@ export class ProfessorServiceProvider {
       .map(resultado => resultado.json());
   }
 
-  mostrarProfessor(codigo: any): Observable<any>{
-        let headers = new Headers();
-        headers.append('Authentication', localStorage.getItem('token'));
+  mostrarProfessor(codigo: any): Observable<any> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
 
-         return this.http.get(`${apiUrl}professor/find/${codigo}`, new RequestOptions({headers : headers}))
-        .map(resultado => resultado.json());
+    return this.http.get(`${apiUrl}professor/find/${codigo}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
   }
 
   salvarProfessor(data) {

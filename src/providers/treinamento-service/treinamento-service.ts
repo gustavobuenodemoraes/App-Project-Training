@@ -22,7 +22,7 @@ export class TreinamentoServiceProvider {
     })
   }
 
-  salvarOrdemTreinos(codTreinamento, data){
+  salvarOrdemTreinos(codTreinamento, data) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -34,28 +34,46 @@ export class TreinamentoServiceProvider {
     })
   }
 
-    listarTreinamentosDoProfessor() : Observable<Response[]>{
-        let headers = new Headers();
-        headers.append('Authentication', localStorage.getItem('token'));
-
-         return this.http.get(`${apiUrl}Treinamento/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({headers : headers}))
-        .map(resultado => resultado.json());
-  }
-
-  listarOrdemDeTreinamentosExercicios(codigo): Observable<Response[]>{
+  listarTreinamentosDoProfessor(): Observable<Response[]> {
     let headers = new Headers();
     headers.append('Authentication', localStorage.getItem('token'));
 
-    return this.http.get(`${apiUrl}ordemTreino/treinamento/${codigo}`, new RequestOptions({headers : headers}))
-    .map(resultado => resultado.json());
+    return this.http.get(`${apiUrl}Treinamento/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
   }
 
-  listarOrdemDeTreinamentosPorCodigo(codigo): Observable<Response[]>{
+  listarOrdemDeTreinamentosExercicios(codigo): Observable<Response[]> {
     let headers = new Headers();
     headers.append('Authentication', localStorage.getItem('token'));
 
-    return this.http.get(`${apiUrl}ordemTreino/${codigo}`, new RequestOptions({headers : headers}))
-    .map(resultado => resultado.json());
+    return this.http.get(`${apiUrl}ordemTreino/treinamento/${codigo}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
+  }
+
+  listarOrdemDeTreinamentosPorCodigo(codigo): Observable<Response[]> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}ordemTreino/${codigo}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
+  }
+
+  excluirOrdemTreinos(data) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Authentication', localStorage.getItem('token'));
+
+      let body = {
+        codigo: data.codigo
+      };
+
+      this.http.delete(`${apiUrl}ordemTreino/`, new RequestOptions({
+        headers: headers,
+        body: body
+      }))
+        .subscribe(res => resolve(res.json())
+        , err => reject(err))
+    })
   }
 
 }

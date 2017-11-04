@@ -42,18 +42,6 @@ export class CadastroTreinamentoPage {
     this.id = navParams.get('id');
   }
 
-  ionViewDidLoad() {
-    this.exercicioServiceProvider.listarExercicios()
-      .subscribe(resultado => {
-        this.exercicios = resultado;
-      });
-    if (this.id == null) {
-      this.titulo = "Novo"
-    }else{
-      this.titulo = "Alterar"
-      this.alterarTreinamento();
-    }
-  }
 
   /*Parte de cadastro */
 
@@ -63,7 +51,34 @@ export class CadastroTreinamentoPage {
   }
 
   removeItem(item: any) {
-    this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
+    console.log(item.codigo);
+
+    let mensagem: string = "Você deseja excluir o exercicio: <br/><br/>" + item.exercicio.nome.toUpperCase() + "<br/><br/>";
+    let confirm = this.alertCtrl.create({
+      title: "Apagar Exercicio",
+      message: mensagem,
+      buttons: [
+        {
+          text: "cancelar",
+          role: 'cancel',
+        },
+        {
+          text: "Apagar",
+          handler: () => {
+            if (item.treinamento) {
+              this.treinamentoServiceProvider.excluirOrdemTreinos(item).then((result) => {
+                this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
+              }, (err) => {
+                this.presentToast("Ocorreu um erro ao tentar apagar o exercício da lista, tente novamente!");
+              });
+            } else {
+              this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
+            }
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
   //#region alterar item de exercicio
@@ -159,18 +174,18 @@ export class CadastroTreinamentoPage {
   salvarTreinamento() {
     this.showLoader();
     this.treinamentoServiceProvider.salvarTreinamentos(this.treinamento)
-    .then((result) => {
-      this.dataTreinamento = result;
-      this.salvarOrdemTreinos(this.dataTreinamento.codigo);
-      this.loading.dismiss();
-    }, (err) => {
-      this.loading.dismiss();
-      this.presentToast("Ocorreu um erro ao tentar salvar o treinamento!");
-    });
+      .then((result) => {
+        this.dataTreinamento = result;
+        this.salvarOrdemTreinos(this.dataTreinamento.codigo);
+        this.loading.dismiss();
+      }, (err) => {
+        this.loading.dismiss();
+        this.presentToast("Ocorreu um erro ao tentar salvar o treinamento!");
+      });
   }
 
   salvarOrdemTreinos(codTreino) {
-    console.log(codTreino, this.exerciciosCadastrados);
+    // console.log(codTreino, this.exerciciosCadastrados);
     this.treinamentoServiceProvider.salvarOrdemTreinos(codTreino, this.exerciciosCadastrados).then((result) => {
 
     }, (err) => {
@@ -200,4 +215,19 @@ export class CadastroTreinamentoPage {
 
     toast.present();
   }
+
+  ionViewDidLoad() {
+
+    if (this.id == null) {
+      this.titulo = "Novo"
+    } else {
+      this.titulo = "Alterar"
+      this.exercicioServiceProvider.listarExercicios()
+        .subscribe(resultado => {
+          this.exercicios = resultado;
+        });
+      this.alterarTreinamento();
+    }
+  }
+
 }

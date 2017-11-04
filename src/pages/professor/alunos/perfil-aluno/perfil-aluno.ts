@@ -50,7 +50,6 @@ export class PerfilAlunoPage {
         // checked: true
       });
     });
-
     alert.addButton('Cancelar');
     alert.addButton({
       text: 'Enviar',

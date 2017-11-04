@@ -13,14 +13,17 @@ export class AlunosPage {
   constructor(public navCtrl: NavController, private professorService: ProfessorServiceProvider) {
   }
 
-  selecionaAluno(codigo){
+  selecionaAluno(codigo) {
     this.navCtrl.push(PerfilAlunoPage, { codigo: codigo });
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.professorService.listarAlunosDoProfessor()
-    .subscribe(resultado => {
-      this.usuarios = resultado
-    })
+      .subscribe(resultado => {
+        this.usuarios = resultado
+      })
+  }
+
+  ngOnInit() {
   }
 }
