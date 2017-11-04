@@ -44,4 +44,23 @@ export class ProfessorServiceProvider {
         , err => reject(err));
     });
   }
+
+  listarProfessores() : Observable<Response[]>{
+        let headers = new Headers();
+        headers.append('Authentication', localStorage.getItem('token'));
+
+         return this.http.get(`${apiUrl}professor`, new RequestOptions({headers : headers}))
+        .map(resultado => resultado.json());
+  }
+
+  enviarSolicitacaoParaProfessor(codProfessor: any) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Authentication', localStorage.getItem('token'));
+      this.http.post(`${apiUrl}professorSolicitacao/${codProfessor}/${localStorage.getItem('codUsuarioLogado')}`, "", { headers: headers })
+        .subscribe(res => resolve(res)
+        , err => reject(err));
+    });
+  }
+
 }

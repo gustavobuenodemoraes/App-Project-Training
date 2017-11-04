@@ -1,3 +1,4 @@
+import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service';
 import { LocalService } from './../../../providers/local/login.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
@@ -16,18 +17,19 @@ export class AlunoSelecaoPage {
   professores: Array<any>;
 
   // pode retirar o localservide
-  constructor(public navCtrl: NavController, public navParams: NavParams, private localService: LocalService, private menuCtrl: MenuController) {
-    // desativa o menu lateral
-    this.menuCtrl.enable(false);
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private menuCtrl: MenuController,
+    private professorService: ProfessorServiceProvider) {
   }
 
   selecionaProfessor(professor): void {
-    alert(professor);
     this.navCtrl.push(AlunoPerfilProfessorPage, { codigo: professor });
   }
 
   ionViewDidLoad() {
-    this.localService.listarProfessores()
+    this.professorService.listarProfessores()
       .subscribe(resultado => this.professores = resultado);
   }
 }
