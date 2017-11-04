@@ -1,4 +1,4 @@
-import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service';
+import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service'
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PerfilAlunoPage } from './perfil-aluno/perfil-aluno';
@@ -16,6 +16,7 @@ export class AlunosPage {
   selecionaAluno(codigo) {
     this.navCtrl.push(PerfilAlunoPage, { codigo: codigo });
   }
+
 
   ionViewDidEnter() {
     this.professorService.listarAlunosDoProfessor()
