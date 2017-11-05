@@ -63,4 +63,31 @@ export class ProfessorServiceProvider {
     });
   }
 
+  listarSolicitacoesPendentes(codigoProfessor : any) : Observable<Response[]>{
+        let headers = new Headers();
+        headers.append('Authentication', localStorage.getItem('token'));
+
+         return this.http.get(`${apiUrl}professorSolicitacao/${codigoProfessor}`, new RequestOptions({headers : headers}))
+        .map(resultado => resultado.json());
+  }
+
+  aceitarSolicitacaoAluno(data: any) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Authentication', localStorage.getItem('token'));
+      this.http.post(`${apiUrl}professorSolicitacao/aceitar`, data, { headers: headers })
+        .subscribe(res => resolve(res)
+        , err => reject(err));
+    });
+  }
+
+  recusarSolicitacaoAluno(data: any) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Authentication', localStorage.getItem('token'));
+      this.http.post(`${apiUrl}professorSolicitacao/recusar`, data, { headers: headers })
+        .subscribe(res => resolve(res)
+        , err => reject(err));
+    });
+  }
 }
