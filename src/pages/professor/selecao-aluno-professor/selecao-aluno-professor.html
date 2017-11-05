@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicione seu Aluno</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list inset>
+    <ion-list-header text-center>
+      Alunos
+    </ion-list-header>
+    <button ion-item *ngFor="let aluno of alunos" (click)="detalhesAluno(aluno.codigo)">
+      {{aluno.nome}}
+    </button>
+  </ion-list>
+</ion-content>

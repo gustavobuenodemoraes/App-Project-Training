@@ -216,16 +216,15 @@ export class CadastroTreinamentoPage {
     toast.present();
   }
 
-  ionViewDidLoad() {
-
+  ionViewDidEnter() {
+    this.exercicioServiceProvider.listarExercicios()
+      .subscribe(resultado => {
+        this.exercicios = resultado;
+      });
     if (this.id == null) {
       this.titulo = "Novo"
     } else {
       this.titulo = "Alterar"
-      this.exercicioServiceProvider.listarExercicios()
-        .subscribe(resultado => {
-          this.exercicios = resultado;
-        });
       this.alterarTreinamento();
     }
   }

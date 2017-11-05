@@ -1,3 +1,4 @@
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { LocalService } from './../providers/local/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -14,7 +15,6 @@ import { ExercicioServiceProvider } from '../providers/exercicio-service/exercic
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
 import { TreinamentoServiceProvider } from '../providers/treinamento-service/treinamento-service';
-import { YoutubePipe } from '../pipes/youtube/youtube';
 /* camera */
 import { Camera } from '@ionic-native/camera';
 import { AlunosPage } from './../pages/professor/alunos/alunos';
@@ -38,6 +38,8 @@ import { AlunoExercicioDetalhesPage } from '../pages/aluno/aluno-exercicio/aluno
 import { AlunoMenuLateralPage } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral';
 import { AlunoConfiguracaoPage } from '../pages/aluno/aluno-configuracao/aluno-configuracao';
 import { AlertConfirmComponent } from '../components/alert-confirm/alert-confirm';
+import { SelecaoAlunoProfessorPage } from '../pages/professor/selecao-aluno-professor/selecao-aluno-professor';
+import { DetalhesSelecaoAlunoProfessorPage } from '../pages/professor/selecao-aluno-professor/detalhes-selecao-aluno-professor/detalhes-selecao-aluno-professor';
 
 
 @NgModule({
@@ -63,9 +65,10 @@ import { AlertConfirmComponent } from '../components/alert-confirm/alert-confirm
     AlunoExercicioDetalhesPage,
     AlunoMenuLateralPage,
     AlunoConfiguracaoPage,
+    SelecaoAlunoProfessorPage,
+    DetalhesSelecaoAlunoProfessorPage,
     /*Pipe*/
     DataFormatPipe,
-    YoutubePipe,
     AlertConfirmComponent
   ],
   imports: [
@@ -99,6 +102,8 @@ import { AlertConfirmComponent } from '../components/alert-confirm/alert-confirm
     AlunoExercicioDetalhesPage,
     AlunoMenuLateralPage,
     AlunoConfiguracaoPage,
+    SelecaoAlunoProfessorPage,
+    DetalhesSelecaoAlunoProfessorPage
   ],
   providers: [
     StatusBar,
@@ -112,6 +117,7 @@ import { AlertConfirmComponent } from '../components/alert-confirm/alert-confirm
     AlunoTreinamentoServiceProvider,
     AlunoServiceProvider,
     Camera,
+    YoutubeVideoPlayer
   ],
 })
 export class AppModule { }

@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalhes do Aluno</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <h2>{{aluno?.nome}}</h2>
+    </ion-item>
+
+    <ion-list-header text-center>
+      Dados do aluno
+    </ion-list-header>
+    <ion-item>
+      Nascimento
+      <ion-note item-end>{{aluno?.dtNascimento | date:'dd/MM/yyyy'}}</ion-note>
+    </ion-item>
+
+    <ion-list-header text-center>
+      Medidas do aluno
+    </ion-list-header>
+
+    <ion-item>
+      Altura
+      <ion-note item-end>{{aluno?.altura}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      Peso
+      <ion-note item-end>{{aluno?.peso}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full (click)="aceitar()">Aceitar Aluno</button>
+</ion-content>

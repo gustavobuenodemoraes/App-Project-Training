@@ -13,23 +13,19 @@ export class AlunoExercicioDetalhesPage {
   codigo: number;
   ordemTreino;
 
-  video
-
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams, 
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
     private sanitizer: DomSanitizer,
-    private treinamentoService: TreinamentoServiceProvider) {
-
+    private treinamentoService: TreinamentoServiceProvider,
+  ) {
     this.codigo = this.navParams.get("codigo");
-
   }
 
   ionViewDidLoad() {
-      this.treinamentoService.listarOrdemDeTreinamentosPorCodigo(this.codigo)
-       .subscribe(resultado => {
-         this.ordemTreino = resultado
-         this.video = this.sanitizer.bypassSecurityTrustResourceUrl(this.ordemTreino.linkVideo);
-      })
+    this.treinamentoService.listarOrdemDeTreinamentosPorCodigo(this.codigo)
+      .subscribe(resultado => {
+        this.ordemTreino = resultado
+      }) 
   }
 
 }

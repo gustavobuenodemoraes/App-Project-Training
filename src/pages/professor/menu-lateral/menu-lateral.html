@@ -6,12 +6,17 @@
     <ion-list>
 
       <ion-item>
-        <ion-icon name="contact"></ion-icon>
-        <ion-label>{{nomeUsuario}}</ion-label>
+        <h1>
+          {{nomeUsuario}}
+        </h1>
       </ion-item>
 
       <button ion-item (click)="onConfiguracao()" menuClose detail-none>
         <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
+      </button>
+
+      <button ion-item (click)="onAluno()" menuClose detail-none>
+        <ion-icon name="person-add"></ion-icon> Aluno
       </button>
 
       <button ion-item (click)="sair()" menuClose detail-none>

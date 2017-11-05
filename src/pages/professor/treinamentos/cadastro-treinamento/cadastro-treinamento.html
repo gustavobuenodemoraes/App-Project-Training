@@ -63,34 +63,22 @@
       Treinamentos cadastrados
     </ion-list-header>
     <ion-item *ngFor="let listaExercicios of exerciciosCadastrados">
-      <ion-grid>
-        <ion-row (click)="alterarItemExercicio(listaExercicios)">
-          <ion-col col-12>
-            {{listaExercicios.exercicio?.nome}}
-          </ion-col>
-        </ion-row>
 
-        <ion-row>
-          <div (click)="alterarItemSerieExercicio(listaExercicios)">
-            <ion-col col-4>
-              <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
-              {{listaExercicios?.serie}}
-            </ion-col>
+      <ion-item-sliding center text-center>
+        <ion-item>
+          <h1 (click)="alterarItemExercicio(listaExercicios)">{{listaExercicios.exercicio?.nome}}</h1>
+          <br>
+          <br>
+          <h2 (click)="alterarItemSerieExercicio(listaExercicios)">{{listaExercicios?.serie}} x {{listaExercicios?.repeticao}}</h2>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="danger" clear icon-only (click)="removeItem(listaExercicios)">
+            <ion-icon name='trash' is-active="false"></ion-icon>
+            Excluir
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
 
-            <ion-col col-4>
-              <div class="spacer" id="cameraTabDefaultPage-spacer1"></div>
-              {{listaExercicios?.repeticao}}
-            </ion-col>
-          </div>
-          <ion-col col-auto>
-            <button ion-button color="danger" clear icon-only (click)="removeItem(listaExercicios)">
-              <ion-icon name='trash' is-active="false"></ion-icon>
-            </button>
-          </ion-col>
-        </ion-row>
-
-
-      </ion-grid>
     </ion-item>
   </ion-list>
 

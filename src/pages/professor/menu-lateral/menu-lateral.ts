@@ -6,6 +6,7 @@ import { ProfessorTabsPage } from '../professor-tabs/professor-tabs';
 import { LoginPage } from '../../login/login';
 import { AuthService } from '../../../providers/auth-service/auth-service';
 import { ConfiguracaoProfessorPage } from '../configuracao-professor/configuracao-professor';
+import { SelecaoAlunoProfessorPage } from '../selecao-aluno-professor/selecao-aluno-professor';
 
 @IonicPage()
 @Component({
@@ -34,11 +35,15 @@ export class MenuLateralPage {
     this.navCtrl.setRoot(LoginPage);
   }
 
+  onAluno(): void {
+    this.navCtrl.push(SelecaoAlunoProfessorPage);
+  }
+
   ngOnInit() {
 
   }
 
   ionViewDidLoad() {
-     this.nomeUsuario = localStorage.getItem('nomeUsuarioLogado');
+    this.nomeUsuario = localStorage.getItem('nomeUsuarioLogado');
   }
 }
