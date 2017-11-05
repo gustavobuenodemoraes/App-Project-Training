@@ -1,5 +1,7 @@
+import { AlunoServiceProvider } from './../../../../providers/aluno-service/aluno-service';
+import { ProfessorServiceProvider } from './../../../../providers/professor-service/professor-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,20 +10,46 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetalhesSelecaoAlunoProfessorPage {
   aluno: { codigo: number; nome: string; dtNascimento: string; altura: number; peso: number; };
-  codigo: number;
+  dados: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.codigo = this.navParams.get("codigo");
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private professorService: ProfessorServiceProvider,
+    private toastCtrl: ToastController,
+    private alunoService: AlunoServiceProvider) {
+    this.dados = this.navParams.get("dados");
   }
 
   aceitar(): void {
+    this.professorService.aceitarSolicitacaoAluno(this.dados).then((result) => {
+    }, (err) => {
+        this.presentToast("Ocorreu um erro ao tentar aceitar o aluno!");
+    });
     // volta a pagina
     this.navCtrl.pop();
   }
 
-  ionViewDidLoad() {
-    this.aluno = { codigo: 1, nome: 'Pedro', dtNascimento: '1980/11/05', altura: 180, peso: 100 }
+  recusar(): void {
+    this.professorService.recusarSolicitacaoAluno(this.dados).then((result) => {
+    }, (err) => {
+        this.presentToast("Ocorreu um erro ao tentar recusar o aluno!");
+    });
+    // volta a pagina
+    this.navCtrl.pop();
+  }
 
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 6000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+  }
+  ionViewDidLoad() {
+      this.alunoService.mostrarAluno(this.dados.aluno.codigo)
+        .subscribe(resultado => this.aluno = resultado)
   }
 
 }
