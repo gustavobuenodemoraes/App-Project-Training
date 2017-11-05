@@ -21,12 +21,12 @@ export class AlunoTreinamentoServiceProvider {
     });
   }
 
-  listarTreinamentosDosAlunos() : Observable<Response[]>{
+  listarTreinamentosDosAlunos(codigo :any) : Observable<Response[]>{
         let headers = new Headers();
         headers.append('Content-Type', 'application/json')
         headers.append('Authentication', localStorage.getItem('token'));
 
-         return this.http.get(`${apiUrl}alunoTreinamento/${localStorage.getItem('codUsuarioLogado')}`, new RequestOptions({headers : headers}))
+         return this.http.get(`${apiUrl}alunoTreinamento/${codigo}`, new RequestOptions({headers : headers}))
         .map(resultado => resultado.json());
   }
 

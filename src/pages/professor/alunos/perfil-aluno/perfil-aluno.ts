@@ -15,6 +15,7 @@ export class PerfilAlunoPage {
   codigo: any
 
   exercicios: Array<any> = [];
+  exerciciosJaSelecionados: Array<any> = [];
 
   testCheckboxOpen: boolean;
   testCheckboxResult;
@@ -25,7 +26,7 @@ export class PerfilAlunoPage {
     private professorServiceProvider: ProfessorServiceProvider,
     public alertCtrl: AlertController,
     private treinamentoService: TreinamentoServiceProvider,
-    private alunoTreinamentoService: AlunoTreinamentoServiceProvider
+    private alunoTreinamentoService: AlunoTreinamentoServiceProvider,
   ) {
     this.codigo = navParams.get('codigo');
   }
@@ -33,12 +34,29 @@ export class PerfilAlunoPage {
   ngOnInit() {
     this.professorServiceProvider.mostrarAlunoProfessor(this.codigo)
       .subscribe(resultado => this.usuario = resultado)
-
-    this.treinamentoService.listarTreinamentosDoProfessor()
-      .subscribe(resultado => this.exercicios = resultado)
+      
   }
 
+  atualizarDadosTreinamentos(){
+    this.treinamentoService.listarTreinamentosDoProfessor()
+      .subscribe(resultado => this.exercicios = resultado)
+
+    this.alunoTreinamentoService.listarTreinamentosDosAlunos(this.codigo)
+      .subscribe(resultado => this.exerciciosJaSelecionados = resultado)
+  }
+
+  procurarIndice(arraySearch, atributo, valor){
+   for(var i in arraySearch){
+      var row = arraySearch[i];
+      if(row[atributo]==valor){
+         return true;
+      }
+   }
+   return false;
+}
+
   doCheckbox() {
+    this.atualizarDadosTreinamentos();
     let alert = this.alertCtrl.create();
     alert.setTitle('Selecione os Treinamentos');
 
@@ -47,7 +65,7 @@ export class PerfilAlunoPage {
         type: 'checkbox',
         label: element.nome,
         value: element,
-        // checked: true
+        checked: this.procurarIndice(this.exerciciosJaSelecionados,"codigo",element.codigo)
       });
     });
     alert.addButton('Cancelar');
