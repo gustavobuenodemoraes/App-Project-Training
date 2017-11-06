@@ -1,3 +1,4 @@
+import { AlunoPerfilDoProfessorPage } from './../aluno-perfil-professor/aluno-perfil-professor';
 import { AlunoTreinamentoPage } from './../aluno-treinamento/aluno-treinamento';
 import { AlunoSelecaoPage } from './../aluno-selecao/aluno-selecao';
 import { Component, ViewChild } from '@angular/core';
@@ -31,6 +32,11 @@ export class AlunoMenuLateralPage {
     this.navCtrl.push(AlunoConfiguracaoPage);
   }
 
+
+  onProfessor(): void {
+    this.navCtrl.push(AlunoPerfilDoProfessorPage);
+  }
+
   sair(): void {
     this.authService.logout();
     this.navCtrl.setRoot(LoginPage);
@@ -48,7 +54,7 @@ export class AlunoMenuLateralPage {
     this.rootPage = (this.newFunction(condicao)) ? AlunoSelecaoPage : AlunoTreinamentoPage;
 
   }
-    private newFunction(condicao: boolean) {
-        return condicao == true;
-    }
+  private newFunction(condicao: boolean) {
+    return condicao == true;
+  }
 }

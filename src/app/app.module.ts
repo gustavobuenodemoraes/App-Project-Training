@@ -37,10 +37,10 @@ import { AlunoExercicioPage } from '../pages/aluno/aluno-exercicio/aluno-exercic
 import { AlunoExercicioDetalhesPage } from '../pages/aluno/aluno-exercicio/aluno-exercicio-detalhes/aluno-exercicio-detalhes';
 import { AlunoMenuLateralPage } from '../pages/aluno/aluno-menu-lateral/aluno-menu-lateral';
 import { AlunoConfiguracaoPage } from '../pages/aluno/aluno-configuracao/aluno-configuracao';
-import { AlertConfirmComponent } from '../components/alert-confirm/alert-confirm';
 import { SelecaoAlunoProfessorPage } from '../pages/professor/selecao-aluno-professor/selecao-aluno-professor';
 import { DetalhesSelecaoAlunoProfessorPage } from '../pages/professor/selecao-aluno-professor/detalhes-selecao-aluno-professor/detalhes-selecao-aluno-professor';
-
+import { BrMaskerModule } from 'brmasker-ionic-3';
+import { AlunoPerfilDoProfessorPage } from '../pages/aluno/aluno-perfil-professor/aluno-perfil-professor';
 
 @NgModule({
   declarations: [
@@ -67,9 +67,9 @@ import { DetalhesSelecaoAlunoProfessorPage } from '../pages/professor/selecao-al
     AlunoConfiguracaoPage,
     SelecaoAlunoProfessorPage,
     DetalhesSelecaoAlunoProfessorPage,
+    AlunoPerfilDoProfessorPage,
     /*Pipe*/
     DataFormatPipe,
-    AlertConfirmComponent
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -79,6 +79,7 @@ import { DetalhesSelecaoAlunoProfessorPage } from '../pages/professor/selecao-al
     RlTagInputModule,
     ReactiveFormsModule,
     FormsModule,
+    BrMaskerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -103,7 +104,8 @@ import { DetalhesSelecaoAlunoProfessorPage } from '../pages/professor/selecao-al
     AlunoMenuLateralPage,
     AlunoConfiguracaoPage,
     SelecaoAlunoProfessorPage,
-    DetalhesSelecaoAlunoProfessorPage
+    DetalhesSelecaoAlunoProfessorPage,
+    AlunoPerfilDoProfessorPage,
   ],
   providers: [
     StatusBar,

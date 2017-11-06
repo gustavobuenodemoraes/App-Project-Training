@@ -1,14 +1,18 @@
 <ion-content padding>
   <form [formGroup]="loginData" validate>
     <ion-list>
+      <ion-thumbnail item-center text-center>
+        <img src="assets/icon/trainer.png" class="icone">
+      </ion-thumbnail>
+
       <ion-item>
-        <ion-label floating>E-mail</ion-label>
-        <ion-input formControlName="email" type="email" required></ion-input>
+        <ion-icon name="mail" item-start color="primary"></ion-icon>
+        <ion-input formControlName="email" type="text" placeholder="E-mail" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Senha</ion-label>
-        <ion-input formControlName="senha" type="password" required></ion-input>
+        <ion-icon name="lock" item-start color="primary"></ion-icon>
+        <ion-input formControlName="senha" type="password" placeholder="Senha" required></ion-input>
       </ion-item>
       <button class="login" (click)="doLogin(loginData.value)" ion-button full class="cor-botao-padrao login" type="submit" [disabled]="!loginData.valid">Logar</button>
     </ion-list>
@@ -19,6 +23,6 @@
     <ion-checkbox [(ngModel)]="conectado" (ionChange)="ManterConectado(loginData.value)" checked="false"></ion-checkbox>
   </ion-item>
 
-  <button class="aluno" ion-button full class="cor-botao-padrao aluno" (click)="goTocadastroAluno()">Cadastrar como Aluno</button>
+  <button class="aluno" ion-button full (click)="goTocadastroAluno()">Cadastrar como Aluno</button>
   <button class="professor" ion-button full class="professor" clear (click)="goTocadastroProfessor()">Cadastrar como Professor</button>
 </ion-content>

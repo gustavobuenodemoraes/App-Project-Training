@@ -31,13 +31,14 @@ export class PerfilAlunoPage {
     this.codigo = navParams.get('codigo');
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.professorServiceProvider.mostrarAlunoProfessor(this.codigo)
-      .subscribe(resultado => this.usuario = resultado)
-      
+      .subscribe(resultado => this.usuario = resultado);
+
+    this.atualizarDadosTreinamentos();
   }
 
-  atualizarDadosTreinamentos(){
+  atualizarDadosTreinamentos() {
     this.treinamentoService.listarTreinamentosDoProfessor()
       .subscribe(resultado => this.exercicios = resultado)
 
@@ -45,34 +46,31 @@ export class PerfilAlunoPage {
       .subscribe(resultado => this.exerciciosJaSelecionados = resultado)
   }
 
-  procurarIndice(arraySearch, atributo, valor){
-   for(var i in arraySearch){
+  procurarIndice(arraySearch, atributo, valor) {
+    for (var i in arraySearch) {
       var row = arraySearch[i];
-      if(row[atributo]==valor){
-         return true;
+      if (row[atributo] == valor) {
+        return true;
       }
-   }
-   return false;
-}
+    }
+    return false;
+  }
 
   doCheckbox() {
-    this.atualizarDadosTreinamentos();
     let alert = this.alertCtrl.create();
     alert.setTitle('Selecione os Treinamentos');
-
     this.exercicios.forEach(element => {
       alert.addInput({
         type: 'checkbox',
         label: element.nome,
         value: element,
-        checked: this.procurarIndice(this.exerciciosJaSelecionados,"codigo",element.codigo)
+        checked: this.procurarIndice(this.exerciciosJaSelecionados, "codigo", element.codigo)
       });
     });
     alert.addButton('Cancelar');
     alert.addButton({
       text: 'Enviar',
       handler: data => {
-        console.log(this.codigo);
         this.alunoTreinamentoService.salvarTreinamentoAluno(data, this.codigo);
         this.testCheckboxResult = data;
       }

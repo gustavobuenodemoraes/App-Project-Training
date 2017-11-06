@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Perfil do Professor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      {{professor.nome}}
+      <ion-icon name='person' item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      {{professor.email}}
+      <ion-icon name='mail' item-start></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='calendar' item-start></ion-icon>
+      <ion-note item-end>{{professor.dtNascimento | date: 'dd/MM/yyyy'}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      {{professor.confef}}
+      <ion-icon name='document' item-start></ion-icon>
+    </ion-item>
+    <!-- testando para aluno -->
+    
+    <ion-item>
+      <ion-icon name='logo-whatsapp' item-start color="secondary"></ion-icon>
+      <ion-note item-end>{{professor.telefone}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon [name]='professor.sexo' item-start></ion-icon>
+    </ion-item>
+
+    <ion-input type="text" hidden name="codigo" [(ngModel)]="professor.codigo"> </ion-input>
+
+    <button ion-button color="danger" full (click)="deixarProfessor()">Deixar Professor</button>
+
+  </ion-list>
+</ion-content>

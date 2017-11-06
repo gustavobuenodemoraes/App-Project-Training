@@ -14,9 +14,8 @@
 <ion-content padding>
   <ion-searchbar (ionInput)="filterExercicios($event)" name="pesquisa"></ion-searchbar>
 
-  <ion-list *ngFor="let exercicio of exercicios">
-
-    <ion-item color="none" (click)="selecionaExercicio(exercicio.codigo)">
+  <ion-list>
+    <ion-item (click)="selecionaExercicio(exercicio.codigo)" *ngFor="let exercicio of exercicios">
       {{exercicio.nome}}
     </ion-item>
   </ion-list>

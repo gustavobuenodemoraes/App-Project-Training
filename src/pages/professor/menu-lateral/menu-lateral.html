@@ -12,15 +12,18 @@
       </ion-item>
 
       <button ion-item (click)="onConfiguracao()" menuClose detail-none>
-        <ion-icon ios="ios-settings" md="md-settings"></ion-icon> Configuração
+        Configuração
+        <ion-icon ios="ios-settings" md="md-settings" item-right></ion-icon>
       </button>
 
       <button ion-item (click)="onAluno()" menuClose detail-none>
-        <ion-icon name="person-add"></ion-icon> Aluno
+        Solicitações
+        <ion-icon name="person-add" item-right></ion-icon>
       </button>
 
-      <button ion-item (click)="sair()" menuClose detail-none>
-        <ion-icon name="exit"></ion-icon> Sair
+      <button ion-item (click)="sair()" menuClose detail-none item-end>
+        Sair
+        <ion-icon name="md-exit" item-right></ion-icon>
       </button>
 
     </ion-list>

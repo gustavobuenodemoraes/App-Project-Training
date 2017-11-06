@@ -10,6 +10,7 @@
 <ion-content padding>
   <form #form="ngForm" novalidate>
 
+
     <ion-input type="text" hidden name="codigo" [(ngModel)]="treinamento.codigo" *ngIf="treinamento.codigo != null"> </ion-input>
     <ion-grid>
       <ion-row>
@@ -62,25 +63,23 @@
     <ion-list-header>
       Treinamentos cadastrados
     </ion-list-header>
-    <ion-item *ngFor="let listaExercicios of exerciciosCadastrados">
 
-      <ion-item-sliding center text-center>
-        <ion-item>
-          <h1 (click)="alterarItemExercicio(listaExercicios)">{{listaExercicios.exercicio?.nome}}</h1>
-          <br>
-          <br>
-          <h2 (click)="alterarItemSerieExercicio(listaExercicios)">{{listaExercicios?.serie}} x {{listaExercicios?.repeticao}}</h2>
-        </ion-item>
-        <ion-item-options side="left">
-          <button ion-button color="danger" clear icon-only (click)="removeItem(listaExercicios)">
-            <ion-icon name='trash' is-active="false"></ion-icon>
-            Excluir
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+    <ion-item-sliding *ngFor="let listaExercicios of exerciciosCadastrados">
+      <ion-item>
+        <p (click)="alterarItemExercicio(listaExercicios)">{{listaExercicios.exercicio?.nome}}</p>
+        <br>
+        <br>
+        <p (click)="alterarItemSerieExercicio(listaExercicios)" text-right>{{listaExercicios?.serie}} x {{listaExercicios?.repeticao}}</p>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="danger" clear icon-only (click)="removeItem(listaExercicios)">
+          <ion-icon name='trash' is-active="false"></ion-icon>
+          {{excluir}}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
 
-    </ion-item>
   </ion-list>
-
-  <button ion-button class="background-color" block (click)="salvarTreinamento()">Salvar</button>
+  <button ion-button block (click)="salvarTreinamento()">Salvar</button>
+  <button ion-button block (click)="apagarTreinamento(treinamento.codigo)" color="danger" *ngIf="treinamento.codigo != null">Excluir Treinamento</button>
 </ion-content>

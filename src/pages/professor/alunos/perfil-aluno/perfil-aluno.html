@@ -11,6 +11,7 @@
 
   <ion-list>
     <ion-item>
+      <ion-icon name='person' item-start color="primary"></ion-icon>
       <h2>{{usuario?.nome}}</h2>
     </ion-item>
 
@@ -18,14 +19,16 @@
       Treinamentos
     </ion-list-header>
 
-    <ion-item>
-      <button ion-button small (click)="doCheckbox()" clear>Lista de Treinamentos</button>
+    <ion-item (click)="doCheckbox()">
+      <ion-icon name='list-box' item-start color="primary"></ion-icon>
+      <button ion-button small  clear>Lista de Treinamentos</button>
     </ion-item>
 
     <ion-list-header>
       Dados do aluno
     </ion-list-header>
     <ion-item>
+      <ion-icon name='calendar' item-start color="primary"></ion-icon>
       Data de nascimento
       <ion-note item-end>{{usuario?.dtNascimento | date:'dd/MM/yyyy'}}</ion-note>
     </ion-item>
@@ -35,22 +38,26 @@
     </ion-list-header>
 
     <ion-item>
+      <ion-icon name="body" item-start color="primary"></ion-icon>
       Altura
       <ion-note item-end>{{usuario?.altura}}</ion-note>
     </ion-item>
 
     <ion-item>
+      <ion-icon name="man" item-start color="primary"></ion-icon>
       Peso
       <ion-note item-end>{{usuario?.peso}}</ion-note>
     </ion-item>
 
     <ion-list-header>
+      <ion-icon name="md-create" item-start color="primary"></ion-icon>
       Observaçõoes do aluno
     </ion-list-header>
     <textarea name="descricao" class="textarea"></textarea>
   </ion-list>
 
 
+  <button class="salvar" ion-button full>Salvar</button>
 
-  <button class="salvar" ion-button full class="cor-botao-padrao aluno">Salvar</button>
+  <button color="danger" ion-button full>Deixar Aluno</button>
 </ion-content>

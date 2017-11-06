@@ -15,7 +15,7 @@
   <ion-searchbar (ionInput)="getfilterTreinamento($event)"></ion-searchbar>
 
   <ion-list>
-    <ion-item color="none" *ngFor="let treinamento of treinamentos" (click)="getEditTreinamento(treinamento.codigo)">
+    <ion-item color="none" *ngFor="let treinamento of treinamentos" (click)="getEditTreinamento(treinamento)">
       {{treinamento.nome}}
     </ion-item>
   </ion-list>

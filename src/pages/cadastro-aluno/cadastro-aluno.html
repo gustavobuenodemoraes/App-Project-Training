@@ -1,9 +1,3 @@
-<!--
-  Generated template for the AlunoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -13,29 +7,59 @@
 </ion-header>
 
 
-<ion-content padding>
-<form (submit)="doCadastroAluno()" #form="ngForm">
-  <ion-list>
-    <ion-item>
-      <ion-input [(ngModel)]="dadosAluno.nome" type="text" name="nome" placeholder="Nome" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="dadosAluno.email" type="email" name="email" placeholder="E-mail" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Data de Nascimento</ion-label>
-      <ion-datetime [(ngModel)]="dadosAluno.dtNascimento" name="dtNascimento" displayFormat="DD MMM YYYY" required></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="dadosAluno.peso" type="number" name="peso" placeholder="Peso em KG"  required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="dadosAluno.altura" type="number" name="altura" placeholder="Altura em cm" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="dadosAluno.senha" type="password" name="senha" placeholder="Senha" required></ion-input>
-    </ion-item>
-    <button ion-button full class="cor-botao-padrao" [disabled]="!form.valid">Cadastrar</button>
-  </ion-list>
+<ion-content>
+  <form [formGroup]="DataAluno" validate>
+    <ion-list>
+      <ion-item>
+        <ion-icon name='person' item-start color="primary"></ion-icon>
+        <ion-input formControlName="nome" type="text" placeholder="Nome" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name='mail' item-start color="primary"></ion-icon>
+        <ion-input formControlName="email" type="email" placeholder="E-mail" required></ion-input>
+      </ion-item>
+      <ion-item>
+
+        <ion-icon name='logo-whatsapp' item-start color="secondary"></ion-icon>
+        <!-- iguinore o erro -->
+        <ion-input formControlName="telefone" type="tel" placeholder="WhatsApp" [brmasker]="{phone: true}" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name='calendar' item-start color="primary"></ion-icon>
+        <ion-label>Nascimento</ion-label>
+        <ion-datetime formControlName="dtNascimento" displayFormat="DD MMM YYYY" required></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="body" item-start color="primary"></ion-icon>
+        <ion-input formControlName="peso" type="text" placeholder="Peso em KG" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="man" item-start color="primary"></ion-icon>
+        <ion-input formControlName="altura" type="number" placeholder="Altura em cm" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="lock" item-start color="primary"></ion-icon>
+        <ion-input formControlName="senha" type="password" placeholder="Senha" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <!-- esta dentro do form -->
+    <ion-list radio-group formControlName="sexo" required>
+      <ion-list-header text-center>
+        Sexo
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="male" item-start color="primary"></ion-icon> Masculino</ion-label>
+        <ion-radio value="male" checked></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="female" item-start color="primary"></ion-icon> Feminino</ion-label>
+        <ion-radio value="female"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <button ion-button full class="cor-botao-padrao" [disabled]="!DataAluno.valid" (click)="doCadastroAluno(DataAluno.value)">Cadastrar</button>
   </form>
 </ion-content>

@@ -76,4 +76,22 @@ export class TreinamentoServiceProvider {
     })
   }
 
+  excluirTreinamentos(data) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Authentication', localStorage.getItem('token'));
+
+      let body = {
+        codigo: data.codigo
+      };
+
+      this.http.delete(`${apiUrl}Treinamento/`, new RequestOptions({
+        headers: headers,
+        body: body
+      }))
+        .subscribe(res => resolve(res.json())
+        , err => reject(err))
+    })
+  }
+
 }

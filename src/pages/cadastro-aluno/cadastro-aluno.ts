@@ -1,41 +1,60 @@
-import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams , ToastController, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
   selector: 'page-aluno',
-  templateUrl: 'cadastro-aluno.html',
+  templateUrl: 'cadastro-aluno.html'
 })
 export class cadastroAlunoPage {
   data: any;
   loading: any;
-  dadosAluno = { nome:'', senha:'',  email:'', dtNascimento:'', peso:'', altura:''};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private toastCtrl: ToastController, public authService: AuthService) {
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+
+  DataAluno: any;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
+    public authService: AuthService,
+    private formBuilder: FormBuilder
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AlunoPage');
+  ngOnInit() {
+    this.DataAluno = this.formBuilder.group({
+      nome: [''],
+      email: ['', Validators.pattern(this.emailPattern)],
+      telefone:[''],
+      dtNascimento: [''],
+      peso: [''],
+      altura: [''],
+      senha: [''],
+      sexo:['']
+    });
   }
 
-  doCadastroAluno() {
+
+  doCadastroAluno(dadosAluno) {
     this.showLoader();
-    this.authService.registerAluno(this.dadosAluno).then((result) => {
+    this.authService.registerAluno(dadosAluno).then((result) => {
       this.data = result;
       this.loading.dismiss();
       localStorage.setItem('token', this.data.Authentication);
       this.goToLogin();
     }, (err) => {
-    	this.loading.dismiss();
-        this.presentToast("Ocorreu um erro ao tentar salvar o aluno!");
+      this.loading.dismiss();
+      this.presentToast("Ocorreu um erro ao tentar salvar o aluno!");
     });
   }
 
-  showLoader(){
+  showLoader() {
     this.loading = this.loadingCtrl.create({
-        content: 'Salvando...'
+      content: 'Salvando...'
     });
 
     this.loading.present();
@@ -47,17 +66,17 @@ export class cadastroAlunoPage {
       duration: 6000,
       position: 'bottom',
       dismissOnPageChange: true
-  });
+    });
 
-  toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
-  });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
 
     toast.present();
   }
 
   goToLogin() {
-     this.navCtrl.push(LoginPage);
+    this.navCtrl.pop();
   }
 
 }

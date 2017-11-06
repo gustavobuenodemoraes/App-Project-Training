@@ -1,45 +1,60 @@
-import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams , ToastController, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
   selector: 'page-professor',
-  templateUrl: 'cadastro-professor.html',
+  templateUrl: 'cadastro-professor.html'
 })
 export class cadastroProfessorPage {
+  loading: any;
+  data: any;
+  DataProfessor: any;
 
-    loading: any;
-    data: any;
-    dadosProfessor = { nome:'', senha:'',  email:'', dtNascimento:'', confef: ''};
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private toastCtrl: ToastController, public authService: AuthService) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
+    public authService: AuthService,
+    private formBuilder: FormBuilder
+  ) {
   }
 
-  doCadastroProfessor() {
+  doCadastroProfessor(dadosProfessor) {
     this.showLoader();
-    this.authService.registerProfessor(this.dadosProfessor).then((result) => {
+    this.authService.registerProfessor(dadosProfessor).then((result) => {
       this.data = result;
       this.loading.dismiss();
       localStorage.setItem('token', this.data.Authentication);
       this.goToLogin();
     }, (err) => {
-    	this.loading.dismiss();
-        this.presentToast("Ocorreu um erro ao tentar salvar o Professor!");
+      this.loading.dismiss();
+      this.presentToast("Ocorreu um erro ao tentar salvar o Professor!");
     });
   }
 
-  showLoader(){
+  showLoader() {
     this.loading = this.loadingCtrl.create({
-        content: 'Salvando...'
+      content: 'Salvando...'
     });
 
     this.loading.present();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfessorPage');
+  ngOnInit() {
+    this.DataProfessor = this.formBuilder.group({
+      nome: [''],
+      email: ['', Validators.pattern(this.emailPattern)],
+      telefone:[''],
+      dtNascimento: [''],
+      confef: [''],
+      sexo:[''],
+      senha: ['']
+    });
   }
 
   presentToast(msg) {
@@ -58,7 +73,7 @@ export class cadastroProfessorPage {
   }
 
   goToLogin() {
-     this.navCtrl.push(LoginPage);
+    this.navCtrl.pop();
   }
 
 }

@@ -10,7 +10,6 @@ import { IonicPage, NavController, NavParams, AlertController, ActionSheetContro
   templateUrl: 'cadastro-treinamento.html',
 })
 export class CadastroTreinamentoPage {
-  id: any;
   titulo = '';
 
   exerciciosCadastrados: Array<any> = [];
@@ -19,14 +18,18 @@ export class CadastroTreinamentoPage {
 
   exercicios: any;
 
+  excluir: string = "Excluir";
+
   /*ngModel*/
   serie: number;
+
   repeticao: number;
 
   loading: any;
 
   dataTreinamento = <any>{};
-  treinamento: any = { nome: '', codigo: null }
+
+  treinamento: any;
 
   constructor(
     public navCtrl: NavController,
@@ -39,7 +42,7 @@ export class CadastroTreinamentoPage {
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController
   ) {
-    this.id = navParams.get('id');
+    this.treinamento = this.navParams.get('treinamento') == null ? { nome: '', codigo: null } : this.navParams.get('treinamento');
   }
 
 
@@ -50,9 +53,35 @@ export class CadastroTreinamentoPage {
     this.limpar();
   }
 
-  removeItem(item: any) {
-    console.log(item.codigo);
+  apagarTreinamento(item): void {
+    // já esta pegando o codigo do treinamento
+    // quando apagar tem que apagar as listas
+    let mensagem: string = "Você deseja excluir o exercicio: <br/><br/>" + item.exercicio.nome.toUpperCase() + "<br/><br/>";
+    let confirm = this.alertCtrl.create({
+      title: "Apagar Exercicio",
+      message: mensagem,
+      buttons: [
+        {
+          text: "cancelar",
+          role: 'cancel',
+        },
+        {
+          text: "Apagar",
+          handler: () => {
+            this.treinamentoServiceProvider.excluirOrdemTreinos(item).then((result) => {
+              this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
+            }, (err) => {
+              this.presentToast("Ocorreu um erro ao tentar apagar o exercício da lista, tente novamente!");
+            });
+          }
+        }
+      ]
+    });
+    confirm.present();
+    // this.navCtrl.pop();
+  }
 
+  removeItem(item: any) {
     let mensagem: string = "Você deseja excluir o exercicio: <br/><br/>" + item.exercicio.nome.toUpperCase() + "<br/><br/>";
     let confirm = this.alertCtrl.create({
       title: "Apagar Exercicio",
@@ -156,13 +185,9 @@ export class CadastroTreinamentoPage {
 
 
   private alterarTreinamento() {
-    this.treinamentoServiceProvider.listarOrdemDeTreinamentosExercicios(this.id)
+    this.treinamentoServiceProvider.listarOrdemDeTreinamentosExercicios(this.treinamento.codigo)
       .subscribe(resultado => {
         this.exerciciosCadastrados = resultado
-        this.exerciciosCadastrados.filter(resultado => {
-          this.treinamento.nome = resultado.treinamento.nome;
-          this.treinamento.codigo = resultado.treinamento.codigo;
-        });
       })
   }
 
@@ -210,18 +235,19 @@ export class CadastroTreinamentoPage {
     });
 
     toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+
     });
 
     toast.present();
   }
 
   ionViewDidEnter() {
+    console.log(this.treinamento.codigo);
     this.exercicioServiceProvider.listarExercicios()
       .subscribe(resultado => {
         this.exercicios = resultado;
       });
-    if (this.id == null) {
+    if (this.treinamento.codigo == null) {
       this.titulo = "Novo"
     } else {
       this.titulo = "Alterar"

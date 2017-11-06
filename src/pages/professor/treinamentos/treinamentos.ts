@@ -15,8 +15,8 @@ export class TreinamentosPage {
   }
 
 
-  getEditTreinamento(id: any) {
-    this.navCtrl.push(CadastroTreinamentoPage, { id: id });
+  getEditTreinamento(treinamento: any) {
+    this.navCtrl.push(CadastroTreinamentoPage, { treinamento: treinamento });
   }
 
   addTreinamentos(): void {
@@ -36,11 +36,13 @@ export class TreinamentosPage {
     if (digitado.inputType === "deleteContentBackward" || digitado.inputType === "MouseEvent") {
       this.initializeItems();
     }
+
     let valorDigitado = digitado.target.value;
+
 
     if (valorDigitado && valorDigitado.trim() != '') {
       this.treinamentos = this.treinamentos.filter((resultadoList) => {
-        return resultadoList.nome.toLocaleLowerCase().indexOf(valorDigitado) > -1;
+        return resultadoList.nome.toLocaleLowerCase().indexOf(valorDigitado.toLocaleLowerCase()) > -1;
       })
     } else {
       this.initializeItems();
