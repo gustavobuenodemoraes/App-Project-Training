@@ -28,4 +28,15 @@ export class AlunoServiceProvider {
         , err => reject(err));
     });
   }
+
+  salvarObservacaoAluno(codigo: any, observacao: any) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'text/html')
+      headers.append('Authentication', localStorage.getItem('token'));
+      this.http.post(`${apiUrl}aluno/observacao/${codigo}`, observacao, { headers: headers })
+        .subscribe(res => resolve(res.json())
+        , err => reject(err));
+    });
+  }
 }
