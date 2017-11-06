@@ -1,7 +1,8 @@
+import { AlunoServiceProvider } from './../../../../providers/aluno-service/aluno-service';
 import { AlunoTreinamentoServiceProvider } from './../../../../providers/aluno-treinamento-service/aluno-treinamento-service';
 import { TreinamentoServiceProvider } from './../../../../providers/treinamento-service/treinamento-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { ProfessorServiceProvider } from '../../../../providers/professor-service/professor-service';
 
 
@@ -20,6 +21,9 @@ export class PerfilAlunoPage {
   testCheckboxOpen: boolean;
   testCheckboxResult;
 
+  observacaoDoProfessor: any;
+  loading: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -27,14 +31,53 @@ export class PerfilAlunoPage {
     public alertCtrl: AlertController,
     private treinamentoService: TreinamentoServiceProvider,
     private alunoTreinamentoService: AlunoTreinamentoServiceProvider,
+    private alunoService: AlunoServiceProvider,
+    public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
   ) {
     this.codigo = navParams.get('codigo');
   }
 
+  salvarObservacaoProfessor(){
+     this.showLoader();
+    this.alunoService.salvarObservacaoAluno(this.codigo, this.observacaoDoProfessor).then((result) => {
+          this.loading.dismiss();
+    }, (err) => {
+      this.loading.dismiss();
+      this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
+    });
+  }
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 6000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
+
+  showLoader() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Salvando...'
+    });
+
+    this.loading.present();
+  }
+
+
   ionViewDidEnter() {
     this.professorServiceProvider.mostrarAlunoProfessor(this.codigo)
-      .subscribe(resultado => this.usuario = resultado);
-
+      .subscribe(resultado => {
+        this.usuario = resultado
+        this.observacaoDoProfessor = resultado.observacaoDoProfessor;
+      });
     this.atualizarDadosTreinamentos();
   }
 
