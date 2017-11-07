@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import {  NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service/auth-service';
 import { FormBuilder, Validators } from '@angular/forms';
 
-@IonicPage()
 @Component({
   selector: 'page-aluno',
   templateUrl: 'cadastro-aluno.html'

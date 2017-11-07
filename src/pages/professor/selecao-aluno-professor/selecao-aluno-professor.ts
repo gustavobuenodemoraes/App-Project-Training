@@ -1,9 +1,8 @@
 import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 import { DetalhesSelecaoAlunoProfessorPage } from './detalhes-selecao-aluno-professor/detalhes-selecao-aluno-professor';
 
-@IonicPage()
 @Component({
   selector: 'page-selecao-aluno-professor',
   templateUrl: 'selecao-aluno-professor.html',

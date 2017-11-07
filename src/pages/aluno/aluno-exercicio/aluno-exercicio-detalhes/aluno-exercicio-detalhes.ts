@@ -1,9 +1,7 @@
 import { TreinamentoServiceProvider } from './../../../../providers/treinamento-service/treinamento-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DomSanitizer } from '@angular/platform-browser';
+import { NavController, NavParams } from 'ionic-angular';
 
-@IonicPage()
 @Component({
   selector: 'page-aluno-exercicio-detalhes',
   templateUrl: 'aluno-exercicio-detalhes.html',
@@ -15,7 +13,6 @@ export class AlunoExercicioDetalhesPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private sanitizer: DomSanitizer,
     private treinamentoService: TreinamentoServiceProvider,
   ) {
     this.codigo = this.navParams.get("codigo");

@@ -1,10 +1,8 @@
 import { TreinamentoServiceProvider } from './../../../../providers/treinamento-service/treinamento-service';
 import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ActionSheetController, Platform, LoadingController, ToastController } from 'ionic-angular';
+import {  NavController, NavParams, AlertController, ActionSheetController, Platform, LoadingController, ToastController } from 'ionic-angular';
 
-
-@IonicPage()
 @Component({
   selector: 'page-cadastro-treinamento',
   templateUrl: 'cadastro-treinamento.html',

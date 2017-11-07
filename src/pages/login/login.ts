@@ -52,7 +52,7 @@ export class LoginPage {
   }
 
   goToSelecionarProfessor() {
-    this.navCtrl.setRoot(AlunoSelecaoPage);
+    this.navCtrl.setRoot(AlunoMenuLateralPage);
   }
 
   doLogin(formulario: tipoLogin) {
@@ -63,13 +63,15 @@ export class LoginPage {
       localStorage.setItem('token', this.data.Authentication);
       localStorage.setItem('codUsuarioLogado', this.data.codigo);
       localStorage.setItem('nomeUsuarioLogado', this.data.nome);
-      if(this.data.tipoUsuario == "PROFESSOR"){
+      if (this.data.tipoUsuario == "PROFESSOR") {
         this.goToProfessor();
-      }else if(this.data.tipoUsuario == "ALUNO"){
-        if(typeof this.data.professor == "undefined" ){
+      } else if (this.data.tipoUsuario == "ALUNO") {
+        if (typeof this.data.professor == "undefined") {
+          localStorage.setItem('pendenciaProf', 'aguardando');
           this.goToSelecionarProfessor();
-        }else{
+        } else {
           this.goToAluno();
+          localStorage.setItem('pendenciaProf', 'ACEITO');
         }
       }
     }, (err) => {

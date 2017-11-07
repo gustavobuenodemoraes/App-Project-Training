@@ -1,9 +1,8 @@
 import { AlunoServiceProvider } from './../../../../providers/aluno-service/aluno-service';
 import { ProfessorServiceProvider } from './../../../../providers/professor-service/professor-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import {  NavController, NavParams, ToastController } from 'ionic-angular';
 
-@IonicPage()
 @Component({
   selector: 'page-detalhes-selecao-aluno-professor',
   templateUrl: 'detalhes-selecao-aluno-professor.html',
@@ -46,6 +45,7 @@ export class DetalhesSelecaoAlunoProfessorPage {
       position: 'bottom',
       dismissOnPageChange: true
     });
+    toast.present();
   }
   ionViewDidLoad() {
       this.alunoService.mostrarAluno(this.dados.aluno.codigo)

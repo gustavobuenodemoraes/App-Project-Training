@@ -2,30 +2,33 @@ import { AlunoPerfilDoProfessorPage } from './../aluno-perfil-professor/aluno-pe
 import { AlunoTreinamentoPage } from './../aluno-treinamento/aluno-treinamento';
 import { AlunoSelecaoPage } from './../aluno-selecao/aluno-selecao';
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../../../providers/auth-service/auth-service';
 import { LoginPage } from '../../login/login';
 import { AlunoConfiguracaoPage } from '../aluno-configuracao/aluno-configuracao';
 
-@IonicPage()
 @Component({
   selector: 'page-aluno-menu-lateral',
   templateUrl: 'aluno-menu-lateral.html',
 })
 export class AlunoMenuLateralPage {
 
+  situcao: any;
+
   @ViewChild(Nav) navCtrl: Nav;
   rootPage: any;
 
   nomeUsuario: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService, private navParams: NavParams) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
+
     });
+    // this.situcao = this.navParams.get('siticao');
   }
 
   onConfiguracao(): void {
@@ -48,13 +51,13 @@ export class AlunoMenuLateralPage {
 
   ionViewDidLoad() {
     this.nomeUsuario = localStorage.getItem('nomeUsuarioLogado');
-    let condicao = false;
-    /*Colocar o status*/
+    this.situcao = localStorage.getItem('pendenciaProf');
+    if (this.situcao == 'aceito') {
+      this.rootPage = AlunoTreinamentoPage;
+    } else {
+      this.rootPage = AlunoSelecaoPage;
+    }
 
-    this.rootPage = (this.newFunction(condicao)) ? AlunoSelecaoPage : AlunoTreinamentoPage;
 
-  }
-  private newFunction(condicao: boolean) {
-    return condicao == true;
   }
 }

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
 
-    <button ion-button icon-only menuToggle="menu2" start>
+    <button ion-button icon-only menuToggle start>
       <ion-icon name="menu"></ion-icon>
     </button>
 
@@ -16,7 +16,7 @@
     <!-- mudar para codigo -->
     <ion-item *ngFor="let professor of professores">
 
-      <button ion-button clear (click)="selecionaProfessor(professor.codigo)">
+      <button ion-button full clear (click)="selecionaProfessor(professor.codigo)">
         {{ professor.nome }}
       </button>
 

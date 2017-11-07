@@ -1,8 +1,7 @@
 import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
+import {  NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
 
-@IonicPage()
 @Component({
   selector: 'page-cadastro-exercicios',
   templateUrl: 'cadastro-exercicios.html',

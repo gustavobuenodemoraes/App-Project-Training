@@ -1,10 +1,8 @@
 import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service';
-import { LocalService } from './../../../providers/local/login.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { AlunoPerfilProfessorPage } from './aluno-perfil-professor/aluno-perfil-professor';
 
-@IonicPage()
 @Component({
   selector: 'page-aluno-selecao',
   templateUrl: 'aluno-selecao.html',
@@ -20,7 +18,6 @@ export class AlunoSelecaoPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
-    private menuCtrl: MenuController,
     private professorService: ProfessorServiceProvider) {
   }
 

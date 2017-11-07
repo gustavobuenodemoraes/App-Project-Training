@@ -1,12 +1,10 @@
-import { AlunoServiceProvider } from './../../../../providers/aluno-service/aluno-service';
 import { AlunoTreinamentoServiceProvider } from './../../../../providers/aluno-treinamento-service/aluno-treinamento-service';
 import { TreinamentoServiceProvider } from './../../../../providers/treinamento-service/treinamento-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { ProfessorServiceProvider } from '../../../../providers/professor-service/professor-service';
+import { AlunoServiceProvider } from '../../../../providers/aluno-service/aluno-service';
 
-
-@IonicPage()
 @Component({
   selector: 'page-perfil-aluno',
   templateUrl: 'perfil-aluno.html',
@@ -38,10 +36,18 @@ export class PerfilAlunoPage {
     this.codigo = navParams.get('codigo');
   }
 
-  salvarObservacaoProfessor(){
-     this.showLoader();
+  ionViewDidEnter() {
+    this.professorServiceProvider.mostrarAlunoProfessor(this.codigo)
+      .subscribe(resultado => {
+        this.usuario = resultado
+        this.observacaoDoProfessor = resultado.observacaoDoProfessor;
+      });
+    this.atualizarDadosTreinamentos();
+  }
+  salvarObservacaoProfessor() {
+    this.showLoader();
     this.alunoService.salvarObservacaoAluno(this.codigo, this.observacaoDoProfessor).then((result) => {
-          this.loading.dismiss();
+      this.loading.dismiss();
     }, (err) => {
       this.loading.dismiss();
       this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
@@ -72,14 +78,6 @@ export class PerfilAlunoPage {
   }
 
 
-  ionViewDidEnter() {
-    this.professorServiceProvider.mostrarAlunoProfessor(this.codigo)
-      .subscribe(resultado => {
-        this.usuario = resultado
-        this.observacaoDoProfessor = resultado.observacaoDoProfessor;
-      });
-    this.atualizarDadosTreinamentos();
-  }
 
   atualizarDadosTreinamentos() {
     this.treinamentoService.listarTreinamentosDoProfessor()

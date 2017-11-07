@@ -2,7 +2,7 @@ import { tipoExercicio } from './../../pages/professor/exercicios/exercicios.mod
 import { Observable } from 'rxjs/Observable';
 import { apiUrl } from './../auth-service/app.pi';
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, RequestOptionsArgs, RequestMethod } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()

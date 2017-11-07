@@ -1,9 +1,8 @@
 import { AlunoTreinamentoServiceProvider } from './../../../providers/aluno-treinamento-service/aluno-treinamento-service';
 import { AlunoExercicioPage } from './../aluno-exercicio/aluno-exercicio';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-@IonicPage()
 @Component({
   selector: 'page-aluno-treinamento',
   templateUrl: 'aluno-treinamento.html',

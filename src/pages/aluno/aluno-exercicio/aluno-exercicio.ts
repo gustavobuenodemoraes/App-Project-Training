@@ -1,9 +1,8 @@
 import { TreinamentoServiceProvider } from './../../../providers/treinamento-service/treinamento-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { AlunoExercicioDetalhesPage } from './aluno-exercicio-detalhes/aluno-exercicio-detalhes';
 
-@IonicPage()
 @Component({
   selector: 'page-aluno-exercicio',
   templateUrl: 'aluno-exercicio.html',
@@ -28,8 +27,7 @@ export class AlunoExercicioPage {
      .subscribe(resultado => this.ordemTreinos = resultado)
   }
 
-  private detalhesExercicio(codigo): void {
-    // this.navCtrl.push(AlunoExercicioDetalhesPage, { codigo: codigo });
+  detalhesExercicio(codigo): void {
     this.modalCtrl.create(AlunoExercicioDetalhesPage,{ codigo: codigo }).present();
   }
 }

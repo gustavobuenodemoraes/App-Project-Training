@@ -1,10 +1,7 @@
 import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import {  NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
-
-@IonicPage()
 @Component({
   selector: 'page-configuracao-professor',
   templateUrl: 'configuracao-professor.html',
@@ -18,7 +15,6 @@ export class ConfiguracaoProfessorPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public camera: Camera,
     private professorService: ProfessorServiceProvider,
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController) {

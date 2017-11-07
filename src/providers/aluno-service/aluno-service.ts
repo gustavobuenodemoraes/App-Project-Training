@@ -10,12 +10,12 @@ export class AlunoServiceProvider {
   constructor(public http: Http) {
   }
 
-  mostrarAluno(codigo: any): Observable<any>{
-        let headers = new Headers();
-        headers.append('Authentication', localStorage.getItem('token'));
+  mostrarAluno(codigo: any): Observable<any> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
 
-         return this.http.get(`${apiUrl}aluno/${codigo}`, new RequestOptions({headers : headers}))
-        .map(resultado => resultado.json());
+    return this.http.get(`${apiUrl}aluno/${codigo}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
   }
 
   salvarAluno(data) {

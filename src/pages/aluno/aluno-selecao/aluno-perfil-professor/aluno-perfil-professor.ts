@@ -1,10 +1,10 @@
+import { AlunoMenuLateralPage } from './../../aluno-menu-lateral/aluno-menu-lateral';
 import { ProfessorServiceProvider } from './../../../../providers/professor-service/professor-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { LocalService } from '../../../../providers/local/login.service';
 
 
-@IonicPage()
 @Component({
   selector: 'page-aluno-perfil-professor',
   templateUrl: 'aluno-perfil-professor.html',
@@ -15,8 +15,8 @@ export class AlunoPerfilProfessorPage {
   professor: any = '';
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
     private professorService: ProfessorServiceProvider,
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController) {
@@ -28,20 +28,21 @@ export class AlunoPerfilProfessorPage {
       .subscribe(resultado => this.professor = resultado);
   }
 
-  enviarSolicitacao(){
+  enviarSolicitacao() {
     this.showLoader();
     this.professorService.enviarSolicitacaoParaProfessor(this.codigo).then((result) => {
       this.loading.dismiss();
       this.presentToast("Solicitação enviada aguarde o professor responder!");
+      this.navCtrl.setRoot(AlunoMenuLateralPage);
     }, (err) => {
-    	this.loading.dismiss();
-        this.presentToast("Ocorreu um erro ao tentar enviar solicitação!");
+      this.loading.dismiss();
+      this.presentToast("Ocorreu um erro ao tentar enviar solicitação!");
     });
   }
 
-  showLoader(){
+  showLoader() {
     this.loading = this.loadingCtrl.create({
-        content: 'Salvando...'
+      content: 'Salvando...'
     });
 
     this.loading.present();
@@ -52,6 +53,7 @@ export class AlunoPerfilProfessorPage {
       duration: 6000,
       position: 'bottom',
       dismissOnPageChange: true
-  });
+    });
+    toast.present();
   }
 }

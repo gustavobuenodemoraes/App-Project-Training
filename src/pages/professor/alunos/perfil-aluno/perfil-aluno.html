@@ -21,7 +21,7 @@
 
     <ion-item (click)="doCheckbox()">
       <ion-icon name='list-box' item-start color="primary"></ion-icon>
-      <button ion-button small  clear>Lista de Treinamentos</button>
+      <button ion-button small clear>Lista de Treinamentos</button>
     </ion-item>
 
     <ion-list-header>
@@ -32,7 +32,8 @@
       Data de nascimento
       <ion-note item-end>{{usuario?.dtNascimento | date:'dd/MM/yyyy'}}</ion-note>
     </ion-item>
-     <ion-item>
+
+    <ion-item>
       <ion-icon name='logo-whatsapp' item-start color="secondary"></ion-icon>
       Telefone
       <ion-note item-end>{{usuario?.telefone}}</ion-note>
@@ -63,6 +64,5 @@
 
 
   <button class="salvar" ion-button full (click)="salvarObservacaoProfessor()">Salvar</button>
-
   <button color="danger" ion-button full>Deixar Aluno</button>
 </ion-content>

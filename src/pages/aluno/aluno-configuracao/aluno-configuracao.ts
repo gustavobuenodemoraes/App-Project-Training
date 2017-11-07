@@ -1,8 +1,7 @@
 import { AlunoServiceProvider } from './../../../providers/aluno-service/aluno-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
-@IonicPage()
 @Component({
   selector: 'page-aluno-configuracao',
   templateUrl: 'aluno-configuracao.html',

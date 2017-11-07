@@ -1,4 +1,3 @@
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { LocalService } from './../providers/local/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -8,15 +7,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HttpModule } from '@angular/http';
-import { RlTagInputModule } from 'angular2-tag-input';
+//import { RlTagInputModule } from 'angular2-tag-input';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { ProfessorServiceProvider } from '../providers/professor-service/professor-service';
 import { ExercicioServiceProvider } from '../providers/exercicio-service/exercicio-service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataFormatPipe } from '../pipes/data-format/data-format';
 import { TreinamentoServiceProvider } from '../providers/treinamento-service/treinamento-service';
-/* camera */
-import { Camera } from '@ionic-native/camera';
 import { AlunosPage } from './../pages/professor/alunos/alunos';
 import { TreinamentosPage } from './../pages/professor/treinamentos/treinamentos';
 import { ExerciciosPage } from './../pages/professor/exercicios/exercicios';
@@ -76,7 +73,7 @@ import { AlunoPerfilDoProfessorPage } from '../pages/aluno/aluno-perfil-professo
     IonicModule.forRoot(MyApp, {
       swipeEnabled: "false"
     }),
-    RlTagInputModule,
+    //RlTagInputModule,
     ReactiveFormsModule,
     FormsModule,
     BrMaskerModule
@@ -118,8 +115,7 @@ import { AlunoPerfilDoProfessorPage } from '../pages/aluno/aluno-perfil-professo
     TreinamentoServiceProvider,
     AlunoTreinamentoServiceProvider,
     AlunoServiceProvider,
-    Camera,
-    YoutubeVideoPlayer
+
   ],
 })
 export class AppModule { }
