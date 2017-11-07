@@ -1,4 +1,3 @@
-import { AlunoSelecaoPage } from './../aluno/aluno-selecao/aluno-selecao';
 import { AlunoMenuLateralPage } from './../aluno/aluno-menu-lateral/aluno-menu-lateral';
 import { MenuLateralPage } from './../professor/menu-lateral/menu-lateral';
 import { MenuController } from 'ionic-angular';

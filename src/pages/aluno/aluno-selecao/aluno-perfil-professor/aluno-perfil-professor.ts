@@ -33,7 +33,6 @@ export class AlunoPerfilProfessorPage {
     this.professorService.enviarSolicitacaoParaProfessor(this.codigo).then((result) => {
       this.loading.dismiss();
       this.presentToast("Solicitação enviada aguarde o professor responder!");
-      this.navCtrl.setRoot(AlunoMenuLateralPage);
     }, (err) => {
       this.loading.dismiss();
       this.presentToast("Ocorreu um erro ao tentar enviar solicitação!");

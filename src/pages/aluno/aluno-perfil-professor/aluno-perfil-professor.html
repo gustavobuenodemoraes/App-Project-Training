@@ -11,6 +11,7 @@
   <ion-list>
 
     <ion-item>
+      <ion-icon [name]='professor.sexo' item-end></ion-icon>
       {{professor.nome}}
       <ion-icon name='person' item-start></ion-icon>
     </ion-item>
@@ -30,14 +31,10 @@
       <ion-icon name='document' item-start></ion-icon>
     </ion-item>
     <!-- testando para aluno -->
-    
+
     <ion-item>
       <ion-icon name='logo-whatsapp' item-start color="secondary"></ion-icon>
       <ion-note item-end>{{professor.telefone}}</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon [name]='professor.sexo' item-start></ion-icon>
     </ion-item>
 
     <ion-input type="text" hidden name="codigo" [(ngModel)]="professor.codigo"> </ion-input>

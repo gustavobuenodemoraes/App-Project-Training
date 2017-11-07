@@ -2,7 +2,7 @@ import { AlunoPerfilDoProfessorPage } from './../aluno-perfil-professor/aluno-pe
 import { AlunoTreinamentoPage } from './../aluno-treinamento/aluno-treinamento';
 import { AlunoSelecaoPage } from './../aluno-selecao/aluno-selecao';
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, NavParams } from 'ionic-angular';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../../../providers/auth-service/auth-service';
@@ -22,7 +22,7 @@ export class AlunoMenuLateralPage {
 
   nomeUsuario: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService, private navParams: NavParams) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private authService: AuthService) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -52,7 +52,7 @@ export class AlunoMenuLateralPage {
   ionViewDidLoad() {
     this.nomeUsuario = localStorage.getItem('nomeUsuarioLogado');
     this.situcao = localStorage.getItem('pendenciaProf');
-    if (this.situcao == 'aceito') {
+    if (this.situcao == 'ACEITO') {
       this.rootPage = AlunoTreinamentoPage;
     } else {
       this.rootPage = AlunoSelecaoPage;

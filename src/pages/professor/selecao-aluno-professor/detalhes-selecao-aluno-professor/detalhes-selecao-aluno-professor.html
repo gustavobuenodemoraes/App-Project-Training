@@ -11,6 +11,7 @@
   <ion-list>
 
     <ion-item>
+      <ion-icon [name]='aluno?.sexo' item-end></ion-icon>
       <h2>{{aluno?.nome}}</h2>
     </ion-item>
 
@@ -38,5 +39,5 @@
   </ion-list>
 
   <button ion-button full (click)="aceitar()">Aceitar solicitação</button>
-  <button ion-button full (click)="recusar()">Recusar solicitação</button>
+  <button ion-button full color="danger" (click)="recusar()">Recusar solicitação</button>
 </ion-content>
