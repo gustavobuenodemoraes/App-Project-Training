@@ -1,3 +1,4 @@
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { LocalService } from './../providers/local/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -115,6 +116,7 @@ import { AlunoPerfilDoProfessorPage } from '../pages/aluno/aluno-perfil-professo
     TreinamentoServiceProvider,
     AlunoTreinamentoServiceProvider,
     AlunoServiceProvider,
+    YoutubeVideoPlayer
 
   ],
 })

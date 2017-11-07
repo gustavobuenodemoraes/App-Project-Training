@@ -11,6 +11,8 @@ export class AlunoExercicioDetalhesPage {
   codigo: number;
   ordemTreino;
 
+  video
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private treinamentoService: TreinamentoServiceProvider,
@@ -22,7 +24,7 @@ export class AlunoExercicioDetalhesPage {
     this.treinamentoService.listarOrdemDeTreinamentosPorCodigo(this.codigo)
       .subscribe(resultado => {
         this.ordemTreino = resultado
-      }) 
+      })
   }
 
 }

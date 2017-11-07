@@ -31,7 +31,8 @@ export class PerfilAlunoPage {
     private alunoTreinamentoService: AlunoTreinamentoServiceProvider,
     private alunoService: AlunoServiceProvider,
     public loadingCtrl: LoadingController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    public alerCtrl: AlertController
   ) {
     this.codigo = navParams.get('codigo');
   }
@@ -48,19 +49,42 @@ export class PerfilAlunoPage {
     this.showLoader();
     this.alunoService.salvarObservacaoAluno(this.codigo, this.observacaoDoProfessor).then((result) => {
 
-          this.loading.dismiss();
-          this.presentToast("Salvo com sucesso!");
+      this.loading.dismiss();
+      this.presentToast("Salvo com sucesso!");
     }, (err) => {
       this.loading.dismiss();
       this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
     });
   }
 
-  deixarAluno(){
+  deixarAluno() {
+    let confirm = this.alerCtrl.create({
+      title: 'Deixar o Aluno?',
+      message: 'Você deseja não ser mais professor desse aluno?',
+      buttons: [
+        {
+          text: 'Concordo',
+          cssClass: 'botaonCacel',
+          handler: () => {
+            this.apagarAluno();
+          }
+        },
+        {
+          text: 'Discordo',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  private apagarAluno() {
     this.showLoader();
     this.professorServiceProvider.abandonarAluno(this.codigo).then((result) => {
-          this.loading.dismiss();
-          this.presentToast("Salvo com sucesso!");
+      this.loading.dismiss();
+      this.presentToast(this.usuario.nome + " não é mais seu aluno");
     }, (err) => {
       this.loading.dismiss();
       this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
@@ -76,7 +100,7 @@ export class PerfilAlunoPage {
     });
 
     toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+
     });
 
     toast.present();

@@ -13,7 +13,7 @@ export class AlunoExercicioPage {
   nomeTreinamento: String;
   checkBoxExercicio: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     public alertCtrl: AlertController,
     public modalCtrl: ModalController,
     private treinamentoService: TreinamentoServiceProvider) {
@@ -23,11 +23,11 @@ export class AlunoExercicioPage {
   }
 
   ionViewDidLoad() {
-        this.treinamentoService.listarOrdemDeTreinamentosExercicios(this.codigo)
-     .subscribe(resultado => this.ordemTreinos = resultado)
+    this.treinamentoService.listarOrdemDeTreinamentosExercicios(this.codigo)
+      .subscribe(resultado => this.ordemTreinos = resultado)
   }
 
   detalhesExercicio(codigo): void {
-    this.modalCtrl.create(AlunoExercicioDetalhesPage,{ codigo: codigo }).present();
+    this.navCtrl.push(AlunoExercicioDetalhesPage, { codigo: codigo });
   }
 }

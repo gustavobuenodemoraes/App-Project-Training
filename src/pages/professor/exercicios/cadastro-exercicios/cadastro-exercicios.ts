@@ -1,6 +1,6 @@
 import { ExercicioServiceProvider } from './../../../../providers/exercicio-service/exercicio-service';
 import { Component } from '@angular/core';
-import {  NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-cadastro-exercicios',
@@ -45,6 +45,8 @@ export class CadastroExerciciosPage {
     this.exercicioService.registerExercicio(exercicio).then((result) => {
       this.data = result;
       this.loading.dismiss();
+      this.presentToast("Exercicio cadastrado com sucesso!");
+      this.navCtrl.pop();
     }, (err) => {
       this.loading.dismiss();
       this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
