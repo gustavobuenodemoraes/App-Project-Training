@@ -34,6 +34,14 @@ export class ProfessorServiceProvider {
       .map(resultado => resultado.json());
   }
 
+  mostrarProfessorDoAluno(codigo: any): Observable<any> {
+    let headers = new Headers();
+    headers.append('Authentication', localStorage.getItem('token'));
+
+    return this.http.get(`${apiUrl}professor/aluno/${codigo}`, new RequestOptions({ headers: headers }))
+      .map(resultado => resultado.json());
+  }
+
   salvarProfessor(data) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
@@ -86,6 +94,26 @@ export class ProfessorServiceProvider {
       let headers = new Headers();
       headers.append('Authentication', localStorage.getItem('token'));
       this.http.post(`${apiUrl}professorSolicitacao/recusar`, data, { headers: headers })
+        .subscribe(res => resolve(res)
+        , err => reject(err));
+    });
+  }
+
+  abandonarAluno(codAluno: any) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Authentication', localStorage.getItem('token'));
+      this.http.post(`${apiUrl}professor/abandonarAluno/${codAluno}`, "", { headers: headers })
+        .subscribe(res => resolve(res)
+        , err => reject(err));
+    });
+  }
+
+  abandonarProfessor(codAluno: any) {
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      headers.append('Authentication', localStorage.getItem('token'));
+      this.http.post(`${apiUrl}professor/abandonarProfessor/${codAluno}`, "", { headers: headers })
         .subscribe(res => resolve(res)
         , err => reject(err));
     });

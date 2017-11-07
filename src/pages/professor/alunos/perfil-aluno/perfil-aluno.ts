@@ -42,6 +42,18 @@ export class PerfilAlunoPage {
      this.showLoader();
     this.alunoService.salvarObservacaoAluno(this.codigo, this.observacaoDoProfessor).then((result) => {
           this.loading.dismiss();
+          this.presentToast("Salvo com sucesso!");
+    }, (err) => {
+      this.loading.dismiss();
+      this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
+    });
+  }
+
+  deixarAluno(){
+    this.showLoader();
+    this.professorServiceProvider.abandonarAluno(this.codigo).then((result) => {
+          this.loading.dismiss();
+          this.presentToast("Salvo com sucesso!");
     }, (err) => {
       this.loading.dismiss();
       this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");

@@ -1,5 +1,7 @@
+import { AlunoSelecaoPage } from './../aluno-selecao/aluno-selecao';
+import { ProfessorServiceProvider } from './../../../providers/professor-service/professor-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -8,11 +10,15 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
   templateUrl: 'aluno-perfil-professor.html',
 })
 export class AlunoPerfilDoProfessorPage {
-  professor: any;
+  professor = {codigo: "", nome: "", email: "", dtNascimento: "", confef:"", telefone:"", sexo:""};
+  loading: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private professorService: ProfessorServiceProvider,
+    public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
   ) {
 
   }
@@ -29,7 +35,8 @@ export class AlunoPerfilDoProfessorPage {
         {
           text: 'Confirmar',
           handler: () => {
-            console.log('Agree clicked');
+            this.abandonarAluno();
+            this.goToSelecionarProfessor();
           }
         }
       ]
@@ -37,10 +44,43 @@ export class AlunoPerfilDoProfessorPage {
     confirm.present();
   }
 
-  ngOnInit() {
-    this.professor = {
-      nome: '', email: '', dtNascimento: '', telefone: '', sexo: 'female'
-    }
+  abandonarAluno(){
+    this.showLoader();
+    this.professorService.abandonarProfessor(localStorage.getItem('codUsuarioLogado')).then((result) => {
+      this.loading.dismiss();
+    }, (err) => {
+      this.loading.dismiss();
+      this.presentToast("Ocorreu um erro ao tentar salvar o exercicio!");
+    });
+  }
+
+  showLoader() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Salvando...'
+    });
+
+    this.loading.present();
+  }
+
+
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 6000,
+      position: 'bottom',
+      dismissOnPageChange: true
+    });
+  }
+
+  ionViewDidEnter() {
+    this.professorService.mostrarProfessorDoAluno(localStorage.getItem('codUsuarioLogado'))
+      .subscribe(resultado => {
+        this.professor = resultado
+    })
+  }
+
+  goToSelecionarProfessor() {
+    this.navCtrl.setRoot(AlunoSelecaoPage);
   }
 
 }
