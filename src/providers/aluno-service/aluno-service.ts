@@ -39,4 +39,5 @@ export class AlunoServiceProvider {
         , err => reject(err));
     });
   }
+  
 }
