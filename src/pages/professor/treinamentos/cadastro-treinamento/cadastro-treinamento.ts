@@ -69,7 +69,7 @@ export class CadastroTreinamentoPage {
             this.treinamentoServiceProvider.excluirOrdemTreinos(item).then((result) => {
               this.exerciciosCadastrados.splice(this.exerciciosCadastrados.indexOf(item), 1);
             }, (err) => {
-              this.presentToast("Ocorreu um erro ao tentar apagar o exercício da lista, tente novamente!");
+              this.presentToast("Ocorreu um erro ao tentar apagar o Treinamento da lista, tente novamente!");
             });
           }
         }
